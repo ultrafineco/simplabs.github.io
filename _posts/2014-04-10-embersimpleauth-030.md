@@ -25,7 +25,7 @@ Another bigger change in this release is that **having an authorizer is now opti
 ```js
 Ember.Application.initializer({
   name: 'authentication',
-  initialize: function(container, application) {
+  initialize: function (container, application) {
     Ember.SimpleAuth.setup(container, application, {
       authorizerFactory: 'authorizer:oauth2-bearer',
     });

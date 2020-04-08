@@ -23,7 +23,7 @@ Using Ember.SimpleAuth in an application only requires a few simple steps. First
 ```js
 Ember.Application.initializer({
   name: 'authentication',
-  initialize: function(container, application) {
+  initialize: function (container, application) {
     Ember.SimpleAuth.setup(application);
   },
 });
@@ -32,7 +32,7 @@ Ember.Application.initializer({
 The second step is to setup the routes for logging in and out:
 
 ```js
-App.Router.map(function() {
+App.Router.map(function () {
   this.route('login');
   this.route('logout');
 });

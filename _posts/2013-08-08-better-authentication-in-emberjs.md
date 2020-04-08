@@ -64,7 +64,7 @@ This _"session"_ object will also load the actual account record from the server
 To actually use the `authToken` when making server requests, **we register an [AJAX prefilter](http://api.jquery.com/jQuery.ajaxPrefilter/) that adds the authentication token in a header as long as the request is sent to our domain**:
 
 ```js
-Ember.$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+Ember.$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
   if (!jqXHR.crossDomain) {
     jqXHR.setRequestHeader('X-AUTHENTICATION-TOKEN', App.Session.get('authToken'));
   }

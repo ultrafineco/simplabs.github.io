@@ -27,7 +27,7 @@ In most applications there is often one gnarly model. In ecommerce applications 
 The full API response fixture is the worst kind of fixture and it is a code smell. It means that rather than creating a declarative test that will help future developers (and your future self) understand what parts of this model are important for a particular test and how the model works, you get a 1,203 line json file. If I ever see a fixture like this while fixing a broken test, I have to replace it with a factory. I don't do this because I like creating extra work for myself, believe me, I don't. I do it because I don't understand what specific parts of that model were important to the test by looking at the fixture. In order to fix the test I need to figure out how the model works. I try to build a mental picture of the model and create the data for the test using a factory (often many factories pulled together), so it's clear and concise what parts of the `order` are required for the `orders with multiple deliveries arriving on the same day, only show 1 estimated delivery date not multiple` test. In this test (which is fantastically named), I can expect to see an `order` factory which has a `delivery` factory with more than one delivery, but all planned for the same day. All the other parts of the `order` model are likely not relevant to this test, so don't include them, or leave them as the defaults. Some pseudocode as we're so far into the post without a single line of it.
 
 ```js
-test('orders with deliveries from different carriers arriving on the same day, only show 1 estimated delivery date', function(assert) {
+test('orders with deliveries from different carriers arriving on the same day, only show 1 estimated delivery date', function (assert) {
   let tomorrow = Date.tomorrow();
   let dhl = make('delivery', { estimatedDeliveryDate: tomorrow, carrier: 'dhl' });
   let ups = make('delivery', { estimatedDeliveryDate: tomorrow, carrier: 'ups' });
@@ -70,13 +70,13 @@ beforeEach(() => {
 });
 
 // Added by me on day 1
-test('bastards cannot inherit', function(assert) {
+test('bastards cannot inherit', function (assert) {
   assert.ok(rob.canInherit, 'The King in the North, Rob Stark shall inherit Winterfell');
   assert.notOk(jon.canInherit, 'Get ye to The Wall, Winterfell will never belong to Jon Snow.');
 });
 
 // Added by you on day 10
-test('Leaders can raise armies', function(assert) {
+test('Leaders can raise armies', function (assert) {
   /* let's introduce someone who can tell us interesting things about Jon and Rob */
   let threeEyedRaven = make('brandon_stark');
 
@@ -85,7 +85,7 @@ test('Leaders can raise armies', function(assert) {
 });
 
 //Added by me on day 102
-test('Jon is better than Rob', function(assert) {
+test('Jon is better than Rob', function (assert) {
   let threeEyedRaven = make('brandon_stark');
 
   assert.ok(
@@ -207,7 +207,7 @@ Using Mirage in an acceptance test look like this.
 ```js
 //acceptance/foo-index-test.js
 
-test('The page shows me all the foos', async function(assert) {
+test('The page shows me all the foos', async function (assert) {
   server.createList('foo', 5);
 
   await visit('/foos');
@@ -223,9 +223,9 @@ It's not bad, we are at least following AAA, but there is a step that is unclear
 ```js
 //acceptance/foo-index-test.js
 
-test('The page shows me all the foos', async function(assert) {
+test('The page shows me all the foos', async function (assert) {
   // This is pretender
-  server.get('/api/foos', function() {
+  server.get('/api/foos', function () {
     // buildList is ember-data-factory-guy
     return [200, {}, buildList('foo', 5)];
   });

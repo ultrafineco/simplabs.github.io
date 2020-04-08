@@ -30,7 +30,7 @@ The second step is to configure the services that you want to notify while execu
 
 ```js
 // config/deploy.js
-module.exports = function(deployTarget) {
+module.exports = function (deployTarget) {
   var ENV = {
     // ...
 
@@ -65,7 +65,7 @@ Based on that assumption we came up with the idea of _"preconfigured"_ and _"cus
 
 ```js
 // config/deploy.js
-module.exports = function(deployTarget) {
+module.exports = function (deployTarget) {
   var ENV = {
     // ...
 
@@ -75,7 +75,7 @@ module.exports = function(deployTarget) {
           url: 'https://notify.simplabs.com/deploy',
           headers: {},
           method: 'POST',
-          body: function(context) {
+          body: function (context) {
             var deployer = context.deployer;
 
             return {
@@ -127,7 +127,7 @@ The configuration properties named the same as ember-cli-deploy’s pipeline-hoo
 
 ```js
 // config/deploy.js
-module.exports = function(deployTarget) {
+module.exports = function (deployTarget) {
   var ENV = {
     // ...
 
@@ -161,7 +161,7 @@ Preconfigured services differ from custom services in the fact that the communit
 
 ```js
 // config/deploy.js
-module.exports = function(deployTarget) {
+module.exports = function (deployTarget) {
   var ENV = {
     // ...
 

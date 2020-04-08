@@ -122,7 +122,7 @@ import SessionService from 'ember-simple-auth/services/session';
 export default SessionService.extend({
   store: Ember.inject.service(),
 
-  account: Ember.computed('data.authenticated.account_id', function() {
+  account: Ember.computed('data.authenticated.account_id', function () {
     const accountId = this.get('data.authenticated.account_id');
     if (!Ember.isEmpty(accountId)) {
       return DS.PromiseObject.create({
@@ -145,7 +145,7 @@ export default Ember.Service.extend({
   session: Ember.inject.service('session'),
   store: Ember.inject.service(),
 
-  account: Ember.computed('session.data.authenticated.account_id', function() {
+  account: Ember.computed('session.data.authenticated.account_id', function () {
     const accountId = this.get('session.data.authenticated.account_id');
     if (!Ember.isEmpty(accountId)) {
       return DS.PromiseObject.create({

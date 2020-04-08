@@ -89,7 +89,7 @@ The next step is to actually send the authentication token to the server. As the
 
 ```js
 App.AuthenticatedRESTAdapter = DS.RESTAdapter.extend({
-  ajax: function(url, type, hash) {
+  ajax: function (url, type, hash) {
     hash = hash || {};
     hash.headers = hash.headers || {};
     hash.headers['X-AUTHENTICATION-TOKEN'] = this.authToken;
@@ -101,7 +101,7 @@ App.AuthenticatedRESTAdapter = DS.RESTAdapter.extend({
 Now the adapter will pass along the authentication token with every request to the server. One thing that should be made sure though is that whenever the adapter sees **a [401](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#401) response which would mean that for some reason the authentication token became invalid, the session data on the client is deleted** and we require a fresh login:
 
 ```js
-DS.rejectionHandler = function(reason) {
+DS.rejectionHandler = function (reason) {
   if (reason.status === 401) {
     App.Auth.destroy();
   }
@@ -115,7 +115,7 @@ Now that the general authentication mechanism is in place it would be cool to ha
 
 ```js
 App.AuthenticatedRoute = Ember.Route.extend({
-  enter: function() {
+  enter: function () {
     if (!Ember.isEmpty(App.Auth.get('authToken')) && !Ember.isEmpty(App.Auth.get('accountId'))) {
       this.transitionTo('sessions.new');
     }

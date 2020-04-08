@@ -118,7 +118,7 @@ there is a better solution:
 
 ```js
 function loadJS(url) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     let el = document.createElement('script');
     el.src = url;
     el.onload = resolve;
