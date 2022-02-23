@@ -5,46 +5,53 @@ Configuration Options:
 desktopTextPosition: 'left' or 'right',
 color: One of the core brand colors
 content: A content block with the following options:
+  pretitle: String displayed in small type above the title.
   title: String or markup for heading. Text wrapped in <em> will have the text animation applied.
+  titleHeadingLevel: One of h1, h2, h3, etc. Defaults to h2 if not set.
   text: String or markup for body text
   linkUrl: Optional link destination
   linkText: Optional link text
-  tags: Optional tag displayed above the header (not linked)
   image: Path to image in the file directory
   alt: Image alt text
+  logo: Logo image
+  logoAlt: logo alt text
   loading: Valid loading attribute for HTML img
 
 Example usage:
 {% set 'content' = {
-  "title": "Guiding projects and teams to <em>sustainable</em> success",
-  "text": "Mainmatter is a digital product consultancy that designs and develops web applications. We realize projects with clients across the globe and teach them how along the way.",
-  "tags": ['Ember.js', 'Design']
-  "linkUrl": "/services",
-  "linkText": "Our Services",
-  "image": "/assets/images/photos/collaboration@1200.jpg",
-  "alt": "Alt text",
-  "loading": "eager"
+  "title": "Co-Engineering the Future of Banking for SME",
+  "text": "Empowering Qonto's ambitious engineers to achieve their goals",
+  "linkUrl": "/cases/qonto/",
+  "linkText": "Find out more",
+  "image": "/assets/images/work/qonto.jpg",
+  "alt": "Woman holds a credit card while using the Qonto web application",
+  "logo": "/assets/images/logos/qonto.svg",
+  "logoAlt": "Qonto",
+  "loading": "lazy"
 } %}
 {{ splitHero('left', 'purple', content) }}
 #}
 {% from "cta-link.njk" import ctaLink %}
 
 {%- macro splitHero(desktopTextPosition, color, content) -%}
-  <section class="split-hero split-hero--{{ color }}">
+  <section class="split-hero" data-color-scheme="{{ color }}">
+    {%- if content.titleHeadingLevel -%}
+      {%- set headingLevel = content.titleHeadingLevel -%}
+    {%- else -%}
+      {%- set headingLevel = 'h2' -%}
+    {%- endif -%}
     <div class="split-hero__main split-hero__main--{{ desktopTextPosition }}">
       <div class="split-hero__container container">
-        {% if content.tags %}
-          <div class="split-hero__tags">
-            <ul class="tags">
-              {% for tag in content.tags %}
-                <li class="tags__tag tags__tag-item">{{ tag }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endif %}
-        {% if content.title %}
-          <h2 class="split-hero__title h1 text-animation">{{ content.title | safe }}</h2>
-        {% endif %}
+        <{{ headingLevel }}>
+          {% if content.pretitle %}
+            <span class="split-hero__pretitle text--accent">{{ content.pretitle }}</span>
+          {% endif %}
+          {% if content.title %}
+            <span class="split-hero__title {{ headingLevel }} text-animation">
+              {{ content.title | safe }}
+            </span>
+          {% endif %}
+        </{{ headingLevel }}>
         {% if content.text %}
           <p class="split-hero__text">{{ content.text | safe }}</p>
         {% endif %}
@@ -56,6 +63,11 @@ Example usage:
     <div class="split-hero__image-wrapper">
       {% if content.image %}
         {% image content.image, content.alt, '(min-width: 48em) 50vw, 100vw', content.loading, 'split-hero__image' %}
+      {% endif %}
+      {% if content.logo %}
+        <div class="split-hero__banner">
+          {% image content.logo, content.logoAlt, '', content.loading, 'split-hero__logo' %}
+        </div>
       {% endif %}
     </div>
   </section>

@@ -1,41 +1,14 @@
 .color-hero {
   position: relative;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  color: var(--color-text);
 
-  &--purple {
-    --color-link-background: var(--color-blue);
-    --color-overlay: var(--color-purple);
-    color: var(--color-white);
-  }
-
-  &--blue {
-    --color-link-background: var(--color-purple);
-    --color-overlay: var(--color-blue);
-    color: var(--color-white);
-  }
-
-  &--aqua {
-    --color-overlay: var(--color-aqua);
-    color: var(--color-black);
-  }
-
-  &--yellow {
-    --color-link-background: var(--color-aqua);
-    --color-overlay: var(--color-yellow);
-    color: var(--color-black);
+  &-sm {
+    aspect-ratio: 5 / 4;
   }
 }
 
 .color-hero__image-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.color-hero__filter {
   position: absolute;
   top: 0;
   left: 0;
@@ -49,7 +22,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-overlay);
+  background-color: var(--color-background);
   mix-blend-mode: multiply;
 }
 
@@ -63,18 +36,11 @@
 
 .color-hero__container {
   display: flex;
+  align-items: center;
   position: relative;
   min-height: 100%;
   padding: 3rem 0;
   transform: translate3d(0, 0, 0);
-
-  &--center {
-    align-items: center;
-  }
-
-  &--bottom {
-    align-items: flex-end;
-  }
 }
 
 .color-hero__title {
@@ -83,23 +49,22 @@
 }
 
 .color-hero__text {
-  max-width: rem-calc(376);
-
-  &--wide {
-    max-width: rem-calc(450);
-  }
+  max-width: rem-calc(380);
 }
 
 .color-hero__link {
   margin-top: 1.5rem;
-  color: currentColor;
 }
 
 @media (min-width: 48em) {
   .color-hero {
-    aspect-ratio: 5 / 3;
+    aspect-ratio: 256 / 145;
     max-height: 100vh;
     min-width: 100%;
+
+    &--sm {
+      aspect-ratio: 1024 / 451;
+    }
   }
 
   .color-hero__container {
@@ -107,14 +72,12 @@
   }
 }
 
-@supports (backdrop-filter: contrast(1)) or
-  (-webkit-backdrop-filter: contrast(1)) {
-  .color-hero__image {
-    opacity: 1;
-  }
+@media (min-width: 110em) {
+  .color-hero {
+    aspect-ratio: 5 / 2;
 
-  .color-hero__filter {
-    backdrop-filter: contrast(0.4) brightness(1.7) grayscale(1);
-    -webkit-backdrop-filter: contrast(0.4) brightness(1.7) grayscale(1);
+    &--sm {
+      aspect-ratio: 3 / 1;
+    }
   }
 }

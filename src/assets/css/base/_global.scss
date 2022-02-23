@@ -6,12 +6,12 @@
 
 html,
 body {
-  height: 100%;
+  height: auto;
   min-height: 100%;
   line-height: 1.5;
   font-family: var(--font-base);
   color: var(--color-body-text);
-  background-color: var(--color-bg);
+  background-color: var(--color-body-background);
 }
 
 html {

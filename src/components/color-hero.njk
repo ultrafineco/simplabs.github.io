@@ -2,7 +2,7 @@
 A hero image with a color overlay on top
 
 Configuration Options:
-textPosition: One of 'top' 'center' or 'bottom'
+size: One of 'sm' or 'md'
 color: One of the core brand colors
 content: A content block with the following options:
   title: String or markup for heading. Text wrapped in <em> will have the text animation applied.
@@ -23,20 +23,19 @@ Example usage:
   "alt": "Alt text",
   "loading": "eager"
 } %}
-{{ colorHero('center', 'blue', content) }}
+{{ colorHero('md', 'blue', content) }}
 #}
 {% from "cta-link.njk" import ctaLink %}
 
-{%- macro colorHero(textPosition, color, content) -%}
-  <section class="color-hero color-hero--{{ color }}">
+{%- macro colorHero(size, color, content) -%}
+  <section class="color-hero color-hero--{{ size }}" data-color-scheme="{{ color }}">
     <div class="color-hero__image-wrapper">
       {% if content.image %}
         {% image content.image, content.alt, '100vw', content.loading, 'color-hero__image', [760, 1440, 1920] %}
       {% endif %}
     </div>
-    <div class="color-hero__filter" data-color-hero></div>
-    <div class="color-hero__overlay" data-color-hero></div>
-    <div class="color-hero__container container color-hero__container--{{ textPosition }}">
+    <div class="color-hero__overlay"></div>
+    <div class="color-hero__container container text-animation">
       <div class="color-hero__main">
         {% if content.title %}
           <h2 class="color-hero__title h1">{{ content.title | safe }}</h2>

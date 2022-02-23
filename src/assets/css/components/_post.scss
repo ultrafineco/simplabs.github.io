@@ -9,7 +9,7 @@
   align-items: center;
   width: fit-content;
   margin-bottom: 1.5rem;
-  color: var(--color-link-primary);
+  color: var(--color-link-text);
 
   &::before {
     content: "";
@@ -151,7 +151,8 @@
 
 @media (min-width: 72em) {
   .post__content {
-    &--video, &--workshop {
+    &--video,
+    &--workshop {
       .post__back {
         grid-column: 1;
         align-self: start;

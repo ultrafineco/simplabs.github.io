@@ -18,9 +18,10 @@ module.exports = function (value, outputPath) {
      */
     const textAnimations = [...document.querySelectorAll(".text-animation em")];
     if (textAnimations.length) {
-      textAnimations.forEach((textAnimation) => {
+      textAnimations.forEach((textAnimation, index) => {
         const span = document.createElement("span");
         span.classList.add("text-animation__cover");
+        span.setAttribute("data-text-animation", index);
         return textAnimation.appendChild(span);
       });
     }

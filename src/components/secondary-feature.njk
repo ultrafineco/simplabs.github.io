@@ -2,7 +2,6 @@
 Secondary feature content, image with text
 
 Configuration Options:
-textPosition: 'left' or 'right'
 content: A content block with the following options:
   title: String or markup for heading. Text wrapped in <em> will have the text animation applied.
   text: String or markup for body text
@@ -22,18 +21,18 @@ Example usage:
   "alt": "Alt text",
   "loading": "eager"
 } %}
-{{ secondaryFeature('right', content) }}
+{{ secondaryFeature(content) }}
 #}
 {% from "cta-link.njk" import ctaLink %}
 
-{%- macro secondaryFeature(textPosition, content, showWrapper) -%}
-  <div class="secondary-feature {% if showWrapper %}container container--md {% endif %}">
+{%- macro secondaryFeature(content) -%}
+  <div class="secondary-feature" data-color-scheme="purple">
     <div class="secondary-feature__image-wrapper">
       {% if content.image -%}
-        {%- image content.image, content.alt, '(min-width:62em) 15rem, 90vw', content.loading, 'secondary-feature__image', [250, 375, 500, 750] -%}
+        {%- image content.image, content.alt, '15.125rem', content.loading, 'secondary-feature__image' -%}
       {%- endif -%}
     </div>
-    <div class="secondary-feature__main secondary-feature__main--{{ textPosition }}">
+    <div class="secondary-feature__main">
       {%- if content.title -%}
         <h2 class="secondary-feature__title h3">{{- content.title | safe -}}</h2>
       {%- endif -%}

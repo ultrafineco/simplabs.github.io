@@ -1,9 +1,9 @@
 {#
-Single image with text to the side. For multiple, use the component in image-with-text-stacked.njk instead
+Series of images with text to the side, in alternating directions. For single, use the component in image-with-text.njk instead
 
 Configuration Options:
-textPosition: 'left' or 'right'
-content: A content block with the following options:
+textPosition: 'left' or 'right'. Text position on desktop for first block, the others will alternate.
+contentBlocks: An array of content blocks. Each content block with the following options:
   title: String or markup for heading. Text wrapped in <em> will have the text animation applied.
   text: String or markup for body text
   linkUrl: Optional link destination
@@ -11,50 +11,62 @@ content: A content block with the following options:
   image: Path to image in the file directory
   alt: Image alt text
   loading: Valid loading attribute for HTML img
+  small: Boolean, if true, the image will not occupy the full space
 
 Example usage:
-{% set 'content' = {
+{% set 'contentBlocks' = [{
   "title": "Guiding projects and teams to <em>sustainable</em> success",
   "text": "Mainmatter is a digital product consultancy that designs and develops web applications. We realize projects with clients across the globe and teach them how along the way.",
   "linkUrl": "/services",
   "linkText": "Our Services",
   "image": "/assets/images/photos/collaboration@1200.jpg",
   "alt": "Alt text",
-  "loading": "eager"
-} %}
-{{ imageWithText('right', content) }}
+  "loading": "lazy"
+},{
+  "title": "Guiding projects and teams to <em>sustainable</em> success",
+  "text": "Mainmatter is a digital product consultancy that designs and develops web applications. We realize projects with clients across the globe and teach them how along the way.",
+  "linkUrl": "/services",
+  "linkText": "Our Services",
+  "image": "/assets/images/photos/collaboration@1200.jpg",
+  "alt": "Alt text",
+  "loading": "lazy",
+  "small": true
+}] %}
+{{ imageWithText('right', contentBlocks) }}
 #}
 {% from "cta-link.njk" import ctaLink %}
 
-{%- macro imageWithText(textPosition, content) -%}
-  {% set imageMarkup %}
-    <div class="image-text__image-wrapper">
-      <div data-image-animation="md">
-        {% if content.image %}
-          {% image content.image, content.alt, '(min-width:48em) 30rem, 90vw', content.loading, 'image-text__image', [480, 720, 960] %}
-        {% endif %}
-      </div>
-    </div>
-  {% endset %}
+{%- macro imageWithText(textPosition, barColor, contentBlocks) -%}
+  {%- if textPosition === 'left' -%}
+    {%- set altTextPostion = 'right' -%}
+  {%- else -%}
+    {%- set altTextPostion = 'left' -%}
+  {%- endif -%}
   <section class="image-text">
-    <div class="image-text__container container container--lg">
-      {% if textPosition == 'right' %}
-        {{ imageMarkup | safe }}
-      {% endif %}
-      <div class="image-text__main image-text__main--{{ textPosition }}">
-        {% if content.title %}
-          <h2 class="image-text__title">{{ content.title | safe }}</h2>
-        {% endif %}
-        {% if content.text %}
-          <div class="image-text__text">{{ content.text | safe }}</div>
-        {% endif %}
-        {% if content.linkUrl %}
-          {{ ctaLink(content.linkUrl, content.linkText, 'image-text__link') }}
-        {% endif %}
+    {% for content in contentBlocks %}
+      <div class="image-text__container image-text__container--{% if loop.index % 2 === 0 %}{{ altTextPostion }}{% else %}{{ textPosition }}{% endif %}">
+        <div class="image-text__image-wrapper {% if content.small %}image-text__image-wrapper--small{% endif %}">
+          {%- if content.image -%}
+            <div data-image-animation="{{ animationSpeed }}">
+              {%- image content.image, content.alt, '(min-width: 64em) 36rem, (min-width:48em) 50%, 100vw', content.loading, 'image-text__image', [580, 768] -%}
+            </div>
+          {%- endif -%}
+          <div class="image-text__bar-position">
+            <div class="image-text__bar" style="background-color: var(--color-{{ barColor }})"></div>
+          </div>
+        </div>
+        <div class="image-text__main">
+          {% if content.title %}
+            <h2 class="image-text__title">{{ content.title | safe }}</h2>
+          {% endif %}
+          {% if content.text %}
+            <div class="image-text__text">{{ content.text | safe }}</div>
+          {% endif %}
+          {% if content.linkUrl %}
+            {{ ctaLink(content.linkUrl, content.linkText, 'image-text__link') }}
+          {% endif %}
+        </div>
       </div>
-      {% if textPosition == 'left' %}
-        {{ imageMarkup | safe }}
-      {% endif %}
-    </div>
+    {% endfor %}
   </section>
 {%- endmacro -%}

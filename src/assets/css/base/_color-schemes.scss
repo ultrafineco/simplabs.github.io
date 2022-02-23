@@ -1,0 +1,51 @@
+[data-color-scheme="purple"] {
+  --color-background: var(--color-purple);
+  --color-text: var(--color-white);
+  --color-link-text: var(--color-yellow);
+  --color-link-background: transparent;
+  --color-link-hover-text: var(--color-black);
+  --color-link-hover-background: var(--color-yellow);
+  --color-animation: var(--color-aqua);
+}
+
+[data-color-scheme="blue"] {
+  --color-background: var(--color-blue);
+  --color-text: var(--color-white);
+  --color-link-text: var(--color-white);
+  --color-link-background: transparent;
+  --color-link-hover-text: var(--color-black);
+  --color-link-hover-background: var(--color-yellow);
+  --color-animation: var(--color-yellow);
+}
+
+[data-color-scheme="aqua"] {
+  --color-background: var(--color-aqua);
+  --color-text: var(--color-black);
+  --color-link-text: var(--color-white);
+  --color-link-background: var(--color-purple);
+  --color-link-hover-text: var(--color-black);
+  --color-link-hover-background: var(--color-yellow);
+  --color-animation: var(--color-purple);
+  --link-initial-scale: 1;
+}
+
+[data-color-scheme="yellow"] {
+  --color-background: var(--color-yellow);
+  --color-text: var(--color-black);
+  --color-link-text: var(--color-white);
+  --color-link-background: var(--color-purple);
+  --color-link-hover-text: var(--color-black);
+  --color-link-hover-background: var(--color-aqua);
+  --color-animation: var(--color-purple);
+  --link-initial-scale: 1;
+}
+
+[data-color-scheme="white"] {
+  --color-background: var(--color-white);
+  --color-text: var(--color-black);
+  --color-link-text: var(--color-purple);
+  --color-link-background: transparent;
+  --color-link-hover-text: var(--color-black);
+  --color-link-hover-background: var(--color-yellow);
+  --color-animation: var(--color-purple);
+}

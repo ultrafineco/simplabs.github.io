@@ -6,42 +6,16 @@ export class Animations {
       lax.init();
       lax.addDriver("scrollY", () => window.scrollY);
       this.textAnimations();
-      this.imageWithTextAnimations();
-      this.colorHeroAnimations();
+      this.imageBars();
     }
   }
 
-  colorHeroAnimations() {
-    lax.addElements("[data-color-hero]", {
+  imageBars() {
+    lax.addElements(".image-text__bar", {
       scrollY: {
-        translateY: [
+        scaleX: [
           ["elInY", "elCenterY"],
-          ["elHeight", 0],
-        ],
-      },
-    });
-  }
-
-  imageWithTextAnimations() {
-    lax.addElements("[data-image-animation='md']", {
-      scrollY: {
-        translateY: [
-          ["elInY", "elOutY"],
-          {
-            768: [0, 0],
-            1366: ["elHeight / 3", "elHeight / 3 * -1"],
-          },
-        ],
-      },
-    });
-    lax.addElements("[data-image-animation='sm']", {
-      scrollY: {
-        translateY: [
-          ["elInY", "elOutY"],
-          {
-            768: [0, 0],
-            1366: [0, "elHeight / 4 * -1"],
-          },
+          [0, 1],
         ],
       },
     });
@@ -51,12 +25,11 @@ export class Animations {
     lax.addElements(".text-animation__cover", {
       scrollY: {
         scaleX: [
-          // Todo: Come back and refine this, sizing may change things
           {
-            768: ["elCenterY", "elOutY-200"],
-            1024: ["elOutY-100", "elOutY-80"],
-            1366: ["elOutY-200", "elOutY-100"],
-            1900: ["elOutY-250", "elOutY-120"],
+            768: ["elCenterY+100", "elOutY-100"],
+            1024: ["elOutY-100", "elOutY-50"],
+            1366: ["elOutY-150", "elOutY-50"],
+            1900: ["elOutY-200", "elOutY-50"],
           },
           [1, 0],
         ],
