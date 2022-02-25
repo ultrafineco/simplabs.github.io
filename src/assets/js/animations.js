@@ -5,7 +5,7 @@ export class Animations {
     if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
       lax.init();
       lax.addDriver("scrollY", () => window.scrollY);
-      this.textAnimations();
+      //this.textAnimations();
       this.imageBars();
     }
   }

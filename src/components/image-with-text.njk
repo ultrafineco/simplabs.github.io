@@ -1,8 +1,9 @@
 {#
-Series of images with text to the side, in alternating directions. For single, use the component in image-with-text.njk instead
+Series of images with text to the side, in alternating directions.
 
 Configuration Options:
 textPosition: 'left' or 'right'. Text position on desktop for first block, the others will alternate.
+barColor: String for one of the key brand colors.
 contentBlocks: An array of content blocks. Each content block with the following options:
   title: String or markup for heading. Text wrapped in <em> will have the text animation applied.
   text: String or markup for body text
@@ -11,7 +12,6 @@ contentBlocks: An array of content blocks. Each content block with the following
   image: Path to image in the file directory
   alt: Image alt text
   loading: Valid loading attribute for HTML img
-  small: Boolean, if true, the image will not occupy the full space
 
 Example usage:
 {% set 'contentBlocks' = [{
@@ -30,9 +30,8 @@ Example usage:
   "image": "/assets/images/photos/collaboration@1200.jpg",
   "alt": "Alt text",
   "loading": "lazy",
-  "small": true
 }] %}
-{{ imageWithText('right', contentBlocks) }}
+{{ imageWithText('right', 'blue', contentBlocks) }}
 #}
 {% from "cta-link.njk" import ctaLink %}
 

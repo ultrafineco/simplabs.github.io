@@ -1,0 +1,35 @@
+{#
+A list of items displayed in cards
+
+Configuration Options:
+list: A list where each item is an object with:
+  heading: String heading
+  text: Text heading
+  icon: String which represents a filename of an icon listed in svg/*.njk
+
+Example usage:
+{{ cardList(principles.list) }}
+#}
+{% from "cta-link.njk" import ctaLink %}
+
+{%- macro cardList(list) -%}
+  <section class="card-list">
+    <ul class="card-list__list">
+      {% for item in list %}
+        <li class="card-list__item">
+          {%- if item.icon -%}
+            {%- set iconPath = ['svg/', item.icon,'.njk'] | join -%}
+            <span class="card-list__icon">
+              {%- include iconPath -%}
+            </span>
+          {%- endif -%}
+          <h3 class="card-list__item-heading h5">{{ item.heading }}</h3>
+          <p class="card-list__text">{{ item.text }}</p>
+          {% if item.linkText %}
+            {{ ctaLink(item.linkUrl, item.linkText, 'card-list__link') }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{%- endmacro -%}

@@ -4,15 +4,18 @@ title: Boosting teams' effectiveness with Team Augmentation | Our Services
 eleventyNavigation:
   key: Team Augmentation
   parent: Services
+  order: 30
 ---
 {% from "split-hero.njk" import splitHero %}
 {% from "image-with-text.njk" import imageWithText %}
-{% from "column-list.njk" import columnList %}
+{% from "card-list.njk" import cardList %}
 {% from "split-list.njk" import splitList %}
 {% from "quote.njk" import quote %}
 
 {% set 'content' = {
+  "pretitle": "Team augmentation",
   "title": "Accelerate your growth with <em>dedicated</em> specialists",
+  "titleHeadingLevel": "h1",
   "text": "<p>You have a capable team, but let’s face it: some challenges are too big to tackle alone. Let our technology experts merge with your in-house product teams to ensure the timely delivery of large-scale projects. We’re more than hired hands—we mentor your team throughout the process to help lift productivity long after our collaboration ends.</p>",
   "image": "/assets/images/photos/0020-1.jpg",
   "alt": "Four team members having a meeting around a laptop",
@@ -20,20 +23,20 @@ eleventyNavigation:
 } %}
 {{ splitHero('left', 'aqua', content) }}
 
-{% set 'content' = {
+{% set 'contentBlocks' = [{
   "title": "Augment your in-house teams",
   "text": "We’re ready to hit the ground running with you. Our senior engineers will guide you though any problems you’re facing, whether you’ve got a complex project with a tight deadline, or a team that needs to get up to speed quickly on the latest technologies. We can help you overcome blockers caused by a lack of in-house expertise—let us put our expertise to work.",
   "image": "/assets/images/photos/0022.jpg",
   "alt": "Five team members laughing around a laptop",
   "loading": "lazy"
-} %}
-{{ imageWithText('left', content) }}
+}] %}
+{{ imageWithText('left', 'yellow', contentBlocks) }}
 
-{{ columnList(services['team-augmentation'], '', 'column-list--services') }}
+{{ cardList(services['team-augmentation'], '', 'column-list--services') }}
 
 {% set text = "I've had the opportunity to work alongside the [Mainmatter] team on both their client-facing work for Cardstack and their open source contributions. They are experts in Ember and they are a team that takes good software-development practice seriously." %}
 {% set source = "Ed Faulkner, Cardstack lead developer and member of the Ember.js steering committee" %}
-{{ quote('blue', text, source, true) }}
+{{ quote('aqua', text, source, true) }}
 
 {% set 'content' = {
   "title": "Globally recognized industry leaders",

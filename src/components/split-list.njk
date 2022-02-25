@@ -23,7 +23,7 @@ Example usage:
 {% from "cta-link.njk" import ctaLink %}
 
 {%- macro splitList(color, content) -%}
-  <section class="split-list split-list--{{ color }}">
+  <section class="split-list" data-color-scheme="{{ color }}">
     <div class="split-list__container container container--lg">
       <div class="split-list__main">
         {% if content.title %}
@@ -33,14 +33,19 @@ Example usage:
           <p class="split-list__text">{{ content.text | safe }}</p>
         {% endif %}
         {% if content.linkUrl %}
-          {{ ctaLink(content.linkUrl, content.linkText, 'split-list__link') }}
+          {{ ctaLink(content.linkUrl, content.linkText, 'split-list__link split-list__link--desktop') }}
         {% endif %}
       </div>
-      <ul class="split-list__list">
-        {% for item in content.list %}
-          <li class="split-list__list-item">{{ item }}</li>
-        {% endfor %}
-      </ul>
+      <div class="split-list__aside">
+        <ul class="split-list__list">
+          {% for item in content.list %}
+            <li class="split-list__list-item">{{ item }}</li>
+          {% endfor %}
+        </ul>
+        {% if content.linkUrl %}
+          {{ ctaLink(content.linkUrl, content.linkText, 'split-list__link split-list__link--mobile') }}
+        {% endif %}
+      </div>
     </div>
   </section>
 {%- endmacro -%}

@@ -1,10 +1,13 @@
 {#
-An ordered list with number labels that fall into columns on desktop
+A list of items displayed in columns on desktop
 
 Configuration Options:
-list: A list where each item is an object with a heading and text property
+list: A list where each item is an object with:
+  heading: String heading
+  text: Text heading
+  icon: String which represents a filename of an icon listed in svg/*.njk
 heading: Optional string heading
-hideNumbers: Hide the numbers
+class: Optional classname
 
 Example usage:
 {{ columnList(principles.list, 'Our principles') }}
@@ -14,18 +17,24 @@ Example usage:
 {%- macro columnList(list, heading, class) -%}
   <section class="column-list {{ class }}">
     <div class="container container--lg">
-      {% if heading %}<h2 class="column-list__heading">{{ heading }}</h2>{% endif %}
-      <ol class="column-list__list">
+      {% if heading %}<h2 class="column-list__heading h2">{{ heading }}</h2>{% endif %}
+      <ul class="column-list__list">
         {% for item in list %}
           <li class="column-list__item">
-            <h3 class="column-list__item-heading h4">{{ item.heading }}</h3>
+            {%- if item.icon -%}
+              {%- set iconPath = ['svg/', item.icon,'.njk'] | join -%}
+              <span class="column-list__icon">
+                {%- include iconPath -%}
+              </span>
+            {%- endif -%}
+            <h3 class="column-list__item-heading h3">{{ item.heading }}</h3>
             <p class="column-list__text">{{ item.text }}</p>
             {% if item.linkText %}
               {{ ctaLink(item.linkUrl, item.linkText, 'column-list__link') }}
             {% endif %}
           </li>
         {% endfor %}
-      </ol>
+      </ul>
     </div>
   </section>
 {%- endmacro -%}

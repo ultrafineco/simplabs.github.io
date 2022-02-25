@@ -1,16 +1,25 @@
 {
   "services": [
     {
+      "icon": "schema",
       "heading": "Product strategy",
-      "text": "We transform assumptions into knowledge through the careful implementation of structured methods. Both new and existing products stand to benefit from the clarification of concepts and goals."
+      "text": "We transform assumptions into knowledge through the careful implementation of structured methods. Both new and existing products stand to benefit from the clarification of concepts and goals.",
+      "linkUrl": "",
+      "linkText": "Learn More"
     },
     {
+      "icon": "design",
       "heading": "Product design",
-      "text": "Great product design is what converts casual users into enthusiastic fans. Complex functionality can still be approachable and delightful. We turn your vision into remarkable experiences through research, testing, and prototyping."
+      "text": "Great product design is what converts casual users into enthusiastic fans. Complex functionality can still be approachable and delightful. We turn your vision into remarkable experiences through research, testing, and prototyping.",
+      "linkUrl": "/services/product-design/",
+      "linkText": "Learn More"
     },
     {
+      "icon": "api",
       "heading": "Product development",
-      "text": "Fruitful collaboration requires trust. You will work with a dedicated team of experienced engineers and designers from start to finish."
+      "text": "Fruitful collaboration requires trust. You will work with a dedicated team of experienced engineers and designers from start to finish.",
+      "linkUrl": "",
+      "linkText": "Learn More"
     }
   ],
   "product-design": [
@@ -35,34 +44,40 @@
   ],
   "team-augmentation": [
     {
+      "icon": "time",
       "heading": "Deliver on time and on budget",
       "text": "We’ll be there in all conversations with your product teams to clarify goals and deadlines, discuss implementation options, and carefully assess the pros and cons of all major decisions. We’ll pair with your engineers to build features and squash bugs, and we’ll add numbers to your ranks to overcome any technical obstacles along the way.",
       "linkText": "Learn how we helped Trainline",
       "linkUrl": "/cases/trainline/"
     },
     {
-      "heading": "Boost productivity",
-      "text": "Mentorship is central to our team augmentation projects. We work to ensure that your team will become more efficient and impactful over the long term—well beyond our joint ventures.",
-      "linkText": "Read about how we work",
-      "linkUrl": "/playbook/"
-    },
-    {
+      "icon": "perspective",
       "heading": "Gain a fresh perspective",
       "text": "An outsider’s perspective can be a powerful tool for resolving longstanding impediments. Our experienced team will help you gain a deeper understanding of the potential risk factors in your codebase that you may be unaware of, and point out opportunities for you to move faster and accomplish your goals with less friction.",
       "linkText": "Read more on the blog",
       "linkUrl": "/blog/"
+    },
+    {
+      "icon": "productivity",
+      "heading": "Boost productivity",
+      "text": "Mentorship is central to our team augmentation projects. We work to ensure that your team will become more efficient and impactful over the long term—well beyond our joint ventures.",
+      "linkText": "Read about how we work",
+      "linkUrl": "/playbook/"
     }
   ],
   "training": [
     {
+      "icon": "workshop",
       "heading": "Workshops and in-house masterclasses",
       "text": "Bring your team up to speed with the necessary technologies so they can complete ambitious projects with confidence."
     },
     {
+      "icon": "custom",
       "heading": "Code reviews & audits",
       "text": "Our code reviews identify and explain technical problems, and offer pragmatic solutions for moving forward. "
     },
     {
+      "icon": "approval",
       "heading": "Custom training solutions",
       "text": "Your team has unique needs—which is why we offer customized training. We can help with Rust, Ember.js, Elixir/Phoenix, Ruby on Rails, and related technology stacks."
     }

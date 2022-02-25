@@ -38,7 +38,9 @@ Example usage:
     <div class="color-hero__container container text-animation">
       <div class="color-hero__main">
         {% if content.title %}
-          <h2 class="color-hero__title h1">{{ content.title | safe }}</h2>
+          <h2 class="color-hero__title {% if size == 'sm' %}h2{% else %}h1{% endif %}">
+            {{ content.title | safe }}
+          </h2>
         {% endif %}
         {% if content.text %}
           <div class="color-hero__text {% if content.text.length > 400 %}color-hero__text--wide{% endif %}">{{ content.text | safe }}</div>

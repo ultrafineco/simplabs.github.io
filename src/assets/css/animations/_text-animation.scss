@@ -10,6 +10,12 @@
       em {
         display: inline-block;
         position: relative;
+
+        &:hover {
+          .text-animation__cover {
+            transform: scaleX(0);
+          }
+        }
       }
     }
 
@@ -22,6 +28,7 @@
       bottom: -0.0625rem;
       background-color: var(--color-animation);
       transform-origin: center left;
+      transition: transform 0.3s;
     }
   }
 }

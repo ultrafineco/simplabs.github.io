@@ -4,6 +4,7 @@ title: Digital Product Delivery | Our Services
 eleventyNavigation:
   key: Digital Products
   parent: Services
+  order: 10
 ---
 {% from "split-hero.njk" import splitHero %}
 {% from "image-with-text.njk" import imageWithText %}
@@ -12,7 +13,9 @@ eleventyNavigation:
 {% from "quote.njk" import quote %}
 
 {% set 'content' = {
+  "pretitle": "Digital Products",
   "title": "Bridging the gap between vision and <em>sustainable</em> execution",
+  "titleHeadingLevel": "h1",
   "text": "You have ambitions. We have structures and solutions you can trust. Whether corporate venture or bootstrapped founder, you need a reliable partner who can guide you through the process of transforming rough sketches into fully realized digital products.",
   "image": "/assets/images/photos/0010.jpg",
   "alt": "Woman writing on a whiteboard",
@@ -35,11 +38,11 @@ eleventyNavigation:
   "linkText": "Learn how we work",
   "list": list
 } %}
-{{ splitList('blue', content) }}
+{{ splitList('yellow', content) }}
 
 {% set text = "[Mainmatter's] expertise in developing Ember.js based applications helped us to define and develop the new DD-WRT NXT user experience. It was impressive to see in what short time such a complex application leveraging a customer backend interface could be implemented. simplabs' work provided the new foundation for our UI and our in-house development team greatly benefitted from their knowhow." %}
 {% set source = "Peter Steinhäuser, embeDD CEO" %}
-{{ quote('yellow', text, source, true) }}
+{{ quote('aqua', text, source, true) }}
 
 {% set list = [
   "Wireframing & prototyping",
@@ -59,15 +62,18 @@ eleventyNavigation:
 {{ splitList('purple', content) }}
 
 {% set 'content' = {
+  "pretitle": "Case study",
   "title": "Co-Engineering the Future of Banking for SME",
   "text": "Empowering Qonto's ambitious engineers to achieve their goals",
   "linkUrl": "/cases/qonto/",
   "linkText": "Find out more",
   "image": "/assets/images/work/qonto.jpg",
   "alt": "Woman holds a credit card while using the Qonto web application",
-  "loading": "lazy"
+  "loading": "lazy",
+  "logo": "/assets/images/logos/qonto.svg",
+  "logoAlt": "Qonto"
 } %}
-{{ splitHero('right', 'blue', content) }}
+{{ splitHero('left', 'blue', content) }}
 
 {% set list = [
   "Full-stack development",
@@ -84,6 +90,6 @@ eleventyNavigation:
   "linkText": "Learn about bespoke development",
   "list": list
 } %}
-{{ splitList('aqua', content) }}
+{{ splitList('yellow', content) }}
 
 {% include 'content/hero-grow-with-us.njk' %}
