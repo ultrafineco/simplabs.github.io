@@ -3,9 +3,14 @@
   top: 0;
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-body-background);
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(0.75rem);
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
   z-index: 10;
+}
+
+.nav__brand {
+  width: rem-calc(111);
 }
 
 .nav__aside {
@@ -19,7 +24,7 @@
 
 .nav__brand {
   margin-right: 2rem;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
   font-size: 0;
 }
 
@@ -41,9 +46,22 @@
 
 .nav__link {
   display: inline-block;
-  padding: 1.25rem 0.5rem;
+  padding: 0.75rem;
   line-height: 1;
   vertical-align: middle;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+
+  .icon-arrow {
+    vertical-align: bottom;
+  }
+
+  &[aria-current="page"],
+  &--is-active {
+    background-color: var(--color-yellow);
+    color: var(--color-purple);
+  }
 }
 
 .nav__cta {
@@ -60,7 +78,7 @@
   padding: 0.75rem;
   border: none;
   border-radius: 0;
-  background-color: var(--color-purple);
+  background-color: var(--color-aqua);
   color: var(--color-white);
 
   svg {
@@ -104,16 +122,31 @@
 }
 
 @media (min-width: 62em) {
+  .nav {
+    padding: 1.25rem 1rem;
+  }
+
+  .nav__brand {
+    width: rem-calc(140);
+    margin-left: 0;
+  }
+
   .nav__list {
     display: block;
   }
 
   .nav__cta {
     display: block;
-    padding: 1.25rem 2rem;
+    padding: 0.75rem;
     line-height: 1;
     background-color: var(--color-purple);
     color: var(--color-white);
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-aqua);
+    }
   }
 
   .nav__menu-toggle {

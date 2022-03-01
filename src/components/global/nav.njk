@@ -13,17 +13,32 @@
       {%- for entry in navPages %}
         <li class="nav__item nav-dropdown" data-dropdown-wrapper>
           {% if entry.children.length > 0 %}
-            <a class="nav__link text--accent text--xs" {% if entry.url == page.url %}aria-current="page"{% endif %} href="{{ entry.url | url }}">
+            {% set isActive = false %}
+            {% for childEntry in entry.children %}
+              {% if childEntry.url == page.url %}
+                {% set isActive = true %}
+              {% endif %}
+            {% endfor %}
+            <button
+              class="nav__link nav-dropdown__toggle text--accent text--xs {% if isActive %}nav__link--is-active{% endif %}"
+              {% if entry.url == page.url %}aria-current="page"{% endif %}
+              data-dropdown-toggle="dropdown-{{ entry.title | slug }}"
+              aria-expanded="false">
               {{ entry.title }}
-            </a>
-            <button class="nav-dropdown__toggle" aria-expanded="false" data-dropdown-toggle="dropdown-{{ entry.title | slug }}">
               {% include 'svg/arrow.njk' %}
             </button>
             <div class="nav-dropdown__dropdown" id="dropdown-{{ entry.title | slug }}" data-dropdown>
-              <ul class="nav-dropdown__list {% if entry.children.length > 3 %}nav-dropdown__list--columns{% endif %}">
+              <ul class="nav-dropdown__list">
+                {% if entry.linkText %}
+                  <li class="nav-dropdown__item">
+                    <a class="nav-dropdown__link" {% if entry.url == page.url %}aria-current="page"{% endif %} href="{{ entry.url | url }}">
+                      {{ entry.linkText }}
+                    </a>
+                  </li>
+                {% endif %}
                 {% for childEntry in entry.children %}
                   <li class="nav-dropdown__item">
-                    <a class="nav-dropdown__link text--accent text--xs" {% if childEntry.url == page.url %}aria-current="page"{% endif %} href="{{ childEntry.url | url }}">
+                    <a class="nav-dropdown__link" {% if childEntry.url == page.url %}aria-current="page"{% endif %} href="{{ childEntry.url | url }}">
                       {{ childEntry.title }}
                     </a>
                   </li>

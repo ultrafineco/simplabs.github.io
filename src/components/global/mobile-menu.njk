@@ -1,29 +1,29 @@
 <div class="nav__mobile-menu mobile-menu">
-  <ul class="mobile-menu__list">
+  <ul class="mobile-menu__list container">
     {%- for entry in navPages %}
       <li class="mobile-menu__item">
+        <a class="mobile-menu__link" {% if entry.url == page.url %}aria-current="page"{% endif %} href="{{ entry.url | url }}">
+          {{ entry.title }}
+          {% include 'svg/arrow.njk' %}
+        </a>
         {% if entry.children.length > 0 %}
-          <a class="mobile-menu__link mobile-menu__link--dropdown h2" {% if entry.url == page.url %}aria-current="page"{% endif %} href="{{ entry.url | url }}">
-            {{ entry.title }}
-          </a>
-          <button class="mobile-menu__toggle" aria-expanded="false" data-accordion-toggle="accordion-{{ entry.title | slug }}">
-            {% include 'svg/arrow.njk' %}
-          </button>
-          <ul class="mobile-menu__dropdown" id="accordion-{{ entry.title | slug }}" data-accordion>
+          <ul class="mobile-menu__submenu">
             {% for childEntry in entry.children %}
-              <li class="mobile-menu__dropdown-item">
-                <a class="mobile-menu__dropdown-link text--accent text--xs" {% if childEntry.url == page.url %}aria-current="page"{% endif %} href="{{ childEntry.url | url }}">
+              <li class="mobile-menu__submenu-item">
+                <a class="mobile-menu__submenu-link h5" {% if childEntry.url == page.url %}aria-current="page"{% endif %} href="{{ childEntry.url | url }}">
                   {{ childEntry.title }}
                 </a>
               </li>
             {% endfor %}
           </ul>
-        {% else %}
-          <a class="mobile-menu__link h2" {% if entry.url == page.url %}aria-current="page"{% endif %} href="{{ entry.url | url }}">
-            {{ entry.title }}
-          </a>
         {% endif %}
       </li>
     {%- endfor %}
+    <li class="mobile-menu__item">
+      <a class="mobile-menu__link" {% if page.url === '/contact/' %}aria-current="page"{% endif %} href="/contact/">
+        Contact Us
+        {% include 'svg/arrow.njk' %}
+      </a>
+    </li>
   </ul>
 </div>
