@@ -10,12 +10,6 @@
       em {
         display: inline-block;
         position: relative;
-
-        &:hover {
-          .text-animation__cover {
-            transform: scaleX(0);
-          }
-        }
       }
     }
 

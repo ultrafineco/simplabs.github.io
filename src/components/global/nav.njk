@@ -11,7 +11,7 @@
     </{{ tag }}>
     <ul class="nav__list">
       {%- for entry in navPages %}
-        <li class="nav__item nav-dropdown" data-dropdown-wrapper>
+        <li class="nav__item nav-dropdown" {% if entry.children.length > 0 %}data-dropdown-wrapper{% endif %}>
           {% if entry.children.length > 0 %}
             {% set isActive = false %}
             {% for childEntry in entry.children %}
