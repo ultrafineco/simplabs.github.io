@@ -4,7 +4,7 @@
       "icon": "schema",
       "heading": "Product strategy",
       "text": "We transform assumptions into knowledge through the careful implementation of structured methods. Both new and existing products stand to benefit from the clarification of concepts and goals.",
-      "linkUrl": "",
+      "linkUrl": "/resources/workshops/digital-product-strategy/",
       "linkText": "Learn More"
     },
     {
@@ -18,27 +18,53 @@
       "icon": "api",
       "heading": "Product development",
       "text": "Fruitful collaboration requires trust. You will work with a dedicated team of experienced engineers and designers from start to finish.",
-      "linkUrl": "",
+      "linkUrl": "/services/product-development",
       "linkText": "Learn More"
     }
   ],
   "product-design": [
     {
+      "icon": "delightful",
       "heading": "Easy is delightful",
       "text": "Design is more than making it pretty. Give your users the tools they need to get the job done with confidence, speed, and ease.",
       "linkText": "Read more on the blog",
       "linkUrl": "/blog/"
     },
     {
+      "icon": "touch",
       "heading": "Every interaction matters",
       "text": "Design is more than making it pretty. Give your users the tools they need to get the job done with confidence, speed, and ease.",
       "linkText": "We like doing things “the right way”",
       "linkUrl": "/playbook/"
     },
     {
+      "icon": "layout",
       "heading": "Clean, functional aesthetics",
       "text": "Design is more than making it pretty. Give your users the tools they need to get the job done with confidence, speed, and ease.",
       "linkText": "Book a call with a designer",
+      "linkUrl": "/contact/"
+    }
+  ],
+  "product-development": [
+    {
+      "icon": "workshop",
+      "heading": "No quick fixes",
+      "text": "Any “quick-fix” solution is sure to accrue technical debt down the line. We build for the long term, which means doing it right the first time so your product is faster, more secure, and less prone to bugs.",
+      "linkText": "Read more on the blog",
+      "linkUrl": "/blog/"
+    },
+    {
+      "icon": "custom",
+      "heading": "Collaboration is essential",
+      "text": "Our digital product experts are here to support you every step of the way. Your team’s direct feedback helps us to reduce risks and improve outcomes for everyone involved.",
+      "linkText": "Explore our process in our playbook",
+      "linkUrl": "/playbook/"
+    },
+    {
+      "icon": "approval",
+      "heading": "Build for long-term sustainability",
+      "text": "In our fast-paced world, it’s essential to build on a foundation that is as flexible as it is sturdy. Your product should only grow stronger as the years go by.",
+      "linkText": "Talk to an engineer",
       "linkUrl": "/contact/"
     }
   ],
@@ -72,14 +98,14 @@
       "text": "Bring your team up to speed with the necessary technologies so they can complete ambitious projects with confidence."
     },
     {
-      "icon": "custom",
-      "heading": "Code reviews & audits",
-      "text": "Our code reviews identify and explain technical problems, and offer pragmatic solutions for moving forward. "
-    },
-    {
       "icon": "approval",
       "heading": "Custom training solutions",
       "text": "Your team has unique needs—which is why we offer customized training. We can help with Rust, Ember.js, Elixir/Phoenix, Ruby on Rails, and related technology stacks."
+    },
+    {
+      "icon": "custom",
+      "heading": "Code reviews & audits",
+      "text": "Our code reviews identify and explain technical problems, and offer pragmatic solutions for moving forward. "
     }
   ]
 }

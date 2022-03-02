@@ -7,6 +7,8 @@
 }
 
 .split-list__main {
+  padding-right: 3rem;
+
   & > * + * {
     margin-top: 1.5rem;
   }

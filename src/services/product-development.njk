@@ -1,0 +1,64 @@
+---
+layout: 'base'
+title: Product Design | Our Services
+eleventyNavigation:
+  key: Product development
+  parent: Services
+  order: 30
+---
+{% from "split-hero.njk" import splitHero %}
+{% from "image-with-text.njk" import imageWithText %}
+{% from "card-list.njk" import cardList %}
+{% from "split-list.njk" import splitList %}
+
+{% set 'content' = {
+  "pretitle": "Product development",
+  "title": "Let us set you up for <em>sustainable</em> growth",
+  "titleHeadingLevel": "h1",
+  "text": "<p>We pride ourselves on being a cut above the rest, and we welcome unique and complex engineering challenges. Our process depends on close collaboration between designers and developers to release well-tested products in flexible iterations. </p>",
+  "image": "/assets/images/photos/0002.jpg",
+  "alt": "Two team members looking at a laptop",
+  "loading": "eager"
+} %}
+{{ splitHero('left', 'aqua', content) }}
+
+{% set 'contentBlocks' = [{
+  "title": "Our guiding principles",
+  "text": "Software has a massive impact on our daily lives—that’s why we’re passionate about crafting digital products that delight users.",
+  "image": "/assets/images/photos/0027.jpg",
+  "alt": "People gathered around a laptop, only their hands are visible",
+  "loading": "lazy"
+}] %}
+{{ imageWithText('left', 'yellow', contentBlocks) }}
+
+{{ cardList(services['product-development']) }}
+
+{% set list = [
+  "Full-stack development",
+  "Effective process, run by seasoned product teams",
+  "Continuous delivery of product incrementst",
+  "Intensive automated testing",
+  "Engineering team of technology leaders",
+  "Deployment and operation"
+] %}
+{% set 'content' = {
+  "title": "A cut above the rest",
+  "text": "Our standards for code quality and engineering are second to none. Our digital product development support includes:",
+  "linkUrl": "/playbook/",
+  "linkText": "Learn how we work",
+  "list": list
+} %}
+{{ splitList('yellow', content) }}
+
+{% set 'content' = {
+  "title": "We love open source",
+  "text": "<p>As an internationally recognized consultancy, we value being active members of the open source community. We are official sponsors of the Ember.js project, founding sponsors of the Erlang Ecosystem Foundation, and members of the Rust Foundation. Catch us at a meetup or conference near you, and we’ll share how we leverage these technologies and more in our client work.</p>",
+  "linkUrl": "/calendar/",
+  "linkText": "Check our calendar of events",
+  "image": "/assets/images/photos/ember-simple-auth.jpg",
+  "alt": "Laptop with a code editor open",
+  "loading": "lazy"
+} %}
+{{ splitHero('left', 'blue', content) }}
+
+{% include 'content/hero-work-with-us.njk' %}
