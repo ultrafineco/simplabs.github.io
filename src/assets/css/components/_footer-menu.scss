@@ -3,8 +3,11 @@
 }
 
 .footer-menu__heading {
+  line-height: 1.1;
   flex: 0 1 8rem;
   margin-right: 1rem;
+  text-align: right;
+  color: var(--color-yellow);
 }
 
 .footer-menu__list {
@@ -22,7 +25,7 @@
 }
 
 .footer-menu__link {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-decoration: none;
 }
 
@@ -34,6 +37,10 @@
 @media (min-width: 48em) {
   .footer-menu {
     display: block;
+  }
+
+  .footer-menu__heading {
+    text-align: left;
   }
 
   .footer-menu__item {
