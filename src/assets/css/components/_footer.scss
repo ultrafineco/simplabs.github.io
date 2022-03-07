@@ -5,6 +5,7 @@
 }
 
 .footer__container {
+  grid-column: 2/-2;
   display: flex;
   flex-direction: column;
 }
@@ -95,5 +96,11 @@
     flex: 1 1 50%;
     margin-top: rem-calc(120);
     order: 0;
+  }
+}
+
+@media (min-width: 100em) {
+  .footer__container {
+    grid-column: 3 / -3;
   }
 }

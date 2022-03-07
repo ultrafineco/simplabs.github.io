@@ -1,5 +1,5 @@
-<div class="nav__mobile-menu mobile-menu">
-  <ul class="mobile-menu__list container">
+<div class="nav__mobile-menu mobile-menu layout">
+  <ul class="mobile-menu__list layout__full">
     {%- for entry in navPages %}
       <li class="mobile-menu__item">
         <a class="mobile-menu__link" {% if entry.url == page.url %}aria-current="page"{% endif %} href="{{ entry.url | url }}">

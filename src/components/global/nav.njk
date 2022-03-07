@@ -1,69 +1,71 @@
 {% set navPages = collections.all | eleventyNavigation %}
-<nav class="nav" id="nav">
-  <div class="nav__main">
-    {% set tag = 'a' %}
-    {% if page.url == '/' %}
-      {% set tag = 'h1' %}
-    {% endif %}
-    <{{ tag }} class="nav__brand" {% if tag == 'a' %}href="/"{% endif %}>
-      {% include 'svg/logo.njk' %}
-      <span class="screenreader">Mainmatter</span>
-    </{{ tag }}>
-    <ul class="nav__list">
-      {%- for entry in navPages %}
-        <li class="nav__item nav-dropdown" {% if entry.children.length > 0 %}data-dropdown-wrapper{% endif %}>
-          {% if entry.children.length > 0 %}
-            {% set isActive = false %}
-            {% for childEntry in entry.children %}
-              {% if childEntry.url == page.url %}
-                {% set isActive = true %}
-              {% endif %}
-            {% endfor %}
-            <button
-              class="nav__link nav-dropdown__toggle text--accent text--xs {% if isActive %}nav__link--is-active{% endif %}"
-              {% if entry.url == page.url %}aria-current="page"{% endif %}
-              data-dropdown-toggle="dropdown-{{ entry.title | slug }}"
-              aria-expanded="false">
-              {{ entry.title }}
-              {% include 'svg/arrow.njk' %}
-            </button>
-            <div class="nav-dropdown__dropdown" id="dropdown-{{ entry.title | slug }}" data-dropdown>
-              <ul class="nav-dropdown__list">
-                {% if entry.linkText %}
-                  <li class="nav-dropdown__item">
-                    <a class="nav-dropdown__link" {% if entry.url == page.url %}aria-current="page"{% endif %} href="{{ entry.url | url }}">
-                      {{ entry.linkText }}
-                    </a>
-                  </li>
+<nav class="nav layout" id="nav">
+  <div class="nav__container">
+    <div class="nav__main">
+      {% set tag = 'a' %}
+      {% if page.url == '/' %}
+        {% set tag = 'h1' %}
+      {% endif %}
+      <{{ tag }} class="nav__brand" {% if tag == 'a' %}href="/"{% endif %}>
+        {% include 'svg/logo.njk' %}
+        <span class="screenreader">Mainmatter</span>
+      </{{ tag }}>
+      <ul class="nav__list">
+        {%- for entry in navPages %}
+          <li class="nav__item nav-dropdown" {% if entry.children.length > 0 %}data-dropdown-wrapper{% endif %}>
+            {% if entry.children.length > 0 %}
+              {% set isActive = false %}
+              {% for childEntry in entry.children %}
+                {% if childEntry.url == page.url %}
+                  {% set isActive = true %}
                 {% endif %}
-                {% for childEntry in entry.children %}
-                  <li class="nav-dropdown__item">
-                    <a class="nav-dropdown__link" {% if childEntry.url == page.url %}aria-current="page"{% endif %} href="{{ childEntry.url | url }}">
-                      {{ childEntry.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% else %}
-            <a class="nav__link text--accent text--xs" {% if entry.url == page.url %}aria-current="page"{% endif %} href="{{ entry.url | url }}">
-              {{ entry.title }}
-            </a>
-          {% endif %}
-        </li>
-      {%- endfor %}
-    </ul>
+              {% endfor %}
+              <button
+                class="nav__link nav-dropdown__toggle text--accent text--xs {% if isActive %}nav__link--is-active{% endif %}"
+                {% if entry.url == page.url %}aria-current="page"{% endif %}
+                data-dropdown-toggle="dropdown-{{ entry.title | slug }}"
+                aria-expanded="false">
+                {{ entry.title }}
+                {% include 'svg/arrow.njk' %}
+              </button>
+              <div class="nav-dropdown__dropdown" id="dropdown-{{ entry.title | slug }}" data-dropdown>
+                <ul class="nav-dropdown__list">
+                  {% if entry.linkText %}
+                    <li class="nav-dropdown__item">
+                      <a class="nav-dropdown__link" {% if entry.url == page.url %}aria-current="page"{% endif %} href="{{ entry.url | url }}">
+                        {{ entry.linkText }}
+                      </a>
+                    </li>
+                  {% endif %}
+                  {% for childEntry in entry.children %}
+                    <li class="nav-dropdown__item">
+                      <a class="nav-dropdown__link" {% if childEntry.url == page.url %}aria-current="page"{% endif %} href="{{ childEntry.url | url }}">
+                        {{ childEntry.title }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% else %}
+              <a class="nav__link text--accent text--xs" {% if entry.url == page.url %}aria-current="page"{% endif %} href="{{ entry.url | url }}">
+                {{ entry.title }}
+              </a>
+            {% endif %}
+          </li>
+        {%- endfor %}
+      </ul>
+      </div>
+    <div class="nav__aside">
+      <a class="nav__cta text--accent text--xs" href="/contact/">
+        Contact
+        <span class="nav__cta-arrow">{% include 'svg/arrow.njk' %}</span>
+      </a>
+      <button class="nav__menu-toggle" data-menu-toggle aria-expanded="false">
+        {% include 'svg/menu.njk' %}
+        {% include 'svg/close.njk' %}
+        <span class="screenreader">Toggle Menu</span>
+      </button>
+      {% include 'global/mobile-menu.njk' %}
     </div>
-  <div class="nav__aside">
-    <a class="nav__cta text--accent text--xs" href="/contact/">
-      Contact
-      <span class="nav__cta-arrow">{% include 'svg/arrow.njk' %}</span>
-    </a>
-    <button class="nav__menu-toggle" data-menu-toggle aria-expanded="false">
-      {% include 'svg/menu.njk' %}
-      {% include 'svg/close.njk' %}
-      <span class="screenreader">Toggle Menu</span>
-    </button>
-    {% include 'global/mobile-menu.njk' %}
   </div>
 </nav>

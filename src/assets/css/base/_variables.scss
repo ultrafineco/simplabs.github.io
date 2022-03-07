@@ -20,5 +20,46 @@
   --border-radius: 0.125rem;
   --section-spacing: 4rem;
 
+  --col: 5.5vw;
+  --col-gap: 0.5rem;
+  --offset-horizontal: 0;
+  // --max-width: calc(100vw - 1.5rem);
+  // --col-1: var(--col);
+  // --col-2: calc(var(--col) * 2 + var(--col-gap));
+  // --col-3: calc(var(--col) * 3 + var(--col-gap) * 2);
+  // --col-4: calc(var(--col) * 4 + var(--col-gap) * 3);
+  // --col-5: calc(var(--col) * 5 + var(--col-gap) * 4);
+  // --col-6: calc(var(--col) * 6 + var(--col-gap) * 5);
+  --grid-content-columns: repeat(12, var(--col));
+  --grid-template-columns: minmax(var(--offset-horizontal), 1fr)
+    var(--grid-content-columns) minmax(var(--offset-horizontal), 1fr);
+  --grid-span-split: 5;
+  --grid-span-full: 2/-2;
   --font-base: "Core Sans A", sans-serif;
+
+  @media (min-width: 48em) {
+    --col-gap: 1rem;
+  }
+
+  @media (min-width: 62em) {
+    --col: 6vw;
+    --col-gap: 1.25rem;
+    --max-width: calc(var(--col) * 6 + var(--col-gap) * 5);
+  }
+
+  @media (min-width: 80em) {
+    --offset-horizontal: 3rem;
+    --grid-span-split: 4;
+    --grid-span-full: 3/-3;
+  }
+
+  @media (min-width: 110em) {
+    --col-gap: 1.5rem;
+    --col: 7.25rem;
+    --grid-span-full: 4/-4;
+  }
+
+  @media (min-width: 120em) {
+    --grid-span-split: 5;
+  }
 }

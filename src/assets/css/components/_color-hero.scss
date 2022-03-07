@@ -1,11 +1,6 @@
 .color-hero {
   position: relative;
-  aspect-ratio: 1 / 1;
   color: var(--color-text);
-
-  &-sm {
-    aspect-ratio: 5 / 4;
-  }
 }
 
 .color-hero__image-wrapper {
@@ -58,26 +53,22 @@
 
 @media (min-width: 48em) {
   .color-hero {
-    aspect-ratio: 256 / 145;
-    max-height: 100vh;
     min-width: 100%;
 
+    &--md {
+      .color-hero__container {
+        padding: rem-calc(200) 0;
+      }
+    }
+
     &--sm {
-      aspect-ratio: 1024 / 451;
+      .color-hero__container {
+        padding: rem-calc(150) 0;
+      }
     }
   }
 
   .color-hero__container {
     padding: 4.5rem 0;
-  }
-}
-
-@media (min-width: 110em) {
-  .color-hero {
-    aspect-ratio: 5 / 2;
-
-    &--sm {
-      aspect-ratio: 3 / 1;
-    }
   }
 }

@@ -14,11 +14,17 @@ Example usage:
 #}
 
 {%- macro quote(color, text, source, container) -%}
-  <figure class="quote {% if container === true %}container container--lg{% endif %}" data-color-scheme="{{ color }}">
+  {% if container %}
+    <div class="layout">
+  {% endif %}
+  <figure class="quote" data-color-scheme="{{ color }}">
     <span class="quote__icon">{% include 'svg/quote.njk' %}</span>
     <blockquote class="quote__text">
       {{ text | safe }}
     </blockquote>
     <figcaption class="quote__source h5">{{ source }}</figcaption>
   </figure>
+  {% if container %}
+    </div>
+  {% endif %}
 {%- endmacro -%}

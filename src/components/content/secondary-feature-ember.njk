@@ -1,13 +1,12 @@
 {% from "secondary-feature.njk" import secondaryFeature %}
 
 {% set 'content' = {
-  "eyebrow": "Our expertise",
-  "title": "We are Europe’s Leading Ember Experts.",
-  "text": "",
-  "linkUrl": "/ember-consulting/",
+  "title": "Official Ember.js Sponsor",
+  "text": "We recently have been recognized as an official sponsor of the Ember.js project along with international brands like LinkedIn and Yahoo.",
+  "linkUrl": "/services",
   "linkText": "Find out more",
   "image": "/assets/images/logos/background/ember.svg",
   "alt": "Ember.js logo",
   "loading": "lazy"
 } %}
-{{- secondaryFeature('right', content, true) -}}
+{{ secondaryFeature(content) }}

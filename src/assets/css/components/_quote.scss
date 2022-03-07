@@ -1,5 +1,6 @@
 .quote {
   display: grid;
+  grid-column: 2 / -2;
   grid-template-columns: 2rem auto;
   gap: 0.5rem;
   margin: var(--section-spacing) auto;
@@ -20,16 +21,18 @@
   padding: 0.5rem 0.5rem 0.5rem 0;
   background-color: var(--color-background);
   color: var(--color-text);
+  z-index: 0;
 
   &::before {
     content: "";
     display: block;
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 50vw;
     height: 100%;
     background-color: var(--color-background);
     transform: translateX(-99%);
+    z-index: -1;
   }
 }
 
@@ -42,6 +45,24 @@
 
   .quote__source {
     margin-top: 0;
-    max-width: 70%;
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 62em) {
+  .quote {
+    grid-column: 3 / -3;
+  }
+}
+
+@media (min-width: 80em) {
+  .quote {
+    grid-column: 4 / -4;
+  }
+}
+
+@media (min-width: 100em) {
+  .quote {
+    grid-column: 5 / -5;
   }
 }

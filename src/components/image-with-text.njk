@@ -4,6 +4,7 @@ Series of images with text to the side, in alternating directions.
 Configuration Options:
 textPosition: 'left' or 'right'. Text position on desktop for first block, the others will alternate.
 barColor: String for one of the key brand colors.
+barPosition: 'top' or 'bottom'. Bar position on desktop for first block, the others will alternate.
 contentBlocks: An array of content blocks. Each content block with the following options:
   title: String or markup for heading. Text wrapped in <em> will have the text animation applied.
   text: String or markup for body text
@@ -31,23 +32,23 @@ Example usage:
   "alt": "Alt text",
   "loading": "lazy",
 }] %}
-{{ imageWithText('right', 'blue', contentBlocks) }}
+{{ imageWithText('right', 'blue', 'top', contentBlocks) }}
 #}
 {% from "cta-link.njk" import ctaLink %}
 
-{%- macro imageWithText(textPosition, barColor, contentBlocks) -%}
+{%- macro imageWithText(textPosition, barColor, barPosition, contentBlocks) -%}
   {%- if textPosition === 'left' -%}
-    {%- set altTextPostion = 'right' -%}
+    {%- set altTextPosition = 'right' -%}
   {%- else -%}
-    {%- set altTextPostion = 'left' -%}
+    {%- set altTextPosition = 'left' -%}
   {%- endif -%}
-  <section class="image-text">
+  <section class="image-text image-text--bar-{{ barPosition }}">
     {% for content in contentBlocks %}
-      <div class="image-text__container image-text__container--{% if loop.index % 2 === 0 %}{{ altTextPostion }}{% else %}{{ textPosition }}{% endif %}">
+      <div class="layout image-text__container image-text__container--{% if loop.index % 2 === 0 %}{{ altTextPosition }}{% else %}{{ textPosition }}{% endif %}">
         <div class="image-text__image-wrapper {% if content.small %}image-text__image-wrapper--small{% endif %}">
           {%- if content.image -%}
             <div data-image-animation="{{ animationSpeed }}">
-              {%- image content.image, content.alt, '(min-width: 64em) 36rem, (min-width:48em) 50%, 100vw', content.loading, 'image-text__image', [580, 768] -%}
+              {%- image content.image, content.alt, '(min-width: 64em) 42rem, (min-width:48em) 50%, 100vw', content.loading, 'image-text__image', [580, 768] -%}
             </div>
           {%- endif -%}
           <div class="image-text__bar-position">

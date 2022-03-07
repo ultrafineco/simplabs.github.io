@@ -15,8 +15,8 @@ Example usage:
 {% from "cta-link.njk" import ctaLink %}
 
 {%- macro columnList(list, heading, class) -%}
-  <section class="column-list {{ class }}">
-    <div class="container container--lg">
+  <section class="column-list layout {{ class }}">
+    <div class="layout__full">
       {% if heading %}<h2 class="column-list__heading h2">{{ heading }}</h2>{% endif %}
       <ul class="column-list__list">
         {% for item in list %}

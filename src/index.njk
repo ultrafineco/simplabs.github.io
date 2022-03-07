@@ -5,7 +5,6 @@ title: null
 {% from "split-hero.njk" import splitHero %}
 {% from "logo-list.njk" import logoList %}
 {% from "color-hero.njk" import colorHero %}
-{% from "image-with-text-stacked.njk" import imageWithTextStacked %}
 {% from "image-with-text.njk" import imageWithText %}
 {% from "secondary-feature.njk" import secondaryFeature %}
 
@@ -42,18 +41,9 @@ title: null
   "alt": "People gathered around a laptop, only their hands are visible",
   "loading": "lazy"
 }] %}
-{{ imageWithText('right', 'aqua', contentBlocks) }}
+{{ imageWithText('right', 'aqua', 'top', contentBlocks) }}
 
-{% set 'content' = {
-  "title": "Official Ember.js Sponsor",
-  "text": "We recently have been recognized as an official sponsor of the Ember.js project along with international brands like LinkedIn and Yahoo.",
-  "linkUrl": "/services",
-  "linkText": "Find out more",
-  "image": "/assets/images/logos/background/ember.svg",
-  "alt": "Ember.js logo",
-  "loading": "lazy"
-} %}
-{{ secondaryFeature(content) }}
+{% include 'content/secondary-feature-ember.njk' %}
 
 {% set 'content' = {
   "pretitle": "Case Study",
@@ -87,7 +77,7 @@ title: null
   "alt": "Three team members meeting in front of a whiteboard filled with colored Post-it notes.",
   "loading": "lazy"
 }] %}
-{{ imageWithText('left', 'aqua', contentBlocks) }}
+{{ imageWithText('left', 'aqua', 'top', contentBlocks) }}
 
 {% set 'content' = {
   "title": "Grow <em>your business</em> with us",

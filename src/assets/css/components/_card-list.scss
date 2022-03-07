@@ -5,6 +5,7 @@
 
 .card-list__list {
   display: grid;
+  grid-column: 1 / -1;
   gap: 1.5rem;
   margin: 0;
   padding: 0;
@@ -12,8 +13,12 @@
 }
 
 .card-list__item {
-  padding: 1rem 5%;
+  padding: 1rem 0;
   box-shadow: var(--box-shadow);
+}
+
+.card-list__item-container {
+  grid-column: 2/-2;
 
   & > * + * {
     margin-top: 1.25rem;
@@ -43,13 +48,14 @@
   .card-list__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
+    grid-column: var(--grid-span-full);
     gap: 1.5rem;
+    width: 100%;
     margin: 0 auto;
-    width: 90%;
-    max-width: 60rem;
   }
 
   .card-list__item {
+    display: block;
     padding: 1rem 1rem 1.25rem;
   }
 }

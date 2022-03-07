@@ -28,14 +28,14 @@ Example usage:
 {% from "cta-link.njk" import ctaLink %}
 
 {%- macro colorHero(size, color, content) -%}
-  <section class="color-hero color-hero--{{ size }}" data-color-scheme="{{ color }}">
+  <section class="color-hero color-hero--{{ size }} layout" data-color-scheme="{{ color }}">
     <div class="color-hero__image-wrapper">
       {% if content.image %}
         {% image content.image, content.alt, '100vw', content.loading, 'color-hero__image', [760, 1440, 1920] %}
       {% endif %}
     </div>
     <div class="color-hero__overlay"></div>
-    <div class="color-hero__container container text-animation">
+    <div class="color-hero__container layout__full text-animation">
       <div class="color-hero__main">
         {% if content.title %}
           <h2 class="color-hero__title {% if size == 'sm' %}h2{% else %}h1{% endif %}">

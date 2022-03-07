@@ -1,0 +1,9 @@
+.layout {
+  display: grid;
+  grid-template-columns: var(--grid-template-columns);
+  column-gap: var(--col-gap);
+}
+
+.layout__full {
+  grid-column: var(--grid-span-full);
+}

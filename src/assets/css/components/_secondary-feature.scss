@@ -1,19 +1,21 @@
 .secondary-feature {
   margin: var(--section-spacing) 0;
+  background-color: var(--color-background);
 }
 
 .secondary-feature__image-wrapper {
   position: relative;
+  grid-column: 1 / -1;
 
   &::before {
     content: "";
     position: absolute;
     display: block;
     left: 0;
-    bottom: 0;
+    top: 0;
     width: 100vw;
     height: 50%;
-    background-color: var(--color-background);
+    background-color: var(--color-body-background);
   }
 }
 
@@ -23,13 +25,14 @@
   margin: 0 auto;
   width: 15.125rem;
   border: 0.25rem solid var(--color-body-background);
+  background-color: var(--color-body-background);
   z-index: 1;
 }
 
 .secondary-feature__main {
+  grid-column: 2 / -2;
   color: var(--color-text);
-  padding: 1.5rem 5% 2.5rem;
-  background-color: var(--color-background);
+  padding: 1.5rem 0 2.5rem;
 }
 
 .secondary-feature__title {
@@ -42,12 +45,12 @@
 
 @media (min-width: 40em) {
   .secondary-feature {
-    display: flex;
     align-items: center;
+    background-color: var(--color-body-background);
   }
 
   .secondary-feature__image-wrapper {
-    flex: 1 1 40%;
+    grid-column: 2 / 5;
     margin-bottom: 0;
 
     &::before {
@@ -57,10 +60,11 @@
 
   .secondary-feature__main {
     position: relative;
-    flex: 1 1 60%;
     align-self: stretch;
-    padding: 2rem 1.5rem;
+    padding: 2rem 0;
     z-index: 0;
+    grid-column: 7/-1;
+    background-color: var(--color-background);
 
     &::before {
       content: "";
@@ -77,17 +81,27 @@
     }
 
     & > * {
-      max-width: rem-calc(460);
+      max-width: rem-calc(400);
     }
   }
 }
 
 @media (min-width: 62em) {
-  .secondary-feature__image-wrapper {
-    padding-right: 9rem;
+  .secondary-feature__main {
+    & > * {
+      max-width: rem-calc(460);
+    }
   }
+}
 
-  .secondary-feature__image {
-    margin-right: 0;
+@media (min-width: 80em) {
+  .secondary-feature__image-wrapper {
+    grid-column: 3 / 6;
+  }
+}
+
+@media (min-width: 100em) {
+  .secondary-feature__image-wrapper {
+    grid-column: 4 / 6;
   }
 }

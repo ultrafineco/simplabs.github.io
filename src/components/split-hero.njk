@@ -34,31 +34,29 @@ Example usage:
 {% from "cta-link.njk" import ctaLink %}
 
 {%- macro splitHero(desktopTextPosition, color, content) -%}
-  <section class="split-hero" data-color-scheme="{{ color }}">
+  <section class="split-hero layout split-hero--{{ desktopTextPosition }}" data-color-scheme="{{ color }}">
     {%- if content.titleHeadingLevel -%}
       {%- set headingLevel = content.titleHeadingLevel -%}
     {%- else -%}
       {%- set headingLevel = 'h2' -%}
     {%- endif -%}
-    <div class="split-hero__main split-hero__main--{{ desktopTextPosition }}">
-      <div class="split-hero__container container">
-        <{{ headingLevel }}>
-          {% if content.pretitle %}
-            <span class="split-hero__pretitle text--accent">{{ content.pretitle }}</span>
-          {% endif %}
-          {% if content.title %}
-            <span class="split-hero__title {{ headingLevel }} text-animation">
-              {{ content.title | safe }}
-            </span>
-          {% endif %}
-        </{{ headingLevel }}>
-        {% if content.text %}
-          <p class="split-hero__text">{{ content.text | safe }}</p>
+    <div class="split-hero__main">
+      <{{ headingLevel }}>
+        {% if content.pretitle %}
+          <span class="split-hero__pretitle text--accent">{{ content.pretitle }}</span>
         {% endif %}
-        {% if content.linkUrl %}
-          {{ ctaLink(content.linkUrl, content.linkText, 'split-hero__link') }}
+        {% if content.title %}
+          <span class="split-hero__title {{ headingLevel }} text-animation">
+            {{ content.title | safe }}
+          </span>
         {% endif %}
-      </div>
+      </{{ headingLevel }}>
+      {% if content.text %}
+        <p class="split-hero__text">{{ content.text | safe }}</p>
+      {% endif %}
+      {% if content.linkUrl %}
+        {{ ctaLink(content.linkUrl, content.linkText, 'split-hero__link') }}
+      {% endif %}
     </div>
     <div class="split-hero__image-wrapper">
       {% if content.image %}

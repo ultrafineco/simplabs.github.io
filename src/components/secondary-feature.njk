@@ -26,7 +26,7 @@ Example usage:
 {% from "cta-link.njk" import ctaLink %}
 
 {%- macro secondaryFeature(content) -%}
-  <div class="secondary-feature" data-color-scheme="purple">
+  <div class="secondary-feature layout" data-color-scheme="purple">
     <div class="secondary-feature__image-wrapper">
       {% if content.image -%}
         {%- image content.image, content.alt, '15.125rem', content.loading, 'secondary-feature__image' -%}
