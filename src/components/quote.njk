@@ -5,26 +5,28 @@ Configuration Options:
 color: One of the core brand colors
 text: Block quote text
 source: Quote source, a person or organization
-container: Boolean for whether or not to wrap the quote in a containing element
+image:  Path to image in the file directory
 
 Example usage:
 {% set text = "simplabs' experienced engineers delivered a solid and well architected foundation for our web app. They also helped us establish best practices and a lean process internally. Working with them was a pleasure." %}
 {% set source = "Andreas Knürr, Timify CEO" %}
-{{ quote('aqua', text, source, true) }}
+{% set image = "/assets/images/photos/andreas.jpg" %}
+{{ quote('aqua', text, source, image) }}
 #}
 
-{%- macro quote(color, text, source, container) -%}
-  {% if container %}
-    <div class="layout">
-  {% endif %}
-  <figure class="quote" data-color-scheme="{{ color }}">
-    <span class="quote__icon">{% include 'svg/quote.njk' %}</span>
-    <blockquote class="quote__text">
-      {{ text | safe }}
-    </blockquote>
-    <figcaption class="quote__source h5">{{ source }}</figcaption>
-  </figure>
-  {% if container %}
-    </div>
-  {% endif %}
+{%- macro quote(color, text, source, image) -%}
+  <div class="layout quote" data-break-grid>
+    <figure class="quote__figure layout__text" data-color-scheme="{{ color }}">
+      <span class="quote__icon">{% include 'svg/quote.njk' %}</span>
+      {%- if image -%}
+        <div class="quote__image-wrapper">
+          {%- image image, "", '8.75rem', "lazy", 'quote__image' -%}
+        </div>
+      {%- endif -%}
+      <blockquote class="quote__text">
+        {{ text | safe }}
+      </blockquote>
+      <figcaption class="quote__source h5">{{ source }}</figcaption>
+    </figure>
+  </div>
 {%- endmacro -%}

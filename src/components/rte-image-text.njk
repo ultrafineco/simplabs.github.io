@@ -1,0 +1,30 @@
+{#
+Rich text section for displaying an image and text side by side.
+
+Configuration Options:
+content: A content block with the following options:
+  text: Content
+  image: Path to image in the file directory
+  alt: Image alt text
+
+Example usage:
+{% set 'content' = {
+  "text": "Mainmatter is a digital product consultancy that designs and develops web applications. We realize projects with clients across the globe and teach them how along the way.",
+  "image": "/assets/images/photos/collaboration@1200.jpg",
+  "alt": "Alt text"
+} %}
+{{ rteImageText(content) }}
+#}
+
+{%- macro rteImageText(content) -%}
+  <div class="layout rte-image-text" data-break-grid>
+    {%- if content.image -%}
+      <div class="rte-image-text__image-wrapper">
+        {%- image content.image, content.alt, '25rem', 'lazy', 'rte-image-text__image' -%}
+      </div>
+    {%- endif -%}
+    <div class="rte-image-text__text rte">
+      {{- content.text | safe -}}
+    </div>
+  </div>
+{%- endmacro -%}

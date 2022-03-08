@@ -1,12 +1,30 @@
 .quote {
-  display: grid;
-  grid-column: 2 / -2;
-  grid-template-columns: 2rem auto;
-  gap: 0.5rem;
   margin: var(--section-spacing) auto;
 }
 
+.quote__figure {
+  display: grid;
+  grid-template-columns: 2rem auto;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.quote__image-wrapper {
+  grid-column: 2;
+  width: 8.75rem;
+  height: 8.75rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.quote__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .quote__text {
+  grid-column: 2;
   margin: 0;
 }
 
@@ -39,30 +57,15 @@
 @media (min-width: 48em) {
   .quote {
     margin: calc(var(--section-spacing) * 2) auto;
-    grid-template-columns: 3rem auto;
-    gap: 2rem;
+  }
+
+  .quote__figure {
+    grid-template-columns: 3.5rem auto;
+    gap: 1.5rem;
   }
 
   .quote__source {
     margin-top: 0;
     max-width: 80%;
-  }
-}
-
-@media (min-width: 62em) {
-  .quote {
-    grid-column: 3 / -3;
-  }
-}
-
-@media (min-width: 80em) {
-  .quote {
-    grid-column: 4 / -4;
-  }
-}
-
-@media (min-width: 100em) {
-  .quote {
-    grid-column: 5 / -5;
   }
 }

@@ -1,3 +1,7 @@
+.case-study-feature {
+  overflow-x: hidden;
+}
+
 .case-study-feature__item {
   position: relative;
   grid-column: 2 / -2;
@@ -87,11 +91,6 @@
   top: 50%;
   right: 0.5rem;
   transform: translateY(-50%);
-}
-
-.case-study__body {
-  margin: 3rem auto;
-  @extend .container, .container--md, .rte;
 }
 
 @media (min-width: 48em) {

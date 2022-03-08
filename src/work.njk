@@ -36,6 +36,8 @@ eleventyNavigation:
   "linkText": "Read case study",
   "image": "/assets/images/work/timify-right.jpg",
   "alt": "Macbook showing a Timify schedule",
+  "logo": "/assets/images/logos/timify.svg",
+  "logoAlt": "Timify",
   "loading": "lazy"
 } %}
 {{ splitHero('left', 'blue', content) }}
@@ -54,13 +56,4 @@ eleventyNavigation:
 }] %}
 {{ imageWithText('left', 'aqua', 'bottom', contentBlocks) }}
 
-{% set 'content' = {
-  "title": "Grow <em>your business</em> with us",
-  "text": "<p>Let's talk about the challenges that you're facing.</p><p>Our experts are ready to guide you through your next big move.</p>",
-  "linkUrl": "/contact/",
-  "linkText": "Partner with us",
-  "image": "/assets/images/photos/0001.jpg",
-  "alt": "Person looking at a laptop, looking contemplatives",
-  "loading": "lazy"
-} %}
-{{ colorHero('md', 'purple', content) }}
+{% include 'content/hero-grow-with-us-work.njk' %}

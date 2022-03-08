@@ -1,0 +1,27 @@
+.case-study__tagline {
+  padding: 2.5rem 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.case-study__pretitle {
+  margin-bottom: 1rem;
+}
+
+.case-study__body {
+  margin: var(--section-spacing) 0;
+  line-height: 1.5;
+}
+
+.case-study__body-text {
+  & > * {
+    grid-column: var(--grid-span-text);
+  }
+}
+
+@media (min-width: 48em) {
+  .case-study__tagline {
+    margin: var(--section-spacing) 0;
+    padding: var(--section-spacing) 0;
+  }
+}

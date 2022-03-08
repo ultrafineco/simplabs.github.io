@@ -77,7 +77,10 @@ module.exports = function (value, outputPath) {
     if (links.length) {
       links.forEach((link) => {
         const href = link.getAttribute("href");
-        if (href.charAt(0) !== "/" && href.indexOf(config.url) < 0) {
+        if (
+          !(href.charAt(0) === "/" || href.charAt(0) === "#") &&
+          href.indexOf(config.url) < 0
+        ) {
           link.setAttribute("target", "_blank");
           link.setAttribute("rel", "nofollow noopener");
           link.setAttribute("aria-describedby", "external-new-window-message");
@@ -160,7 +163,9 @@ module.exports = function (value, outputPath) {
       });
     }
 
-    // Unwrap our images
+    /**
+     * Unwrap our images
+     */
     const allPTags = [...document.querySelectorAll(".rte p")];
     const elementList = ["IMG", "PICTURE", "VIDEO"];
     allPTags.forEach((element) => {
@@ -171,6 +176,37 @@ module.exports = function (value, outputPath) {
         return element.replaceWith(element.childNodes[0]);
       }
     });
+
+    /**
+     * Break the grid for any full-width components
+     */
+    const body = document.querySelector(".case-study__body");
+    if (body) {
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("case-study__body");
+      const children = [...body.children];
+      let elementWrapper = document.createElement("div");
+      elementWrapper.classList.add("layout", "rte", "case-study__body-text");
+      children.forEach((element, index) => {
+        if (!element.hasAttribute("data-break-grid")) {
+          elementWrapper.appendChild(element);
+
+          if (index === children.length - 1) {
+            wrapper.appendChild(elementWrapper);
+          }
+        } else {
+          wrapper.appendChild(elementWrapper);
+          elementWrapper = document.createElement("div");
+          elementWrapper.classList.add(
+            "layout",
+            "rte",
+            "case-study__body-text"
+          );
+          wrapper.appendChild(element);
+        }
+      });
+      body.replaceWith(wrapper);
+    }
 
     return "<!DOCTYPE html>\r\n" + document.documentElement.outerHTML;
   }

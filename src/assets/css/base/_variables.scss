@@ -35,6 +35,7 @@
     var(--grid-content-columns) minmax(var(--offset-horizontal), 1fr);
   --grid-span-split: 5;
   --grid-span-full: 2/-2;
+  --grid-span-text: 2/-2;
   --font-base: "Core Sans A", sans-serif;
 
   @media (min-width: 48em) {
@@ -44,6 +45,7 @@
   @media (min-width: 62em) {
     --col: 6vw;
     --col-gap: 1.25rem;
+    --grid-span-text: 3/-3;
     --max-width: calc(var(--col) * 6 + var(--col-gap) * 5);
   }
 
@@ -51,6 +53,7 @@
     --offset-horizontal: 3rem;
     --grid-span-split: 4;
     --grid-span-full: 3/-3;
+    --grid-span-text: 4/-4;
   }
 
   @media (min-width: 110em) {

@@ -7,3 +7,7 @@
 .layout__full {
   grid-column: var(--grid-span-full);
 }
+
+.layout__text {
+  grid-column: var(--grid-span-text);
+}
