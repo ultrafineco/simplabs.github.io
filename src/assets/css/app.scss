@@ -1,5 +1,6 @@
 @import "mixins/rem-calc";
 @import "lib/normalize";
+@import "lib/splide-core";
 
 @import "base/variables";
 @import "base/global";
@@ -51,6 +52,8 @@
 @import "components/split-quote";
 @import "components/color-image";
 @import "components/card-list";
+@import "components/splide";
+@import "components/client-card";
 
 @import "animations/text-animation";
 

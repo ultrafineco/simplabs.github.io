@@ -1,0 +1,43 @@
+.splide__track {
+  overflow: visible;
+}
+
+.splide__arrows {
+  margin-top: 2rem;
+}
+
+.splide__arrow {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  svg {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  & + & {
+    margin-left: 1.5rem;
+  }
+
+  &:hover {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+  }
+
+  &[disabled] {
+    color: #878787;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.splide__arrow--prev {
+  svg {
+    transform: scaleX(-1);
+  }
+}

@@ -1,0 +1,16 @@
+{%- macro clientCard(handle) -%}
+  {% set client = handle | findBySlug %}
+  {% if client %}
+    <div class="client-card layout" tabindex="-1">
+      <div class="client-card__container">
+        <div class="client-card__image">
+          {% set imagePath %}/assets/images/logos/{{ handle }}.svg{% endset %}
+          <img src="{{ imagePath }}" alt="{{ client.data.company }}">
+        </div>
+        <div class="client-card__text">
+          {{ client.data.description }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endmacro %}

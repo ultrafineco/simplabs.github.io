@@ -1,71 +1,82 @@
 .client-list {
-  padding: rem-calc(55) 0;
+  margin: var(--section-spacing) 0;
+  text-align: center;
+}
 
-  &--aqua {
-    background-color: var(--color-aqua);
+.client-list__button {
+  margin-top: 2rem;
+
+  &[aria-expanded="false"] {
+    & + .client-list__grid {
+      opacity: 0;
+      visibility: hidden;
+      max-height: 0;
+    }
+
+    & ~ & {
+      display: none;
+    }
   }
 
-  &--blue {
-    background-color: var(--color-blue);
-    color: var(--color-white);
+  &[aria-expanded="true"] {
+    display: none;
+
+    & + .client-list__grid {
+      margin-top: 1.5rem;
+      opacity: 1;
+      visibility: visible;
+      max-height: none;
+    }
   }
 }
 
-.client-list__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.client-list__heading {
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
 
-.client-list__item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: var(--color-body-background);
-  color: var(--color-body-text);
+.client-list__mobile {
+  grid-column: 1 / -1;
 }
 
-.client-list__link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.client-list__grid {
+  text-align: left;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.client-list__image {
-  flex: 0 0 rem-calc(96);
-  margin-right: 1rem;
-}
-
-.client-list__text {
-  font-size: 0.875rem;
+.client-list__desktop {
+  display: none;
 }
 
 @media (min-width: 48em) {
-  .client-list__heading {
-    margin: rem-calc(35 0 56);
-  }
-
-  .client-list__list {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(rem-calc(250), 1fr));
-    gap: rem-calc(22);
-  }
-
-  .client-list__item {
-    display: block;
+  .client-list {
     margin-top: 0;
   }
 
-  .client-list__image {
-    display: flex;
-    align-items: center;
-    max-width: 70%;
-    height: rem-calc(88);
-    margin-bottom: 0.25rem;
+  .client-list__mobile {
+    grid-column: 2 / -2;
+  }
+
+  .client-list__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
+    grid-column: var(--grid-span-full);
+    gap: 1.5rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 62em) {
+  .client-list {
+    margin-top: calc(var(--section-spacing) * 2);
+  }
+
+  .client-list__mobile {
+    display: none;
+  }
+
+  .client-list__desktop {
+    display: block;
   }
 }

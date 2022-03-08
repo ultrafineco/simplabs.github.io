@@ -1,0 +1,66 @@
+{#
+List of clients as cards. Displays as expandable accordion on small screens, and as a slideshow on larger screens.
+
+Configuration Options:
+list: An array where each item is the slug for the case study.
+#}
+
+{% from "client-card.njk" import clientCard %}
+
+{%- macro clientListFull(clients, color, heading) -%}
+  <section class="client-list layout">
+    {% if heading %}
+      <h2 class="client-list__heading layout__full">{{ heading }}</h2>
+    {% endif %}
+    <div class="client-list__mobile">
+      {% set limit = 6 %}
+      {% for clientHandle in clients -%}
+        {% if loop.first %}
+          <div class="client-list__grid">
+        {% endif %}
+        {{ clientCard(clientHandle) }}
+        {% if loop.last %}
+          </div>
+        {% elif loop.index % limit === 0 %}
+          </div>
+          <button class="client-list__button cta-link text--accent" data-accordion-toggle="loadMore" aria-expanded="false">
+            <span class="cta-link__text">Show more clients</span>
+            <span class="cta-link__arrow">{% include 'svg/arrow.njk' %}</span>
+          </button>
+          <div class="client-list__grid">
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="client-list__desktop layout__full">
+      <div class="splide">
+        <div class="splide__track">
+          <div class="splide__list">
+            {% set limit = 9 %}
+            {% for clientHandle in clients -%}
+              {% if loop.first %}
+                <div class="splide__slide">
+                <div class="client-list__grid">
+              {% endif %}
+              {{ clientCard(clientHandle) }}
+              {% if loop.last %}
+                </div></div>
+              {% elif loop.index % limit === 0 %}
+                </div></div>
+                <div class="splide__slide">
+                <div class="client-list__grid">
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev" aria-label="Previous">
+            {% include 'svg/arrow-right.njk' %}
+          </button>
+          <button class="splide__arrow splide__arrow--next" aria-label="Next">
+            {% include 'svg/arrow-right.njk' %}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endmacro -%}

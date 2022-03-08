@@ -1,0 +1,41 @@
+.client-card {
+  padding: 1.5rem 0 2.5rem;
+  border-bottom: 1rem solid var(--color-purple);
+  box-shadow: var(--box-shadow);
+
+  & + & {
+    margin-top: 1.5rem;
+  }
+}
+
+.client-card__container {
+  grid-column: 2/-2;
+
+  & > * + * {
+    margin-top: 1.25rem;
+  }
+}
+
+.client-card__image {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 15rem;
+  height: 3.5rem;
+
+  img {
+    width: auto;
+    max-height: 100%;
+  }
+}
+
+@media (min-width: 48em) {
+  .client-card {
+    display: block;
+    padding: 1.5rem 1rem 2.5rem;
+
+    & + & {
+      margin-top: 0;
+    }
+  }
+}
