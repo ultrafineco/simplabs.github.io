@@ -16,12 +16,6 @@
   bottom: 0;
   z-index: 2;
   outline-offset: 0.25rem;
-
-  &:hover {
-    & ~ .video-card__cta:before {
-      transform: scaleX(1);
-    }
-  }
 }
 
 .video-card__image-wrapper {
@@ -77,12 +71,11 @@
   line-height: 1.4;
 }
 
-.video-card__cta {
-  align-self: flex-start;
-  margin-top: auto;
-}
-
 @media (min-width: 40em) {
+  .video-card {
+    border-radius: var(--border-radius);
+  }
+
   .video-card__text-wrapper {
     display: block;
     padding-left: 0.5rem;

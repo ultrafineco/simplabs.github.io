@@ -1,9 +1,12 @@
 .talk-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  border: rem-calc(1) solid var(--color-light-gray);
+  padding: 1rem 0 2rem;
+  border-top: 0.75rem solid var(--color-accent);
+  box-shadow: var(--box-shadow);
+}
+
+.talk-card__container {
+  grid-column: 2 / -2;
 }
 
 .talk-card__link {
@@ -17,7 +20,7 @@
   outline-offset: 0.25rem;
 
   &:hover {
-    & ~ .talk-card__cta:before {
+    & ~ .talk-card__container .talk-card__cta::after {
       transform: scaleX(1);
     }
   }
@@ -29,11 +32,13 @@
 }
 
 .talk-card__description {
-  margin: 0.5rem 0;
-  font-size: rem-calc(13);
+  margin: 1rem 0 1.25rem;
 }
 
-.talk-card__cta {
-  margin-top: auto;
-  align-self: flex-start;
+@media (min-width: 48em) {
+  .talk-card {
+    display: block;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }

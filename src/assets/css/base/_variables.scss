@@ -21,7 +21,7 @@
   --border-radius: 0.125rem;
   --section-spacing: 4rem;
 
-  --col: 5.5vw;
+  --col: 5vw;
   --col-gap: 0.5rem;
   --offset-horizontal: 0;
   // --max-width: calc(100vw - 1.5rem);
@@ -41,10 +41,10 @@
 
   @media (min-width: 48em) {
     --col-gap: 1rem;
+    --col: 5.5vw;
   }
 
   @media (min-width: 62em) {
-    --col: 6vw;
     --col-gap: 1.25rem;
     --grid-span-text: 3/-3;
     --max-width: calc(var(--col) * 6 + var(--col-gap) * 5);

@@ -7,25 +7,51 @@ eleventyNavigation:
   parent: Resources
   order: 10
 ---
-{% from "channel-card.njk" import channelCard %}
+{% from "split-hero.njk" import splitHero %}
 {% from "talk-card.njk" import talkCard %}
-<div class="container container--lg talks">
-  <div class="section__introduction">
-    <h1 class="section__title">Guidance from our team of trusted industry experts</h1>
-    <p class="container--sm">Mainmatter's guiding principles of collaboration and knowledge transfer extend well beyond our client work. Here is a collection of conference talks and other presentations that members of our team have given at various events all over the world over the years.</p>
-  </div>
-  <h2 class="section__subtitle">Latest Talks</h2>
+{% from "cta-link.njk" import ctaLink %}
 
-  <ol class="talks__channel-list">
+{% set 'content' = {
+  "pretitle": "Talks",
+  "title": "Guidance from our team of <em>trusted</em> industry experts",
+  "titleHeadingLevel": "h1",
+  "text": "Mainmatter's guiding principles of collaboration and knowledge transfer extend well beyond our client work. Here is a collection of conference talks and other presentations that members of our team have given at various events all over the world over the years.",
+  "image": "/assets/images/photos/kanban.jpg",
+  "alt": "Alt text",
+  "loading": "eager"
+} %}
+{{ splitHero('left', 'yellow', content) }}
+
+<div class="talks-list layout">
+  <h2 class="talks-list__heading">Latest Talks</h2>
+  <ol class="talks-list__list">
     {%- for channel in collections.channelsAppearances -%}
-      <li class="talks__channel-grid">
-        {{ channelCard(channel) }}
-        {% for appearance in channel.appearances %}
-          {{ talkCard(appearance) }}
-        {% endfor %}
+      <li class="talks-list__channel">
+        <div class="channel layout">
+          <div class="channel__container">
+            <div class="channel__image-wrapper">
+              {% image channel.data.image, "", '(min-width: 48em) 13.75rem, 18.75rem', 'lazy', 'channel__image', [220, 300, 440, 600] %}
+            </div>
+            <div class="channel__text-wrapper">
+              <h3 class="channel__title h3">
+                {{ channel.data.title }}
+              </h3>
+              <p class="channel__description">
+                {{ channel.templateContent | safe }}
+              </p>
+              {{ ctaLink(chanel.data.url, 'Find Out More', 'channel__link') }}
+            </div>
+          </div>
+          <div class="talks-list__card-grid">
+            {% for appearance in channel.appearances %}
+              {{ talkCard(appearance) }}
+            {% endfor %}
+          </div>
+        </div>
       </li>
     {%- endfor -%}
   </ol>
 </div>
+
 
 {% include 'content/hero-playbook.njk' %}

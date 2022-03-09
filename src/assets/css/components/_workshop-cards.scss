@@ -30,7 +30,7 @@
   outline-offset: 0.25rem;
 
   &:hover {
-    & ~ .workshop-card__container .workshop-card__cta:before {
+    & ~ .workshop-card__container .workshop-card__cta::after {
       transform: scaleX(1);
     }
   }
@@ -80,10 +80,6 @@
   line-height: 1.4;
 }
 
-.workshop-card__cta {
-  margin-top: auto;
-}
-
 @media (min-width: 48em) {
   .workshop-cards {
     grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
@@ -94,5 +90,6 @@
     display: block;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+    border-radius: var(--border-radius);
   }
 }

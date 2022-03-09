@@ -52,10 +52,6 @@
   padding: 3rem 0;
 }
 
-.split-hero__tags {
-  margin-bottom: var(--spacing);
-}
-
 .split-hero__pretitle {
   display: block;
   margin-bottom: var(--spacing);
@@ -118,6 +114,10 @@
     }
   }
 
+  .split-hero__text {
+    max-width: 25rem;
+  }
+
   .split-hero__banner {
     padding: 1rem 1.5rem;
   }
@@ -152,22 +152,6 @@
     &--right {
       .split-hero__main {
         grid-column: 9 / -3;
-      }
-    }
-  }
-}
-
-@media (min-width: 120em) {
-  .split-hero {
-    &--left {
-      .split-hero__main {
-        grid-column: 3 / 6;
-      }
-    }
-
-    &--right {
-      .split-hero__main {
-        grid-column: 10 / -3;
       }
     }
   }
