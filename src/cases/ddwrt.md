@@ -8,6 +8,9 @@ tagline: "<p>DD-WRT is a Linux-based firmware for wireless routers. Originally d
 hero:
   image: "/assets/images/work/ddwrt.png"
   imageAlt: "Macbook showing the DDWRT Status Overview page"
+eleventyNavigation:
+  key: DD-WRT
+  parent: Work
 ---
 
 {% from "quote.njk" import quote %}

@@ -8,6 +8,9 @@ tagline: <p>Qonto is a European B2B Neobank for freelancers and SMEs. They provi
 hero:
   image: "/assets/images/work/qonto.jpg"
   imageAlt: "Woman holds a credit card while using the Qonto web application"
+eleventyNavigation:
+  key: Qonto
+  parent: Work
 ---
 
 {% from "quote.njk" import quote %}

@@ -9,6 +9,9 @@ tagline: "<p>Trainline is Europe's leading independent rail and coach platform. 
 hero:
   image: "/assets/images/photos/trainline-comp.jpg"
   imageAlt: "User looking at the Trainline app"
+eleventyNavigation:
+  key: Trainline
+  parent: Work
 ---
 
 {% from "quote.njk" import quote %}

@@ -12,7 +12,7 @@ list: An array where each item is the slug for the case study.
     {% if heading %}
       <h2 class="client-list__heading layout__full">{{ heading }}</h2>
     {% endif %}
-    <div class="client-list__mobile">
+    <div class="client-list--mobile">
       {% set limit = 6 %}
       {% for clientHandle in clients -%}
         {% if loop.first %}
@@ -31,7 +31,7 @@ list: An array where each item is the slug for the case study.
         {% endif %}
       {% endfor %}
     </div>
-    <div class="client-list__desktop layout__full">
+    <div class="client-list--desktop layout__full">
       <div class="splide">
         <div class="splide__track">
           <div class="splide__list">

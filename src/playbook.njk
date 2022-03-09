@@ -3,16 +3,23 @@ layout: base
 title: Our Playbook
 description: Our playbook describes methodologies for building sustainable digital products and provides guidance for teams of all sizes, on-site or remote.
 permalink: /playbook/
+eleventyNavigation:
+  key: Playbook
+  parent: Resources
+  order: 20
 ---
 {% from "color-hero.njk" import colorHero %}
+{% from "box-list.njk" import boxList %}
 {% from "column-list.njk" import columnList %}
-{% from "logo-list.njk" import logoList %}
 {% from "split-hero.njk" import splitHero %}
 {% from "split-list.njk" import splitList %}
-{% from "split-quote.njk" import splitQuote %}
+{% from "image-with-text.njk" import imageWithText %}
+{% from "quote.njk" import quote %}
 
 {% set 'content' = {
+  "pretitle": "Our playbook",
   "title": "Build <em>lasting</em> products, systematically",
+  "titleHeadingLevel": "h1",
   "text": "Our playbook describes methodologies for building sustainable digital products and running an effective, collaborative product development process. It is based on our experiences working on projects with international clients in various industries for many years.",
   "linkText": "Download our playbook",
   "linkUrl": "#download",
@@ -20,7 +27,7 @@ permalink: /playbook/
   "alt": "Alt text",
   "loading": "eager"
 } %}
-{{ splitHero('left', 'aqua', content) }}
+{{ splitHero('left', 'yellow', content) }}
 
 {% set list = [
   "Collaborating closely among all stakeholders",
@@ -36,22 +43,15 @@ permalink: /playbook/
   "linkText": "Download the book",
   "list": list
 } %}
-{{ splitList('blue', content) }}
+{{ splitList('purple', content) }}
 
-<h2 class="section container container--lg">Organization of this book</h2>
-{{ columnList(playbook.organization, '', 'column-list--services') }}
+{{ boxList(playbook.organization, 'Structure of this book') }}
 
-{% set 'content' = {
-  "text": "We started working with simplabs to build a state-of-the-art mobile web app from the ground up and it was an absolute success! Not only are they web specialists, but their expertise in development practices and agile processes made our collaboration an absolute delight.",
-  "source": "Carl Andersson, General Manager of Trainline international",
-  "image": "/assets/images/photos/collaboration.jpg",
-  "alt": "Alt text",
-  "loading": "lazy"
-} %}
-{{- splitQuote('right', 'purple', content) -}}
+{% set text = "We started working with simplabs to build a state-of-the-art mobile web app from the ground up and it was an absolute success! Not only are they web specialists, but their expertise in development practices and agile processes made our collaboration an absolute delight." %}
+{% set source = "Carl Andersson, General Manager of Trainline international" %}
+{{ quote('aqua', text, source) }}
 
-<h2 class="section container container--lg">From the book</h2>
-{{ columnList(playbook.from, '', 'column-list--services column-list--hide-numbers') }}
+{{ columnList(playbook.from, 'Structure of this book') }}
 
 {% set 'content' = {
   "title": "Increase focus and stability in your products now",
@@ -63,16 +63,13 @@ permalink: /playbook/
 } %}
 {{ splitHero('left', 'blue', content) }}
 
-{% set 'content' = {
+{% set 'contentBlocks' = [{
   "title": "About Mainmatter",
   "text": "It takes brains to develop a no-brainer. At mainmatter, we teach, cross-pollinate, and collaborate with our clients to develop digital products and practices they can build on. We don’t care for trends or theory if the results are impractical, so we strive for effective and pragmatic solutions for complex problems. Through guidance and knowledge transfer, we take a long-term view, rather than chasing a short-term high, enabling our clients to shape the future of their digital products.",
   "image": "/assets/images/photos/0040.jpg",
   "alt": "Alt text",
   "loading": "lazy"
-} %}
-{{ splitHero('right', 'aqua', content) }}
+}] %}
+{{ imageWithText('right', 'aqua', 'bottom', contentBlocks) }}
 
-{% set logoCompanies = ['Qonto', 'Trainline', 'Timify', 'Cardstack', 'Generali', 'Experteer'] %}
-{{ logoList(logoCompanies) }}
-
-{% include 'content/hero-grow-with-us.njk' %}
+{% include 'content/hero-work-with-us.njk' %}

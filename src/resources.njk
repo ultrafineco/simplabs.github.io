@@ -9,11 +9,16 @@ eleventyNavigation:
 ---
 {% from "split-hero.njk" import splitHero %}
 {% from "video-card.njk" import videoCard %}
+{% from "video-list-expand.njk" import videoListExpand %}
+{% from "video-list-overflow.njk" import videoListOverflow %}
 {% from "workshop-card.njk" import workshopCard %}
 {% from "color-hero.njk" import colorHero %}
+{% from "image-with-text.njk" import imageWithText %}
 
 {% set 'content' = {
+  "pretitle": "Resources",
   "title": "Tap into <em>practical</em> insight from industry experts",
+  "titleHeadingLevel": "h1",
   "text": "Your team can tap into its full potential by sourcing best practices from leaders in the industry. Mainmatter's experts would love to accelerate your growth by sharing their hard-won insights into sustainable development.",
   "image": "/assets/images/photos/0005.jpg",
   "alt": "Woman looking at a laptop",
@@ -21,24 +26,19 @@ eleventyNavigation:
 } %}
 {{ splitHero('left', 'yellow', content) }}
 
-<section class="section">
-  <div class="container container--lg">
-    <div class="section__introduction container--xs">
-      <h2 class="section__title">This is what success looks like</h2>
-      <p>Our interview series goes behind the scenes to uncover the path to successful product development from an insider's perspective.</p>
-    </div>
-  </div>
-  <ul class="video-cards video-cards--overflow">
-    {% set videos = collections.videos | filterByAttribute('kind', 'built-to-last') %}
-    {%- for video in videos -%}
-      {%- if video.data.kind == 'built-to-last' -%}
-        <li class="video-card__flow-item">
-          {{ videoCard(video) }}
-        </li>
-      {%- endif -%}
-    {%- endfor -%}
-  </ul>
-</section>
+{% set 'contentBlocks' = [{
+  "title": "This is what success looks like",
+  "text": "Our interview series goes behind the scenes to uncover the path to successful product development from an insider's perspective.",
+  "video": "/assets/images/resources/header-video.mp4",
+  "image": "/assets/images/resources/header-video.poster.jpg",
+  "loading": "lazy"
+}] %}
+{{ imageWithText('left', 'yellow', 'top', contentBlocks) }}
+
+{% set videos = collections.videos | filterByAttribute('kind', 'built-to-last') %}
+
+{{ videoListExpand(videos, 'video-list--mobile', 3) }}
+{{ videoListOverflow(videos, 'video-list--desktop') }}
 
 {% set talk = '2020-12-10-the-three-pillars-of-successful-digital-product-development' | findBySlug %}
 {% set 'content' = {
@@ -53,18 +53,23 @@ eleventyNavigation:
 } %}
 {{ splitHero('left', 'blue', content) }}
 
-<section class="section container container--lg">
-  <div class="section__introduction container--xs">
-    <h2 class="section__title">Workshops</h2>
-    <p>We teach teams like yours how to build sustainable products that work well today and keep working well tomorrow.</p>
-  </div>
+{% set 'contentBlocks' = [{
+  "title": "Workshops",
+  "text": "We teach teams like yours how to build sustainable products that work well today and keep working well tomorrow.",
+  "image": "/assets/images/photos/0011.jpg",
+  "alt": "",
+  "loading": "lazy"
+}] %}
+{{ imageWithText('right', 'aqua', 'top', contentBlocks) }}
+
+<div class="layout">
   <ul class="workshop-cards">
     {% set workshops = collections.workshops %}
     {%- for workshop in workshops -%}
       {{ workshopCard(workshop) }}
     {%- endfor -%}
   </ul>
-</section>
+</div>
 
 {% set 'content' = {
   "title": "The sustainable approach for your team",
@@ -75,4 +80,4 @@ eleventyNavigation:
   "alt": "Hands gesturing in front of a smart phone",
   "loading": "lazy"
 } %}
-{{ colorHero('center', 'aqua', content) }}
+{{ colorHero('md', 'purple', content) }}

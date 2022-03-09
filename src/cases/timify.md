@@ -7,6 +7,9 @@ tagline: "<p>Timify is a cloud-based appointment booking system that serves over
 hero:
   image: "/assets/images/work/timify-right.jpg"
   imageAlt: "Macbook showing a Timify schedule"
+eleventyNavigation:
+  key: Timify
+  parent: Work
 ---
 
 {% from "quote.njk" import quote %}

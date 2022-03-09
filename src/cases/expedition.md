@@ -8,6 +8,9 @@ tagline: "<p>Expedition is an online travel magazine for global citizens who wan
 hero:
   image: "/assets/images/work/expedition.jpg"
   imageAlt: "Expedition homepage viewed on an iPad"
+eleventyNavigation:
+  key: Expedition
+  parent: Work
 ---
 
 {% from "quote.njk" import quote %}

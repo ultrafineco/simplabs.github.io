@@ -1,0 +1,43 @@
+{#
+A list of items displayed in columns on desktop
+
+Configuration Options:
+list: A list where each item is an object with:
+  heading: String heading
+  text: Text heading
+  icon: String which represents a filename of an icon listed in svg/*.njk
+heading: Optional string heading
+class: Optional classname
+
+Example usage:
+{{ boxList(principles.list, 'Our principles') }}
+#}
+
+{%- macro boxList(list, heading) -%}
+  <section class="box-list" data-color-scheme="blue">
+    <div class="layout">
+      {% if heading %}
+        <h2 class="layout__full box-list__heading h2">{{ heading }}</h2>
+      {% endif %}
+    </div>
+    <div class="layout">
+      {% for item in list -%}
+        <div class="box-list__item layout">
+          <div class="box-list__item-container">
+            {%- if item.icon -%}
+              {%- set iconPath = ['svg/', item.icon,'.njk'] | join -%}
+              <span class="box-list__icon">
+                {%- include iconPath -%}
+              </span>
+            {%- endif -%}
+            <h3 class="box-list__item-heading h3">{{ item.heading }}</h3>
+            <p class="box-list__text">{{ item.text }}</p>
+            {% if item.linkText %}
+              {{ ctaLink(item.linkUrl, item.linkText, 'box-list__link') }}
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{%- endmacro -%}

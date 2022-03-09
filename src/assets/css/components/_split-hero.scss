@@ -141,6 +141,8 @@
 
 @media (min-width: 100em) {
   .split-hero {
+    min-height: 30rem;
+
     &--left {
       .split-hero__main {
         grid-column: 3 / 7;

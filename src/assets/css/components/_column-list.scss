@@ -6,6 +6,7 @@
 .column-list__list {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .column-list__heading {
@@ -17,13 +18,10 @@
   flex-direction: column;
   margin-top: 2rem;
   border-bottom: rem-calc(1) solid currentColor;
+  margin-bottom: -0.625rem;
 
   &:first-child {
     margin-top: 0;
-  }
-
-  &:last-child {
-    border-bottom: 0;
   }
 }
 
@@ -79,9 +77,5 @@
 
   .column-list__item {
     margin-top: 0;
-
-    &:nth-child(n + 4) {
-      border-bottom: 0;
-    }
   }
 }

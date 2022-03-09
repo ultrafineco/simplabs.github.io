@@ -7,6 +7,7 @@ barColor: String for one of the key brand colors.
 barPosition: 'top' or 'bottom'. Bar position on desktop for first block, the others will alternate.
 contentBlocks: An array of content blocks. Each content block with the following options:
   title: String or markup for heading. Text wrapped in <em> will have the text animation applied.
+  titleHeadingLevel: heading level, defaults to h2
   text: String or markup for body text
   linkUrl: Optional link destination
   linkText: Optional link text
@@ -44,10 +45,21 @@ Example usage:
   {%- endif -%}
   <section class="image-text image-text--bar-{{ barPosition }}">
     {% for content in contentBlocks %}
+      {%- if content.titleHeadingLevel -%}
+        {%- set headingLevel = content.titleHeadingLevel -%}
+      {%- else -%}
+        {%- set headingLevel = 'h2' -%}
+      {%- endif -%}
       <div class="layout image-text__container image-text__container--{% if loop.index % 2 === 0 %}{{ altTextPosition }}{% else %}{{ textPosition }}{% endif %}">
-        <div class="image-text__image-wrapper {% if content.small %}image-text__image-wrapper--small{% endif %}">
-          {%- if content.image -%}
-            <div data-image-animation="{{ animationSpeed }}">
+        <div class="image-text__image-wrapper">
+          {% if content.video %}
+            <div class="image-text__video-wrapper">
+              <video playsinline="" autoplay="" muted="" preload="" loop="" poster="{{ content.image }}" width="1280" height="496" class="image-text__video">
+                <source src="{{ content.video }}" type="video/mp4">
+              </video>
+            </div>
+          {%- elif content.image -%}
+            <div>
               {%- image content.image, content.alt, '(min-width: 64em) 42rem, (min-width:48em) 50%, 100vw', content.loading, 'image-text__image', [580, 768] -%}
             </div>
           {%- endif -%}
@@ -57,7 +69,9 @@ Example usage:
         </div>
         <div class="image-text__main">
           {% if content.title %}
-            <h2 class="image-text__title">{{ content.title | safe }}</h2>
+            <{{ headingLevel }} class="image-text__title">
+              {{ content.title | safe }}
+            </{{ headingLevel }}>
           {% endif %}
           {% if content.text %}
             <div class="image-text__text">{{ content.text | safe }}</div>

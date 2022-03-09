@@ -6,20 +6,27 @@ permalink: /resources/workshops/
 eleventyNavigation:
   key: Workshops
   parent: Resources
+  order: 40
 ---
 {% from "workshop-card.njk" import workshopCard %}
+{% from "image-with-text.njk" import imageWithText %}
 
-<section class="section container container--lg">
-  <div class="section__introduction container--xs">
-    <h2 class="section__title">Workshops</h2>
-    <p>We teach teams like yours how to build sustainable products that work well today and keep working well tomorrow.</p>
-  </div>
+{% set 'contentBlocks' = [{
+  "title": "Workshops",
+  "text": "We teach teams like yours how to build sustainable products that work well today and keep working well tomorrow.",
+  "image": "/assets/images/photos/0011.jpg",
+  "alt": "",
+  "loading": "lazy"
+}] %}
+{{ imageWithText('left', 'aqua', 'top', contentBlocks) }}
+
+<div class="layout">
   <ul class="workshop-cards">
     {% set workshops = collections.workshops %}
     {%- for workshop in workshops -%}
       {{ workshopCard(workshop) }}
     {%- endfor -%}
   </ul>
-</section>
+</div>
 
 {% include 'content/hero-playbook.njk' %}

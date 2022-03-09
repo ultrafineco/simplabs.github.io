@@ -18,6 +18,21 @@
   z-index: 1;
 }
 
+.image-text__video-wrapper {
+  position: relative;
+  padding-top: 75%;
+  overflow: hidden;
+}
+
+.image-text__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .image-text__bar-position {
   position: absolute;
   left: 0;

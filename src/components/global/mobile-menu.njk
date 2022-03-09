@@ -6,7 +6,7 @@
           {{ entry.title }}
           {% include 'svg/arrow.njk' %}
         </a>
-        {% if entry.children.length > 0 %}
+        {% if entry.children.length > 0 and entry.hideDropdown != true %}
           <ul class="mobile-menu__submenu">
             {% for childEntry in entry.children %}
               <li class="mobile-menu__submenu-item">

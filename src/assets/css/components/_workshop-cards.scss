@@ -1,18 +1,22 @@
 .workshop-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14.25rem, 1fr));
-  gap: rem-calc(26);
-  margin: 0;
+  gap: 1.5rem;
+  grid-column: 1 / -1;
+  margin: 0 0 var(--section-spacing);
   padding: 0;
   list-style: none;
 }
 
 .workshop-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  border: rem-calc(1) solid var(--color-light-gray);
+  align-self: start;
+  padding: 1.5rem 0 2rem;
+  box-shadow: var(--box-shadow);
+  border-top: 0.875rem solid var(--color-blue);
+}
+
+.workshop-card__container {
+  grid-column: 2 / -2;
 }
 
 .workshop-card__link {
@@ -26,10 +30,26 @@
   outline-offset: 0.25rem;
 
   &:hover {
-    & ~ .workshop-card__cta:before {
+    & ~ .workshop-card__container .workshop-card__cta:before {
       transform: scaleX(1);
     }
   }
+}
+
+.workshop-card__meta {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-gray);
+}
+
+.workshop-card__meta-text {
+  &--duration {
+    font-weight: 600;
+  }
+}
+
+.workshop-card__title {
+  margin-bottom: 1rem;
 }
 
 .workshop-card__lead-image-wrapper {
@@ -41,40 +61,38 @@
 
 .workshop-card__lead-image {
   display: inline-block;
-  margin-right: 0.5rem;
   font-size: 0;
-  width: 5.438rem;
+  width: 2.5rem;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.workshop-card__title {
-  margin-top: 0.5rem;
-}
-
 .workshop-card__lead-text {
   margin-top: 0.5rem;
-  font-size: rem-calc(13);
-}
-
-.workshop-card__meta {
-  display: flex;
-  margin: 0.5rem 0;
-  padding: 0.5rem 0;
-  gap: 2rem;
-  border-top: 0.125rem solid currentColor;
-  border-bottom: 0.125rem solid currentColor;
-  font-weight: 600;
-  font-size: rem-calc(13);
+  font-size: 0.875rem;
+  color: var(--color-gray);
 }
 
 .workshop-card__description {
-  margin: 0.5rem 0;
-  font-size: rem-calc(13);
+  margin: 1rem 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
 }
 
 .workshop-card__cta {
-  align-self: flex-start;
   margin-top: auto;
+}
+
+@media (min-width: 48em) {
+  .workshop-cards {
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    grid-column: var(--grid-span-full);
+  }
+
+  .workshop-card {
+    display: block;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }

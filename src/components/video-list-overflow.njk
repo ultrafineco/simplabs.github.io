@@ -1,0 +1,14 @@
+
+{% from "video-card.njk" import videoCard %}
+
+{%- macro videoListOverflow(videos, class) -%}
+  <div class="video-list {{ class }} layout">
+    <ul class="video-list__overflow">
+      {% for video in videos -%}
+        <li class="video-list__overflow-item">
+            {{ videoCard(video) }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{%- endmacro -%}
