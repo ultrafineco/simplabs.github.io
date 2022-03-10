@@ -59,12 +59,12 @@ module.exports = function (value, outputPath) {
     const articleEmbeds = [...document.querySelectorAll("main article iframe")];
     if (articleEmbeds.length) {
       articleEmbeds.forEach((embed) => {
+        const src = embed.getAttribute("src");
         const container = document.createElement("div");
-        const wrapper = document.createElement("div");
         container.classList.add("iframe-container");
-        wrapper.classList.add("iframe-wrapper");
+        container.setAttribute("data-src", src);
         embed.setAttribute("loading", "lazy");
-        container.appendChild(wrapper).appendChild(embed.cloneNode(true));
+        container.appendChild(embed.cloneNode(true));
         embed.replaceWith(container);
       });
     }
@@ -109,7 +109,7 @@ module.exports = function (value, outputPath) {
         }
 
         if (!sizes) {
-          sizes = [775, 1200, 1600];
+          sizes = [800, 1200, 1600];
         }
 
         if (imageData.kind === "full") {
@@ -146,7 +146,7 @@ module.exports = function (value, outputPath) {
 
         let imageAttributes = {
           alt,
-          sizes: "@media (min-width: 62em) 48.438rem, 90vw",
+          sizes: "@media (min-width: 62em) 50rem, 90vw",
           loading: "lazy",
           decoding: "async",
         };

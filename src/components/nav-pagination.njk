@@ -1,13 +1,9 @@
 {#
-Previous / next pagination
+Previous / next pagination for within listing pages
 
 Configuration Options:
 previous: page object of the next page, or null.
 next: see above
-
-Example usage:
-{% set logoCompanies = ['Qonto', 'Trainline', 'Timify', 'Cardstack', 'Generali', 'Experteer'] %}
-{{ logoList(logoCompanies) }}
 #}
 
 {%- macro navPagination(previous, next) -%}

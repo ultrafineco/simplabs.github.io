@@ -1,63 +1,58 @@
 ---
 layout: base
+noStickyHeader: true
 ---
-{% from "author-link.njk" import authorLink %}
+{% from "post-pagination.njk" import postPagination %}
 
 {%- block content -%}
-  <div class="container container--lg post">
-    <a href="/blog/" class="post__back text--accent">
-      <span class="post__back-arrow">{% include 'svg/arrow.njk' %}</span>
-      <span class="post__back-text">Back</span>
-    </a>
-    <article class="post__content rte">
-      <div class="post__meta">
-        {% if tags %}
-          <div class="post__tags">
-            <ul class="tags">
-              {% for tag in tags %}
-                <li class="tags__tag-item">
-                  <a class="tags__tag tags__tag--link" href="/blog/tag/{{ tag | slug }}">{{ tag }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        {% endif %}
-        <div class="post__date">
-          {{ date | monthDayYear }}
-        </div>
+  <div class="post">
+    <article class="post__layout layout rte">
+      <div class="post__tags">
+        <ul class="tags">
+          {% for tag in tags %}
+            <li class="tags__tag-item">
+              <a class="tags__tag tags__tag--link" href="/blog/tag/{{ tag | slug }}">#{{ tag }}</a>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
-      <h1 class="post__title">{{ title }}</h1>
-      <div class="post__author-wrapper">
-        {{ authorLink(authorHandle, bio, 'author--post') }}
+      <div class="post__date">
+        {{ date | monthDayYear }}
       </div>
+      <h1 class="post__title"> {{ title }}</h1>
       <div class="post__tagline">
         {{ tagline | safe }}
       </div>
+      <div class="author author--post">
+        {% set author = authorHandle | findBySlug %}
+        <div class="author__image-wrapper">
+          {% set imageUrl = '/assets/images/authors/' + author.data.page.fileSlug + '.jpg' %}
+          {% image imageUrl, '', '2.5rem', 'eager', 'author__image', [40, 80] %}
+        </div>
+        <div class="author__text-wrapper">
+          <div class="author__byline">
+            by
+            <a class="author__name" href="/blog/author/{{ author.data.page.fileSlug }}">
+              {{ author.data.name }}
+            </a>
+          </div>
+          <p class="author__bio">
+            {% if bio %}{{ bio }}{% else %}{{ author.data.bio }}{% endif %}
+            <a class="author__twitter" href="https://twitter.com/{{ author.data.twitter }}/">
+              {% include 'svg/social-twitter.njk' %}
+              <span class="screenreader">@{{ author.data.twitter }} on Twitter</span>
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="post__separator"></div>
       {{ content | safe }}
     </article>
-    <nav aria-label="Post Pagination" class="prev-next">
+
+    <div class="layout">
       {% set previous = collections.posts | getPreviousCollectionItem(page) %}
       {% set next = collections.posts | getNextCollectionItem(page) %}
-      {% if previous %}
-        <a class="prev-next__link prev-next__link--prev" href="{{ previous.url }}">
-          <p class="prev-next__label text--accent">
-            <span class="prev-next__arrow">{% include 'svg/arrow.njk' %}</span>
-            Previous
-            <span class="prev-next__label-optional">Post</span>
-          </p>
-          <p class="prev-next__title">{{ previous.data.title }}</p>
-        </a>
-      {% endif %}
-      {% if next %}
-        <a class="prev-next__link prev-next__link--next" href="{{ next.url }}">
-          <p class="prev-next__label text--accent">
-            Next
-            <span class="prev-next__label-optional">Post</span>
-            <span class="prev-next__arrow">{% include 'svg/arrow.njk' %}</span>
-          </p>
-          <p class="prev-next__title">{{ next.data.title }}</p>
-        </a>
-      {% endif %}
-    </nav>
+      {{ postPagination(previous, next, 'post') }}
+    </div>
   </div>
 {%- endblock -%}
