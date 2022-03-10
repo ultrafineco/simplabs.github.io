@@ -1,6 +1,7 @@
 ---
 layout: base
 title: Product & Engineering Blog
+noStickyHeader: true
 description: 'The latest insights on product strategy, design and development. Read in-depth articles on the web technologies we master: Ember.js, Elixir/Phoenix, and JavaScript.'
 pagination:
   data: collections.posts
@@ -13,58 +14,40 @@ eleventyNavigation:
 ---
 {% from "featured-post.njk" import featuredPost %}
 {% from "post-card.njk" import postCard %}
+{% from "nav-pagination.njk" import navPagination %}
 
-{% if pagination.pageNumber === 0 %}
-  {%- for post in posts -%}
-    {% if loop.index === 1 %}
-      {{ featuredPost('left', 'blue', post) }}
-    {% elif loop.index === 6 %}
-      {{ featuredPost('right', 'aqua', post) }}
-    {% elif loop.index === 2 or loop.index === 7 %}
-      <ol class="post-cards section container container--lg">
-        <li class="post-cards__item">
-          {{ postCard(post) }}
-        </li>
-    {% elif loop.index === 5 or loop.index === 12 %}
-        <li class="post-cards__item">
-          {{ postCard(post) }}
-        </li>
-      </ol>
-    {% else %}
-      <li class="post-cards__item">
-        {{ postCard(post) }}
-      </li>
-    {% endif %}
-  {%- endfor -%}
-{% else %}
-  <ol class="post-cards section container container--lg">
+<div class="layout">
+  {% if pagination.pageNumber === 0 %}
     {%- for post in posts -%}
-      <li class="post-cards__item">
-        {{ postCard(post) }}
-      </li>
-    {%- endfor -%}
-  </ol>
-{% endif %}
-<nav class="container container--lg" aria-label="Pagination">
-  <ol class="pagination">
-    {%- for pageUrl in pagination.hrefs %}
-      {%- set isCurrentPage = pagination.pageNumber == loop.index0 -%}
-      {%- if isCurrentPage
-      or loop.first
-      or loop.last
-      or pagination.pageNumber in [loop.index0-1, loop.index0+1] -%}
-        {%- if loop.last and pagination.pageNumber < (loop.length - 3) -%}
-          <li class="pagination__item" role="presentation">...</li>
-        {%- endif -%}
-        <li class="pagination__item">
-          <a class="pagination__link" href="{{ pageUrl }}" {% if isCurrentPage %}aria-current="page"{% endif %}>
-            <span class="screenreader">Page </span> {{ loop.index }}
-          </a>
+      {% if loop.index === 1 %}
+        {{ featuredPost('left', 'blue', post) }}
+      {% elif loop.index === 6 %}
+        {{ featuredPost('right', 'purple', post) }}
+      {% elif loop.index === 2 or loop.index === 7 %}
+        <ol class="post-cards">
+          <li class="post-cards__item">
+            {{ postCard(post) }}
+          </li>
+      {% elif loop.index === 5 or loop.index === 12 %}
+          <li class="post-cards__item">
+            {{ postCard(post) }}
+          </li>
+        </ol>
+      {% else %}
+        <li class="post-cards__item">
+          {{ postCard(post) }}
         </li>
-        {%- if loop.first and pagination.pageNumber > 2 -%}
-          <li class="pagination__item" role="presentation">...</li>
-        {%- endif -%}
-      {%- endif -%}
-    {%- endfor %}
-  </ol>
-</nav>
+      {% endif %}
+    {%- endfor -%}
+  {% else %}
+    <ol class="post-cards">
+      {%- for post in posts -%}
+        <li class="post-cards__item">
+          {{ postCard(post) }}
+        </li>
+      {%- endfor -%}
+    </ol>
+  {% endif %}
+</div>
+
+{{ navPagination(pagination.href.previous, pagination.href.next) }}

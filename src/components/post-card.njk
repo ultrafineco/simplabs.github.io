@@ -6,41 +6,40 @@ post: A post object
 
 {{ postCard(post) }}
 #}
+
+{% from "author-link.njk" import authorLink %}
+
 {%- macro postCard(post) -%}
-  <div class="post-card">
-    <a href="{{ post.url}}" class="post-card__link">
-      <h2 class="screenreader">{{ post.data.title }}</h2>
-    </a>
-    {% if post.data.tags %}
-      <div class="post-card__tags">
-        <ul class="tags">
-          {% for tag in post.data.tags %}
-            <li class="tags__tag-item">
-              <a class="post-card__internal-link tags__tag tags__tag--link" href="/blog/tag/{{ tag | slug }}">{{ tag }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
-    <p class="post-card__title h3" aria-hidden="true">
-      {{ post.data.title }}
-    </p>
-    <div class="byline">
-      {% if post.data.authorHandle %}
-        {% set author =  post.data.authorHandle | findBySlug %}
-        by&nbsp;<a class="post-card__internal-link byline__author" href="/blog/author/{{ author.data.page.fileSlug }}/">
-          {{ author.data.name }}
-        </a>
+  <div class="post-card layout">
+    <div class="post-card__container">
+      <a href="{{ post.url}}" class="post-card__link">
+        <h2 class="screenreader">{{ post.data.title }}</h2>
       </a>
-      <div class="byline__date">{{ post.date | monthDayYear }}</div>
-      {% endif %}
+      <div class="post-card__meta">
+        {% if post.data.tags %}
+          <div class="post-card__tags">
+            <ul class="tags">
+              {% for tag in post.data.tags %}
+                <li class="tags__tag-item">
+                  <a class="post-card__internal-link text--accent text--xs" href="/blog/tag/{{ tag | slug }}">#{{ tag }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+        <div class="post-card__date">{{ post.date | monthDayYear }}</div>
+      </div>
+      <p class="post-card__title h3" aria-hidden="true">
+        {{ post.data.title }}
+      </p>
+      <div class="post-card__author">
+        {% if post.data.authorHandle %}
+          {{ authorLink(post.data.authorHandle) }}
+        {% endif %}
+      </div>
+      <p class="post-card__description">
+        {{ post.data.tagline | formatTagline }}
+      </p>
     </div>
-    <p class="post-card__description">
-      {{ post.data.tagline | formatTagline }}
-    </p>
-    <span class="post-card__cta cta-link text--accent" aria-hidden="true">
-      <span class="cta-link__text">Find out more</span>
-      <span class="cta-link__arrow">{% include 'svg/arrow.njk' %}</span>
-    </span>
   </div>
 {%- endmacro -%}

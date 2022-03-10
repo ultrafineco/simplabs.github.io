@@ -1,5 +1,6 @@
 .split-hero {
   --spacing: 1rem;
+  grid-column: 1 / -1;
   background-color: var(--color-background);
   color: var(--color-text);
 
@@ -55,6 +56,11 @@
 .split-hero__pretitle {
   display: block;
   margin-bottom: var(--spacing);
+
+  &--post {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .split-hero__title {
@@ -62,8 +68,12 @@
   margin-bottom: var(--spacing);
 }
 
-.split-hero__byline {
-  color: var(--color-tag);
+.split-hero__author {
+  margin: 1rem 0;
+
+  .author__name {
+    color: currentColor;
+  }
 }
 
 .split-hero__link {

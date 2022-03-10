@@ -1,0 +1,42 @@
+{#
+Previous / next pagination
+
+Configuration Options:
+previous: page object of the next page, or null.
+next: see above
+
+Example usage:
+{% set logoCompanies = ['Qonto', 'Trainline', 'Timify', 'Cardstack', 'Generali', 'Experteer'] %}
+{{ logoList(logoCompanies) }}
+#}
+
+{%- macro navPagination(previous, next) -%}
+  {% if previous or next %}
+    <nav class="pagination layout" aria-label="Pagination">
+      <div class="pagination__container layout__full">
+        {% if previous %}
+          <a class="pagination__link pagination__previous text--accent text--xs" href="{{ previous }}">
+            {% include 'svg/arrow-right.njk' %}
+            Previous
+          </a>
+        {% else %}
+          <span class="pagination__link pagination__previous text--accent text--xs" aria-hidden="true">
+            {% include 'svg/arrow-right.njk' %}
+            Previous
+          </span>
+        {% endif %}
+        {% if next %}
+          <a class="pagination__link pagination__next text--accent text--xs" href="{{ next }}">
+            Next
+            {% include 'svg/arrow-right.njk' %}
+          </a>
+        {% else %}
+          <span class="pagination__link pagination__next text--accent text--xs" aria-hidden="true">
+            Next
+            {% include 'svg/arrow-right.njk' %}
+          </span>
+        {% endif %}
+      </div>
+    </nav>
+  {% endif %}
+{%- endmacro -%}

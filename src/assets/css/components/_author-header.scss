@@ -1,0 +1,52 @@
+.author-header__image-wrapper {
+  margin-bottom: 1.25rem;
+  width: rem-calc(106);
+  height: rem-calc(106);
+}
+
+.author-header__image {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-header__name {
+  margin-bottom: 0.25rem;
+}
+
+.author-header__bio {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.author-header__meta {
+  margin-top: 0.75rem;
+}
+
+.author-header__twitter {
+  display: inline-block;
+  width: 1.25rem;
+  color: var(--color-blue);
+  text-decoration: none;
+}
+
+.author-header__count {
+  margin-left: 0.625rem;
+  color: var(--color-gray);
+  font-size: 0.875rem;
+}
+
+.author-header__meta {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 48em) {
+  .author-header {
+    display: flex;
+  }
+
+  .author-header__image-wrapper {
+    margin-right: 2rem;
+  }
+}

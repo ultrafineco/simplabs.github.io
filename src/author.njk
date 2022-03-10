@@ -2,6 +2,7 @@
 layout: base
 renderData:
   title: All posts by {{ paged.author.data.name }}
+noStickyHeader: true
 description: 'The latest insights on product strategy, design and development. Read in-depth articles on the web technologies we master: Ember.js, Elixir/Phoenix, and JavaScript.'
 pagination:
   data: collections.authorsPostsPaged
@@ -9,61 +10,46 @@ pagination:
   alias: paged
 permalink: "/blog/author/{{ paged.author.fileSlug }}/{% if paged.number > 1 %}/page/{{ paged.number }}/{% endif %}"
 ---
-{% from "author-link.njk" import authorLink %}
 {% from "post-card.njk" import postCard %}
+{% from "nav-pagination.njk" import navPagination %}
 
-<div class="section container container--lg">
-  <h1 class="section__title ">All posts by {{ paged.author.data.name }}</h1>
-
-  {{ authorLink(paged.author.fileSlug) }}
-
-  <ol class="post-cards">
-    {%- for post in paged.posts -%}
-      <li class="post-cards__item">
-        {{ postCard(post) }}
-      </li>
-    {%- endfor -%}
-  </ol>
-
-  <nav class="" aria-label="Pagination">
-    <ol class="pagination pagination--margin ">
-      {%- for i in range(1, paged.total) %}
-        {%- set isCurrentPage = i === paged.number -%}
-        {%- set pageNumber = paged.number - 1 -%}
-        {%- if isCurrentPage
-        or loop.first
-        or loop.last
-        or pageNumber in [loop.index0-1, loop.index0+1] -%}
-          {%- if loop.last and pageNumber < (loop.length - 3) -%}
-            <li class="pagination__item" role="presentation">...</li>
-          {%- endif -%}
-          <li class="pagination__item">
-            <a class="pagination__link" href="/blog/author/{{ paged.author.fileSlug }}/{% if i > 1 %}/page/{{ i }}/{% endif %}" {% if isCurrentPage %}aria-current="page"{% endif %}>
-              <span class="screenreader">Page </span> {{ i }}
+<div class="section">
+  <div class="layout">
+    <header class="layout__full author-header">
+      {% set author = paged.author.fileSlug | findBySlug %}
+      <div class="author-header__image-wrapper">
+        {% set imageUrl = '/assets/images/authors/' + paged.author.fileSlug + '.jpg' %}
+        {% image imageUrl, '', '6.625rem', 'eager', 'author-header__image', [106, 212] %}
+      </div>
+      <div class="author-header__text-wrapper">
+        <h1 class="author-header__name h2">{{ author.data.name }}</h1>
+        <p class="author-header__bio">{{ author.data.bio }}</p>
+        <div class="author-header__meta">
+          {% if author.data.twitter %}
+            <a class="author-header__twitter" href="https://twitter.com/{{ author.data.twitter }}/">
+              {% include 'svg/social-twitter.njk' %}
+              <span class="screenreader">@{{ author.data.twitter }} on Twitter</span>
             </a>
-          </li>
-          {%- if loop.first and pageNumber > 2 -%}
-            <li class="pagination__item" role="presentation">...</li>
-          {%- endif -%}
-        {%- endif -%}
-      {%- endfor %}
+          {% endif %}
+          <span class="author-header__count">{{ paged.postTotal }} {% if paged.postTotal === 1 %}post {% else %}posts{% endif %}</span>
+        </div>
+      </div>
+    </header>
+    <ol class="post-cards">
+      {%- for post in paged.posts -%}
+        <li class="post-cards__item">
+          {{ postCard(post) }}
+        </li>
+      {%- endfor -%}
     </ol>
-  </nav>
-</div>
+  </div>
 
-{#
-{% if paged.posts.length > 0 %}
-  <h2 class="post-list__title h1">All posts by {{ paged.author.data.name }}</h2>
-  <ol class="post-list">
-    {%- for post in paged.posts -%}
-      <li class="post-list__item">
-        <a href="{{ post.url }}">
-          {{ post.data.title }}
-        </a>
-      </li>
-    {%- endfor -%}
-  </ol>
-  {% if (paged.first != true) or (paged.last != true) %}
-    Pagination
+  {% if paged.first != true %}
+    {%- set previous -%}/blog/author/{{ paged.author.fileSlug }}/{% if paged.number > 2 %}/page/{{ paged.number }}/{% endif %}{%- endset -%}
   {% endif %}
-{% endif %} #}
+  {% if paged.last != true %}
+    {%- set next -%}/blog/author/{{ paged.author.fileSlug }}/page/{{ paged.number + 1}}/{%- endset -%}
+  {% endif %}
+
+  {{ navPagination(previous, next) }}
+</div>

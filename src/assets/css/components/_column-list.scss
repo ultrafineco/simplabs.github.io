@@ -18,7 +18,7 @@
   flex-direction: column;
   margin-top: 2rem;
   border-bottom: rem-calc(1) solid currentColor;
-  margin-bottom: -0.625rem;
+  margin-bottom: rem-calc(-1);
 
   &:first-child {
     margin-top: 0;

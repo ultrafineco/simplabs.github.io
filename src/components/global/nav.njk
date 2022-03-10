@@ -1,5 +1,5 @@
 {% set navPages = collections.all | eleventyNavigation %}
-<nav class="nav layout" id="nav">
+<nav class="nav layout {% if noStickyHeader %}nav--no-sticky{% endif %}" id="nav">
   <div class="nav__container">
     <div class="nav__main">
       {% set tag = 'a' %}
@@ -19,10 +19,15 @@
                 {% set isActive = true %}
               {% endif %}
             {% endfor %}
+            {% if entry.url === '/blog/' and page.url %}
+              {% if '/blog/' in page.url %}
+                {% set isActive = true %}
+              {% endif %}
+            {% endif %}
             {% if entry.children.length > 0  and entry.hideDropdown != true %}
               <button
                 class="nav__link nav-dropdown__toggle text--accent text--xs {% if isActive %}nav__link--is-active{% endif %}"
-                {% if entry.url == page.url %}aria-current="page"{% endif %}
+                {% if entry.url === page.url %}aria-current="page"{% endif %}
                 data-dropdown-toggle="dropdown-{{ entry.title | slug }}"
                 aria-expanded="false">
                 {{ entry.title }}

@@ -1,15 +1,14 @@
 .section {
-  padding: 4.5rem 0;
+  padding: var(--section-spacing) 0;
 }
 
 .section__introduction {
-  margin-bottom: 2rem;
+  margin-bottom: var(--section-spacing);
 }
 
 .section__title {
-  margin-bottom: 1.5rem;
-}
-
-.section__subtitle {
-  margin: 3rem 0 1.5rem;
+  em {
+    font-style: normal;
+    color: var(--color-blue);
+  }
 }
