@@ -1,11 +1,14 @@
 ---
 layout: base
+noStickyHeader: true
 ---
 {% from "split-hero.njk" import splitHero %}
 
 {%- block content -%}
-  <article class="section container container--md rte rte--small">
-    <h1 class="section__title">{{ title }}</h1>
-    {{ content | safe }}
-  </article>
+  <div class="page layout">
+    <article class="page__content rte rte--small">
+      <h1 class="page__title">{{ title }}</h1>
+      {{ content | safe }}
+    </article>
+  </div>
 {%- endblock -%}

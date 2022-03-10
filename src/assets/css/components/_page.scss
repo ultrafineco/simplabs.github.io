@@ -1,0 +1,30 @@
+.page {
+  padding: var(--section-spacing);
+  background-color: var(--color-yellow);
+}
+
+.page__content {
+  grid-column: 2 / -2;
+}
+
+.page__title {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 48em) {
+  .page__content {
+    grid-column: 3 / -3;
+  }
+}
+
+@media (min-width: 62em) {
+  .page__content {
+    grid-column: 3/-6;
+  }
+}
+
+@media (min-width: 80em) {
+  .page__content {
+    grid-column: 3/-7;
+  }
+}
