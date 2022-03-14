@@ -1,9 +1,15 @@
 .contact-methods__heading {
-  margin-bottom: 0.25rem;
+  margin: 2rem 0 1rem;
 }
 
 .contact-methods__text {
   display: inline-block;
   margin-bottom: 0.5rem;
   color: var(--color-purple);
+}
+
+@media (min-width: 48em) {
+  .contact-methods__heading:first-child {
+    margin-top: 0;
+  }
 }

@@ -1,0 +1,15 @@
+.text-hero {
+  padding: rem-calc(56) 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.text-hero__text {
+  margin-top: 1rem;
+}
+
+@media (min-width: 48em) {
+  .text-hero {
+    padding: rem-calc(74) 0;
+  }
+}

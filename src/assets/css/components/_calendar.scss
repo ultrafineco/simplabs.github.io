@@ -1,0 +1,10 @@
+.calendar__empty {
+  margin: var(--section-spacing) auto;
+  grid-column: 2 / -2;
+  max-width: rem-calc(380);
+  text-align: center;
+}
+
+.calendar__subtitle {
+  margin-bottom: 2.5rem;
+}

@@ -6,14 +6,16 @@ permalink: /ember-consulting/
 ---
 {% from "client-list.njk" import clientList %}
 {% from "color-hero.njk" import colorHero %}
-{% from "column-list.njk" import columnList %}
+{% from "card-list.njk" import cardList %}
 {% from "image-with-text.njk" import imageWithText %}
-{% from "image-with-text-stacked.njk" import imageWithTextStacked %}
 {% from "split-hero.njk" import splitHero %}
-{% from "split-list.njk" import splitList %}
+{% from "post-card.njk" import postCard %}
+{% from "post-list.njk" import postList %}
 
 {% set 'content' = {
+  "pretitle": "Why we love Ember.js",
   "title": "Ember is Our Expertise",
+  "titleHeadingLevel": "h1",
   "text": "<p>Mainmatter has unique expertise and insights into Ember.js—in fact, a good part of our engineering team is on the Ember.js core team and maintains widely adopted add-ons. </p><p>By offering Ember consulting and training, we help clients around the world to get the most out of Ember and build cutting-edge applications. We help scale teams and support clients by reviewing codebases as well as identifying and overcoming impediments.</p>",
   "image": "/assets/images/photos/marco.jpg",
   "alt": "Marco speaking at Emberfest",
@@ -21,27 +23,27 @@ permalink: /ember-consulting/
 } %}
 {{ splitHero('left', 'blue', content) }}
 
-{% set 'content' = {
+{% set 'contentBlocks' = [{
   "title": "We love open source",
   "text": "Besides contributing to Ember.js via our core team engagements, we maintain a number of projects in the ecosystem that are widely adopted throughout the Ember community.",
   "image": "/assets/images/photos/ember-simple-auth.jpg",
   "alt": "Laptop displaying some Ember Simple Auth source code",
   "loading": "lazy"
-} %}
-{{ imageWithText('left', content) }}
+}] %}
+{{ imageWithText('left', 'yellow', 'top', contentBlocks) }}
 
-{{ columnList(emberConsulting.list, '', 'column-list--services') }}
+{{ cardList(emberConsulting.list, 'card-list--unstyled-icons') }}
 
-{% set 'content' = {
+
+{% set 'contentBlocks' = [{
   "title": "Ember.js: The Documentary",
-  "text": "Several of your team members appear in the Ember.js documentary. We were pleased to welcome the film crew at our office in Munich and again at EmberFest in Amsterdam.",
-  "linkText": "Watch the Video",
+  "text": "Several of our team members appear in the Ember.js documentary. We were pleased to welcome the film crew at our office in Munich and again at EmberFest in Amsterdam.",
+  "video": "/assets/images/ember/emberdoc-simplabs.mp4",
+  "image": "/assets/images/ember/emberdoc-simplabs.poster.jpg",
   "linkUrl": "https://www.youtube.com/watch?v=Cvz-9ccflKQ",
-  "image": "/assets/images/photos/collaboration.jpg",
-  "alt": "Alt text",
-  "loading": "lazy"
-} %}
-{{ colorHero('center', 'yellow', content) }}
+  "linkText": "Watch the video"
+}] %}
+{{ imageWithText('right', 'purple', 'top', contentBlocks) }}
 
 {% set 'content' = {
   "title": "We share our expertise",
@@ -50,7 +52,7 @@ permalink: /ember-consulting/
   "alt": "Two engineers speaking in front of a projector in front of a large audience",
   "loading": "lazy"
 } %}
-{{ splitHero('right', 'purple', content) }}
+{{ colorHero('sm', 'blue', content) }}
 
 {% set 'contentBlocks' = [{
   "title": "Conference Talks",
@@ -64,9 +66,15 @@ permalink: /ember-consulting/
   "title": "Community Engagement",
   "text": "Ember.js is a project built by an open community and we are an active member of the community. We support the <a href='https://www.meetup.com/Ember-js-Munich/'>Ember.js Munich</a> and <a href='https://www.meetup.com/Ember-js-Berlin/'>Ember.js Berlin</a> meetups and are co-organizers of <a href='http://emberfest.eu'>EmberFest</a>, the european Ember Community Conference.",
   "linkText": "View Our Calendar",
-  "linkUrl": "/calendar/"
+  "linkUrl": "/calendar/",
+  "image": "/assets/images/photos/30-P1001378.jpg",
+  "alt": "Team member speaking in front of a large audience at Emberfest 2021",
+  "loading": "lazy"
 }] %}
-{{ imageWithTextStacked('right', contentBlocks) }}
+{{ imageWithText('left', 'aqua', 'top', contentBlocks) }}
+
+{% set posts = collections['ember'] | reverse | limit(4)   %}
+{{ postList(posts, 'Latest from our blog')}}
 
 {% set clients = ['generali', 'qonto', 'cardstack'] %}
 {{ clientList(clients, 'blue', "We're trusted by companies that bet on Ember") }}
@@ -90,6 +98,6 @@ permalink: /ember-consulting/
   "loading": "lazy"
 }] %}
 
-{{ imageWithTextStacked('left', contentBlocks) }}
+{{ imageWithText('left', 'aqua', 'top', contentBlocks) }}
 
 {% include 'content/hero-work-with-us.njk' %}

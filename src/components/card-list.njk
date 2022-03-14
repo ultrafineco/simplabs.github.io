@@ -12,8 +12,8 @@ Example usage:
 #}
 {% from "cta-link.njk" import ctaLink %}
 
-{%- macro cardList(list) -%}
-  <section class="card-list layout">
+{%- macro cardList(list, class) -%}
+  <section class="card-list layout {{ class }}">
     <ul class="card-list__list">
       {% for item in list %}
         <li class="card-list__item layout">

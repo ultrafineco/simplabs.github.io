@@ -61,6 +61,7 @@
   .secondary-feature__main {
     position: relative;
     align-self: stretch;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     justify-content: center;

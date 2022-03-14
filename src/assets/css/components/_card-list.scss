@@ -1,6 +1,20 @@
 .card-list {
   margin-top: -2rem;
   margin-bottom: var(--section-spacing);
+
+  &--unstyled-icons {
+    .card-list__icon {
+      padding: 0;
+      background-color: transparent;
+
+      svg {
+        width: initial;
+        height: initial;
+        max-height: 3rem;
+        max-width: 3rem;
+      }
+    }
+  }
 }
 
 .card-list__list {

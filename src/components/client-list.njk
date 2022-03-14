@@ -5,28 +5,17 @@ Configuration Options:
 list: An array where each item is the slug for the case study.
 #}
 
+{% from "client-card.njk" import clientCard %}
+
 {%- macro clientList(clients, color, heading) -%}
-  <section class="client-list client-list--{{ color }}">
-    <div class="container container--lg">
-      {% if heading %}
-        <h2 class="client-list__heading">{{ heading }}</h2>
-      {% endif %}
-      <ul class="client-list__list">
-        {% for clientHandle in clients -%}
-          {% set client = clientHandle | findBySlug %}
-          {% if client %}
-            <li class="client-list__item">
-              <div class="client-list__image">
-                {% set imagePath %}/assets/images/logos/{{ clientHandle }}.svg{% endset %}
-                <img src="{{ imagePath }}" alt="{{ client.data.company }}">
-              </div>
-              <div class="client-list__text">
-                {{ client.data.description }}
-              </div>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+  <section class="client-list layout" data-color-scheme="{{ color }}">
+    {% if heading %}
+      <h2 class="client-list__heading layout__full">{{ heading }}</h2>
+    {% endif %}
+    <div class="client-list__grid">
+      {% for clientHandle in clients -%}
+        {{ clientCard(clientHandle) }}
+      {% endfor %}
     </div>
   </section>
 {%- endmacro -%}

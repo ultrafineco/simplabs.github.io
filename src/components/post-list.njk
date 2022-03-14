@@ -1,0 +1,16 @@
+{% from "post-card.njk" import postCard %}
+
+{%- macro postList(posts, heading) -%}
+  <div class="layout">
+    {% if heading %}
+      <h2 class="layout__full section__title">{{ heading }}</h2>
+    {% endif %}
+    <ol class="post-cards post-cards--no-bottom-margin">
+      {%- for post in posts -%}
+        <li class="post-cards__item">
+          {{ postCard(post) }}
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+{%- endmacro -%}

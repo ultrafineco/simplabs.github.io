@@ -40,6 +40,7 @@
 }
 
 .client-list__grid {
+  grid-column: 1 / -1;
   text-align: left;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
@@ -57,8 +58,13 @@
     grid-column: 2 / -2;
   }
 
+  .client-list__heading {
+    margin-bottom: 3rem;
+  }
+
   .client-list__grid {
     display: grid;
+    grid-column: 2 / -2;
     grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
     grid-column: var(--grid-span-full);
     gap: 1.5rem;

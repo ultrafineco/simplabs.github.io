@@ -1,0 +1,31 @@
+{#
+Plain text hero section
+
+Configuration Options:
+color: One of the core brand colors
+content: A content block with the following options:
+  title: String or markup for heading. Text wrapped in <em> will have the text animation applied.
+  text: String or markup for body text
+
+Example usage:
+{% set 'content' = {
+  "title": "Co-Engineering the Future of Banking for SME",
+  "text": "Empowering Qonto's ambitious engineers to achieve their goals"
+} %}
+{{ textHero('blue', content) }}
+#}
+
+{%- macro textHero(color, content) -%}
+  <div class="text-hero layout" data-color-scheme="{{ color }}">
+    <div class="layout__full">
+      {% if content.title %}
+        <h1 class="text-hero__title">
+          {{ content.title | safe }}
+        </h1>
+      {% endif %}
+      {% if content.text %}
+        <p class="text-hero__text">{{ content.text | safe }}</p>
+      {% endif %}
+    </div>
+  </div>
+{%- endmacro -%}

@@ -7,13 +7,13 @@ permalink: /expertise/elixir-phoenix/
 {% from "split-hero.njk" import splitHero %}
 {% from "color-hero.njk" import colorHero %}
 {% from "image-with-text.njk" import imageWithText %}
-{% from "column-list.njk" import columnList %}
-{% from "split-list.njk" import splitList %}
-{% from "client-list.njk" import clientList %}
-{% from "image-with-text-stacked.njk" import imageWithTextStacked %}
+{% from "secondary-feature.njk" import secondaryFeature %}
+{% from "featured-post.njk" import featuredPost %}
 
 {% set 'content' = {
-  "title": "Elixir & Phoenix: the best of all worlds",
+  "pretitle": "Elixir & Phoenix",
+  "title": "The best of all worlds",
+  "titleHeadingLevel": "h1",
   "text": "Elixir combines the expressiveness and simplicity of Ruby with the performance and stability of the Erlang VM. Phoenix builds on the concepts first introduced by Ruby on Rails, combining them with a number of architectural improvements to take the architecture into the future. Together, Elixir and Phoenix form a modern and capable stack for building ambitious digital products of the future, based on an established foundation that has proven itself for decades.",
   "image": "/assets/images/photos/collaboration.jpg",
   "alt": "Alt text",
@@ -23,15 +23,41 @@ permalink: /expertise/elixir-phoenix/
 
 {% set 'contentBlocks' = [{
   "title": "Early adoption, long-term commitment",
-  "text": "Mainmatter was an early adopter of Elixir and Phoenix, offering trainings and leveraging the potential of the stack for our clients. We support the Elixir Munich meetup, have been actively involved with conferences like ElixirConf and ElixirConf EU, and are honored to be a Founding Sponsor of the Erlang Ecosystem Foundation."
-}, {
+  "text": "Mainmatter was an early adopter of Elixir and Phoenix, offering trainings and leveraging the potential of the stack for our clients. We support the Elixir Munich meetup, have been actively involved with conferences like ElixirConf and ElixirConf EU, and are honored to be a Founding Sponsor of the Erlang Ecosystem Foundation.",
+  "image": "/assets/images/photos/ember-simple-auth.jpg",
+  "alt": "Screenshot of Ember Simple Auth",
+  "loading": "lazy"
+}] %}
+{{ imageWithText('left', 'aqua', 'top', contentBlocks) }}
+
+{% set 'content' = {
+  "title": "Erlang Ecosystem Foundation",
+  "text": "Mainmatter is a Founding sponsor of the Erlang Ecosystem Foundation.",
+  "linkUrl": "/expertise/elixir-phoenix/",
+  "linkText": "Find out more",
+  "image": "/assets/images/logos/background/eef-logo.svg",
+  "alt": "Erlang Ecosystem Foundation logo",
+  "loading": "lazy"
+} %}
+{{- secondaryFeature(content) -}}
+
+{% set 'contentBlocks' = [{
   "title": "We share our expertise",
   "text": "Every new project gives us the opportunity to learn and grow our expertise. We share what we learn with the community via talks at conferences, at meetups and on our blog.",
   "image": "/assets/images/photos/30-P1001378.jpg",
   "alt": "Team member speaking in front of a large audience at Emberfest 2021",
   "loading": "lazy"
 }] %}
-{{ imageWithTextStacked('left', contentBlocks) }}
+{{ imageWithText('right', 'aqua', 'bottom', contentBlocks) }}
+
+{% set posts = collections['elixir'] | reverse | limit(2)   %}
+{%- for post in posts -%}
+  {% if loop.index % 2 === 0 %}
+    {{ featuredPost('right', 'blue', post) }}
+  {% else %}
+    {{ featuredPost('right', 'purple', post) }}
+  {% endif %}
+{%- endfor -%}
 
 {% set 'content' = {
   "title": "Work with us",
@@ -42,4 +68,4 @@ permalink: /expertise/elixir-phoenix/
   "alt": "Close up of hands typing on a laptop",
   "loading": "lazy"
 } %}
-{{ colorHero('center', 'yellow', content) }}
+{{ colorHero('md', 'purple', content) }}
