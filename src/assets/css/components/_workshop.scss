@@ -1,0 +1,26 @@
+.workshop {
+  --break-grid: 2 / -2;
+
+  @media (min-width: 62em) {
+    --break-grid: 3 / -4;
+  }
+
+  @media (min-width: 100em) {
+    --break-grid: 4 / -5;
+  }
+
+  @media (min-width: 120em) {
+    --break-grid: 4 / -6;
+  }
+
+  .quote__figure {
+    grid-column: var(--break-grid);
+  }
+}
+
+@media (min-width: 62em) {
+  .workshop__leads {
+    display: flex;
+    gap: 2rem;
+  }
+}

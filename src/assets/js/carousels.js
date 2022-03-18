@@ -4,10 +4,14 @@ export default function () {
   const carousels = document.querySelectorAll(".splide");
 
   carousels.forEach((carousel) => {
-    return new Splide(carousel, {
+    const splide = new Splide(carousel, {
       type: "fade",
       pagination: false,
       arrows: true,
     }).mount();
+
+    splide.on("move", function () {
+      carousel.scrollIntoView(true);
+    });
   });
 }

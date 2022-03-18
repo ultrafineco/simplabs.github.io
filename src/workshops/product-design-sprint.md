@@ -36,21 +36,28 @@ topics:
       Receive feedback on the prototype from real customers and learn what’s working
       and what’s not.  Following that, we plan our next steps.
 leads:
-  - name: Mar High
+  - name: Linda Guerrisi
     title: Director of Product Design
-    image: /assets/images/authors/msmarhigh.jpg
-    text: >
-      Mar helps companies solve their user's problems in creative and scalable ways.
-      She's an advocate of design sprints because they facilitate cross-functional
-      collaboration and effective, tangible improvements in a very short timeframe.
-      Mar has facilitated design sprints for a variety of clients: from founders with
-      just an idea to startups and large corporates.
+    image: /assets/images/authors/lindaguerrisi.jpg
 ---
+{% from "image-with-text.njk" import imageWithText %}
+{% from "card-list.njk" import cardList %}
 {% from "quote.njk" import quote %}
 
-Product design sprints are a step-by-step process for product design. They were
+{%- set 'contentBlocks' = [{
+  "title": "Workshop overview",
+  "text": "Product design sprints are a step-by-step process for product design. They were
 originally developed by Google, and are now used in top companies all over the
-world. Ideas are tested and validated with real users in just five days.
+world. Ideas are tested and validated with real users in just five days.",
+  "image": "/assets/images/photos/0027.jpg",
+  "alt": "People gathered around a laptop, only their hands are visible",
+  "loading": "lazy"
+}] -%}
+{{- imageWithText('left', 'yellow', 'top', contentBlocks) -}}
+
+{{- cardList(topics) -}}
+
+<!-- main content -->
 
 ## The Workshop
 
@@ -59,7 +66,10 @@ on a challenge and collaborating to create a solution. Each day of the product
 design sprint is focused on one goal: aligning, exploring solutions, deciding,
 prototyping, and finally testing.
 
-<!--break-->
+
+{% set text = "From the first day, we started realizing <strong>how much better</strong> our first product could have been if we had used a <strong>design sprint</strong>. Building and designing our app became a team effort and involved our users.This brought about a product that was <strong>supported by the team</strong> and <strong>wanted by our users</strong>." %}
+{% set source = "Tekwane Mwendwa, CEO & Co-Founder of Asilimia" %}
+{{ quote('purple', text, source, false) }}
 
 ## After the workshop
 
@@ -72,7 +82,3 @@ received in the sprint and test it once again with our users.
 Design sprints are customized to your team and your needs. Although we enjoy
 collaborating with your team in every step of the way, we can also tailor the
 workshop so your team is only present for a fraction of the time.
-
-{% set text = "From the first day, we started realizing <strong>how much better</strong> our first product could have been if we had used a <strong>design sprint</strong>. Building and designing our app became a team effort and involved our users.This brought about a product that was <strong>supported by the team</strong> and <strong>wanted by our users</strong>." %}
-{% set source = "Tekwane Mwendwa, CEO & Co-Founder of Asilimia" %}
-{{ quote('purple', text, source, false) }}

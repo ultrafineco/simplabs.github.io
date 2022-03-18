@@ -13,9 +13,9 @@ Example usage:
 {% from "cta-link.njk" import ctaLink %}
 
 {%- macro cardList(list, class) -%}
-  <section class="card-list layout {{ class }}">
+  <section class="card-list layout {{ class }}" data-break-grid>
     <ul class="card-list__list">
-      {% for item in list %}
+      {%- for item in list -%}
         <li class="card-list__item layout">
           <div class="card-list__item-container">
             {%- if item.icon -%}
@@ -24,14 +24,19 @@ Example usage:
                 {%- include iconPath -%}
               </span>
             {%- endif -%}
+            {%- if item.image -%}
+              <span class="card-list__icon">
+                <img src="{{ item.image }}" alt="">
+              </span>
+            {%- endif -%}
             <h3 class="card-list__item-heading h5">{{ item.heading }}</h3>
             <p class="card-list__text">{{ item.text }}</p>
-            {% if item.linkText %}
+            {%- if item.linkText -%}
               {{ ctaLink(item.linkUrl, item.linkText, 'card-list__link') }}
-            {% endif %}
+            {%- endif -%}
           </div>
         </li>
-      {% endfor %}
+      {%- endfor -%}
     </ul>
   </section>
 {%- endmacro -%}

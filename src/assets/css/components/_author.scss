@@ -1,7 +1,19 @@
 .author {
   display: flex;
   align-items: center;
+  margin-top: 1.5rem;
   font-size: 0.875rem;
+
+  picture {
+    margin: 0;
+  }
+
+  &--workshop {
+    width: 100%;
+    flex: 1 1 auto;
+    margin-top: 1.5rem;
+    align-items: flex-start;
+  }
 }
 
 .author__image-wrapper {
@@ -19,13 +31,23 @@
 
 .author__name {
   color: var(--color-blue);
+}
+
+a.author__name {
   text-decoration: underline;
+}
+
+.author__bio {
+  display: flex;
+  gap: 1rem;
+}
+
+.author__bio-text {
+  flex: 1 1 auto;
 }
 
 .author__twitter {
   display: inline-block;
   width: 1.25rem;
   color: var(--color-blue);
-  margin-left: 0.5rem;
-  vertical-align: bottom;
 }

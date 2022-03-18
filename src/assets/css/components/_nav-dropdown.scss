@@ -32,6 +32,10 @@
   opacity: 0;
   visibility: hidden;
   transition: 0.3s opacity 0.15s ease, 0.3s visibility 0.15s ease;
+
+  [data-js-enabled="false"] & {
+    transition: none;
+  }
 }
 
 .nav-dropdown__list {

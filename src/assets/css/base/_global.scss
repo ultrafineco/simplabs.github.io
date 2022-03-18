@@ -40,3 +40,8 @@ a {
 button {
   border-radius: 0;
 }
+
+::selection {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+}

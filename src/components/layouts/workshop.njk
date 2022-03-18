@@ -2,53 +2,57 @@
 layout: 'base'
 ---
 {%- block content -%}
-  <div class="container container--lg post">
-    <article class="post__content post__content--workshop rte">
-      <a href="/resources/workshops/" class="post__back post__back--video text--accent">
-        <span class="post__back-arrow">{% include 'svg/arrow.njk' %}</span>
-        <span class="post__back-text">Back</span>
-      </a>
-      <h1 class="post__title">{{ title }}</h1>
-      <div class="post__tagline">
-        {% if tagline %}
-          {{ tagline | safe }}
-        {% else %}
-          <p>{{ description }}</p>
-        {% endif %}
+  <article class="post workshop">
+    <div class="post__layout layout">
+      <div class="post__tags">
+        {{ duration }} {{ format }}
       </div>
-      {% set list %}
-        <h2 class="workshop-topics__heading">Workshop Overview</h2>
-        <ol class="workshop-topics__list">
-          {% for item in topics %}
-            <li class="workshop-topics__item">
-              <div class="workshop-topics__icon-wrapper">
-                <img class="workshop-topics__icon"  src="{{ item.image }}" alt="">
-              </div>
-              <div class="workshop-topics__text-wrapper">
-                <h3 class="workshop-topics__item-heading h4">{{ item.heading }}</h3>
-                <p class="workshop-topics__text">{{ item.text }}</p>
-              </div>
-            </li>
-          {% endfor %}
-        </ol>
-      {% endset %}
-      {{ content | replace('<!--break-->', list) | safe }}
-      <h2>Leads</h2>
+      <h1 class="post__title"> {{ title }}</h1>
+      <div class="post__tagline">
+        {{ description | safe }}
+      </div>
+      <div class="workshop__leads">
         {%- for lead in leads -%}
           <div class="author author--workshop">
+            {% if lead.handle %}
+              {% set author = lead.handle | findBySlug %}
+            {% endif %}
             <div class="author__image-wrapper">
-              {% image lead.image, lead.name, '5.438rem', 'lazy', 'author__lead-image', [87, 131, 174] %}
+              {% image lead.image, lead.name, '2.5rem', 'eager', 'author__image', [40, 80] %}
             </div>
             <div class="author__text-wrapper">
-              <h3 class="author__name">{{ lead.name }}</h3>
-              <div class="author__title">{{ lead.title }}</div>
+              <div class="author__byline">
+                with
+                {% if lead.handle %}
+                  <a class="author__name" href="/blog/author/{{ lead.handle }}">
+                    {{ lead.name }}
+                  </a>
+                {% else %}
+                  <span class="author__name">{{ lead.name }}</span>
+                {% endif %}
+              </div>
               <div class="author__bio">
-                {{ lead.bio }}
+                <p class="author__bio-text">
+                  {{ lead.title }}
+                </p>
+                {% if author and author.data.twitter %}
+                  <div class="author__socials">
+                    <a class="author__twitter" href="https://twitter.com/{{ author.data.twitter }}/">
+                      {% include 'svg/social-twitter.njk' %}
+                      <span class="screenreader">@{{ author.data.twitter }} on Twitter</span>
+                    </a>
+                  </div>
+                {% endif %}
               </div>
             </div>
           </div>
         {%- endfor -%}
-    </article>
-  </div>
+      </div>
+    </div>
+    <div class="break-grid rte">
+      {{ content | safe }}
+    </div>
+  </article>
+
   {% include 'content/hero-playbook.njk' %}
 {%- endblock -%}

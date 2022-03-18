@@ -180,13 +180,13 @@ module.exports = function (value, outputPath) {
     /**
      * Break the grid for any full-width components
      */
-    const body = document.querySelector(".case-study__body");
+    const body = document.querySelector(".break-grid");
     if (body) {
       const wrapper = document.createElement("div");
-      wrapper.classList.add("case-study__body");
+      wrapper.classList.add("break-grid");
       const children = [...body.children];
       let elementWrapper = document.createElement("div");
-      elementWrapper.classList.add("layout", "rte", "case-study__body-text");
+      elementWrapper.classList.add("layout", "rte", "break-grid__content");
       children.forEach((element, index) => {
         if (!element.hasAttribute("data-break-grid")) {
           elementWrapper.appendChild(element);
@@ -197,11 +197,7 @@ module.exports = function (value, outputPath) {
         } else {
           wrapper.appendChild(elementWrapper);
           elementWrapper = document.createElement("div");
-          elementWrapper.classList.add(
-            "layout",
-            "rte",
-            "case-study__body-text"
-          );
+          elementWrapper.classList.add("layout", "rte", "break-grid__content");
           wrapper.appendChild(element);
         }
       });

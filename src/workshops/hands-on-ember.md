@@ -48,6 +48,7 @@ topics:
       Ember applications building on versions older than the Octane edition are still using Ember's legacy object model with patterns like computed properties and mixins. In this stage, we cover those concepts in-depth as well as explore approaches for migrating to native classes.
 leads:
   - name: Ricardo Mendes
+    handle: locks
     title: Senior Frontend Engineer, Ember Framework and Learning Core teams member
     image: /assets/images/authors/locks.jpg
     bio: >
@@ -56,6 +57,7 @@ leads:
       worked with teams around the world to deepen and extend their knowledge about
       the framework.
   - name: Marco Otte-Witte
+    handle: marcoow
     title: Founder and Managing Director of simplabs
     image: /assets/images/authors/marcoow.jpg
     bio: >
@@ -64,13 +66,24 @@ leads:
       built large Ember apps for international clients.
 ---
 
+{% from "image-with-text.njk" import imageWithText %}
+{% from "card-list.njk" import cardList %}
 {% from "quote.njk" import quote %}
 
-<!--break-->
+{%- set 'contentBlocks' = [{
+  "title": "Workshop overview",
+  "text": "We go through a series of stages that each build on one another. Each topic is introduced via an in-depth presentation as well as a small, focussed demo application that illustrates the respective concept in practice.",
+  "image": "/assets/images/photos/0027.jpg",
+  "alt": "People gathered around a laptop, only their hands are visible",
+  "loading": "lazy"
+}] -%}
+{{- imageWithText('left', 'yellow', 'top', contentBlocks) -}}
+
+{{- cardList(topics) -}}
+
+<!-- main content -->
 
 ## The Workshop
-
-We go through a series of stages that each build on one another. Each topic is introduced via an in-depth presentation as well as a small, focussed demo application that illustrates the respective concept in practice.
 
 Over the course of the workshop we take participants through building a full Ember application step by step so each topic can be applied hands-on with the support of our tutors. Depending on each team's needs and previous experience, we will cover each topic in varying depth. The workshop can be done over two or three days.
 

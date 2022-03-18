@@ -30,8 +30,12 @@
   outline-offset: 0.25rem;
 
   &:hover {
-    & ~ .workshop-card__container .workshop-card__cta::after {
-      transform: scaleX(1);
+    & ~ .workshop-card__container .workshop-card__cta {
+      color: var(--color-link-hover-text);
+
+      &::after {
+        transform: scaleX(1);
+      }
     }
   }
 }
@@ -78,6 +82,10 @@
   margin: 1rem 0;
   font-size: 0.875rem;
   line-height: 1.4;
+}
+
+.workshop-card__cta {
+  pointer-events: none;
 }
 
 @media (min-width: 48em) {

@@ -49,6 +49,10 @@
   display: none;
 }
 
+.client-list__splide {
+  scroll-margin: 6rem;
+}
+
 @media (min-width: 48em) {
   .client-list {
     margin-top: 0;

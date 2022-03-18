@@ -43,8 +43,8 @@ Example usage:
   {%- else -%}
     {%- set altTextPosition = 'left' -%}
   {%- endif -%}
-  <section class="image-text image-text--bar-{{ barPosition }}">
-    {% for content in contentBlocks %}
+  <section class="image-text image-text--bar-{{ barPosition }}" data-break-grid>
+    {%- for content in contentBlocks -%}
       {%- if content.titleHeadingLevel -%}
         {%- set headingLevel = content.titleHeadingLevel -%}
       {%- else -%}
@@ -52,7 +52,7 @@ Example usage:
       {%- endif -%}
       <div class="layout image-text__container image-text__container--{% if loop.index % 2 === 0 %}{{ altTextPosition }}{% else %}{{ textPosition }}{% endif %}">
         <div class="image-text__image-wrapper">
-          {% if content.video %}
+          {%- if content.video -%}
             <div class="image-text__video-wrapper">
               <video playsinline="" autoplay="" muted="" preload="" loop="" poster="{{ content.image }}" width="1280" height="496" class="image-text__video">
                 <source src="{{ content.video }}" type="video/mp4">
@@ -68,19 +68,19 @@ Example usage:
           </div>
         </div>
         <div class="image-text__main">
-          {% if content.title %}
+          {%- if content.title -%}
             <{{ headingLevel }} class="image-text__title">
               {{ content.title | safe }}
             </{{ headingLevel }}>
-          {% endif %}
-          {% if content.text %}
+          {%- endif -%}
+          {%- if content.text -%}
             <div class="image-text__text">{{ content.text | safe }}</div>
-          {% endif %}
-          {% if content.linkUrl %}
+          {%- endif -%}
+          {%- if content.linkUrl -%}
             {{ ctaLink(content.linkUrl, content.linkText, 'image-text__link') }}
-          {% endif %}
+          {%- endif -%}
         </div>
       </div>
-    {% endfor %}
+    {%- endfor -%}
   </section>
 {%- endmacro -%}

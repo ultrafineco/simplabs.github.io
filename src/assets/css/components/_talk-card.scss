@@ -20,8 +20,12 @@
   outline-offset: 0.25rem;
 
   &:hover {
-    & ~ .talk-card__container .talk-card__cta::after {
-      transform: scaleX(1);
+    & ~ .talk-card__container .talk-card__cta {
+      color: var(--color-link-hover-text);
+
+      &::after {
+        transform: scaleX(1);
+      }
     }
   }
 }
@@ -33,6 +37,10 @@
 
 .talk-card__description {
   margin: 1rem 0 1.25rem;
+}
+
+.talk-card__cta {
+  pointer-events: none;
 }
 
 @media (min-width: 48em) {

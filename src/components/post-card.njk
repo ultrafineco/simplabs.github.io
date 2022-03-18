@@ -38,7 +38,7 @@ post: A post object
         {% endif %}
       </div>
       <p class="post-card__description">
-        {{ post.data.tagline | formatTagline }}
+        {{ post.data.tagline | formatTagline | safe }}
       </p>
     </div>
   </div>

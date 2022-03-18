@@ -36,6 +36,7 @@ topics:
       We reserve some time in the end to discuss your team's specific questions relating to Git or infrastructure, tooling and automation around it.
 leads:
   - name: Chris Manson
+    handle: real_ate
     title: Senior Engineering Consultant
     image: /assets/images/authors/real_ate.jpg
     bio: >
@@ -44,6 +45,7 @@ leads:
       codebase from CVS to Git. These days Chris is deeply involved in the JAM Stack
       movement, giving him a new outlet for his love for Git.
   - name: Marco Otte-Witte
+    handle: marcoow
     title: Founder and Managing Director of simplabs
     image: /assets/images/authors/marcoow.jpg
     bio: >
@@ -52,15 +54,26 @@ leads:
       workflows as well as automation around testing and deployment.
 ---
 
-### The Workshop
+{% from "image-with-text.njk" import imageWithText %}
+{% from "card-list.njk" import cardList %}
+{% from "quote.njk" import quote %}
 
-The goal of the workshop is to provide just enough detail for practical daily use without getting too academic or deep in the weeds.
+{%- set 'contentBlocks' = [{
+  "title": "Workshop overview",
+  "text": "The goal of the workshop is to provide just enough detail for practical daily use without getting too academic or deep in the weeds. We focus on real challenges developers face when working with Git, arming them with an understanding of the foundational concepts along with practical guidance for overcoming those challenges.",
+  "image": "/assets/images/photos/0027.jpg",
+  "alt": "People gathered around a laptop, only their hands are visible",
+  "loading": "lazy"
+}] -%}
+{{- imageWithText('left', 'yellow', 'top', contentBlocks) -}}
 
-We focus on real challenges developers face when working with Git, arming them with an understanding of the foundational concepts along with practical guidance for overcoming those challenges.
+{{- cardList(topics) -}}
+
+<!-- main content -->
+
+## The Workshop
 
 The workshop is split into several blocks that each include an introductory presentation followed by an exercise to apply the learnings hands-on with the support of our trainers.
-
-<!--break-->
 
 ## Customized to your team's needs
 

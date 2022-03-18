@@ -36,13 +36,17 @@ noStickyHeader: true
               {{ author.data.name }}
             </a>
           </div>
-          <p class="author__bio">
-            {% if bio %}{{ bio }}{% else %}{{ author.data.bio }}{% endif %}
-            <a class="author__twitter" href="https://twitter.com/{{ author.data.twitter }}/">
-              {% include 'svg/social-twitter.njk' %}
-              <span class="screenreader">@{{ author.data.twitter }} on Twitter</span>
-            </a>
-          </p>
+          <div class="author__bio">
+            <p class="author__bio-text">
+              {% if bio %}{{ bio }}{% else %}{{ author.data.bio }}{% endif %}
+            </p>
+            <div class="author__socials">
+              <a class="author__twitter" href="https://twitter.com/{{ author.data.twitter }}/">
+                {% include 'svg/social-twitter.njk' %}
+                <span class="screenreader">@{{ author.data.twitter }} on Twitter</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="post__separator"></div>
