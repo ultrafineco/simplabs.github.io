@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="18.3847947px" height="18.3849245px" viewBox="0 0 18.3847947 18.3849245" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>icon/enabled</title>
-    <g id="icon/enabled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M-2.80761316,8.19253502 L21.1923868,8.19253502 L21.1923868,10.192535 L-2.80761316,10.192535 L-2.80761316,8.19253502 Z" id="top-bar" fill="#FFFFFF" transform="translate(9.192387, 9.192535) rotate(-45.000010) translate(-9.192387, -9.192535) "></path>
-        <path d="M-2.8075948,8.19238684 L21.1924052,8.19238684 L21.1924052,10.1923868 L-2.8075948,10.1923868 L-2.8075948,8.19238684 Z" id="bottom-bar" fill="#FFFFFF" transform="translate(9.192405, 9.192387) rotate(-135.000010) translate(-9.192405, -9.192387) "></path>
-    </g>
-</svg>
