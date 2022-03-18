@@ -24,6 +24,11 @@
                 {% set isActive = true %}
               {% endif %}
             {% endif %}
+            {% if entry.url === '/resources/' and page.url %}
+              {% if '/resources/' in page.url %}
+                {% set isActive = true %}
+              {% endif %}
+            {% endif %}
             {% if entry.children.length > 0  and entry.hideDropdown != true %}
               <button
                 class="nav__link nav-dropdown__toggle text--accent text--xs {% if isActive %}nav__link--is-active{% endif %}"
