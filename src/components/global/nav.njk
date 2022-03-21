@@ -25,7 +25,7 @@
               {% endif %}
             {% endif %}
             {% if entry.url === '/resources/' and page.url %}
-              {% if '/resources/' in page.url %}
+              {% if '/resources/' in page.url or '/talks/' in page.url or '/playbook/' in page.url %}
                 {% set isActive = true %}
               {% endif %}
             {% endif %}

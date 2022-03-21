@@ -1,5 +1,9 @@
 .case-study {
-  --break-grid: var(--grid-span-full);
+  --break-grid: var(--grid-span-text);
+
+  .break-grid__content:last-child {
+    margin-bottom: var(--section-spacing);
+  }
 }
 
 .case-study__tagline {

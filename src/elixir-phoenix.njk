@@ -44,8 +44,8 @@ permalink: /expertise/elixir-phoenix/
 {% set 'contentBlocks' = [{
   "title": "We share our expertise",
   "text": "Every new project gives us the opportunity to learn and grow our expertise. We share what we learn with the community via talks at conferences, at meetups and on our blog.",
-  "image": "/assets/images/photos/30-P1001378.jpg",
-  "alt": "Team member speaking in front of a large audience at Emberfest 2021",
+  "image": "/assets/images/photos/IMG_20190525_090835965.jpg",
+  "alt": "A room full of people attending a workshop",
   "loading": "lazy"
 }] %}
 {{ imageWithText('right', 'aqua', 'bottom', contentBlocks) }}
@@ -59,13 +59,4 @@ permalink: /expertise/elixir-phoenix/
   {% endif %}
 {%- endfor -%}
 
-{% set 'content' = {
-  "title": "Work with us",
-  "text": "<p>Ready to build your next digital product with Elixir & Phoenix? Our experts are ready to guide you through your next big move. Let us know how we can help.</p>",
-  "linkUrl": "/contact/",
-  "linkText": "Partner with us",
-  "image": "/assets/images/photos/0041.jpg",
-  "alt": "Close up of hands typing on a laptop",
-  "loading": "lazy"
-} %}
-{{ colorHero('md', 'purple', content) }}
+{% include 'content/hero-work-with-us.njk' %}

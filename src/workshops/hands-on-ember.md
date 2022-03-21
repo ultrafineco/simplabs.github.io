@@ -73,7 +73,7 @@ leads:
 {%- set 'contentBlocks' = [{
   "title": "Workshop overview",
   "text": "We go through a series of stages that each build on one another. Each topic is introduced via an in-depth presentation as well as a small, focussed demo application that illustrates the respective concept in practice.",
-  "image": "/assets/images/photos/0027.jpg",
+  "image": "/assets/images/photos/scott-graham-5fNmWej4tAA-unsplash.jpg",
   "alt": "People gathered around a laptop, only their hands are visible",
   "loading": "lazy"
 }] -%}

@@ -41,15 +41,10 @@
 }
 
 .workshop-card__meta {
-  font-size: 0.875rem;
   margin-bottom: 0.5rem;
   color: var(--color-gray);
-}
-
-.workshop-card__meta-text {
-  &--duration {
-    font-weight: 600;
-  }
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .workshop-card__title {

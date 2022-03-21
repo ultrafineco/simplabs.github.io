@@ -61,7 +61,7 @@ leads:
 {%- set 'contentBlocks' = [{
   "title": "Workshop overview",
   "text": "The goal of the workshop is to provide just enough detail for practical daily use without getting too academic or deep in the weeds. We focus on real challenges developers face when working with Git, arming them with an understanding of the foundational concepts along with practical guidance for overcoming those challenges.",
-  "image": "/assets/images/photos/0027.jpg",
+  "image": "/assets/images/photos/scott-graham-5fNmWej4tAA-unsplash.jpg",
   "alt": "People gathered around a laptop, only their hands are visible",
   "loading": "lazy"
 }] -%}

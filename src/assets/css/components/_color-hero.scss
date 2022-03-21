@@ -1,6 +1,10 @@
 .color-hero {
   position: relative;
   color: var(--color-text);
+
+  &--md {
+    min-height: rem-calc(450);
+  }
 }
 
 .color-hero__image-wrapper {
@@ -70,5 +74,13 @@
 
   .color-hero__container {
     padding: 4.5rem 0;
+  }
+}
+
+@media (min-width: 80em) {
+  .color-hero {
+    &--md {
+      min-height: rem-calc(630);
+    }
   }
 }

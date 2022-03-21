@@ -51,10 +51,19 @@ eleventyNavigation:
   "text": "Find out more about how we work to deliver ambitious software solutions for our clients.",
   "linkUrl": "/playbook/",
   "linkText": "Read our playbook",
-  "image": "/assets/images/photos/0020-2.jpg",
+  "image": "/assets/images/photos/0024-1.jpg",
   "alt": "Three team members having a meeting around a laptop",
   "loading": "lazy"
 }] %}
 {{ imageWithText('left', 'aqua', 'bottom', contentBlocks) }}
 
-{% include 'content/hero-grow-with-us-work.njk' %}
+{% set 'content' = {
+  "title": "Grow <em>your business</em>",
+  "text": "<p>Our experts are ready to guide you through your next big move. Let us know how we can help.</p>",
+  "linkUrl": "/contact/",
+  "linkText": "Get in touch",
+  "image": "/assets/images/photos/0042.jpg",
+  "alt": "Fourteen members of the team smiling at the camera.",
+  "loading": "lazy"
+} %}
+{{ colorHero('md', 'purple', content) }}

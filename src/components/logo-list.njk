@@ -12,12 +12,13 @@ Example usage:
 
 {%- macro logoList(logos) -%}
   <section class="logo-list">
-    <ul class="logo-list__list">
+    <ul class="logo-list__list" tabindex="0">
       {% for logo in logos %}
         <li class="logo-list__item">
-          <div class="logo-list__image" aria-label="{{ logo }}">
+          <div class="logo-list__image">
             {% set imagePath %}/logos/monochrome/{{ logo | slug }}.svg{% endset %}
             {% svg imagePath, 'img' %}
+            <span class="visually-hidden">{{ logo }}</span>
           </div>
         </li>
       {% endfor %}

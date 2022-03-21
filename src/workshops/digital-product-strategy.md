@@ -60,7 +60,7 @@ leads:
   "text": "Before starting out, we will gain an overview of your business. Understanding
 the fundamentals such as your business model, competitor analysis, and users is
 an essential first step for this strategy workshop.",
-  "image": "/assets/images/photos/0027.jpg",
+  "image": "/assets/images/photos/scott-graham-5fNmWej4tAA-unsplash.jpg",
   "alt": "People gathered around a laptop, only their hands are visible",
   "loading": "lazy"
 }] -%}

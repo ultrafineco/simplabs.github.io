@@ -11,13 +11,15 @@ eleventyNavigation:
 {% from "card-list.njk" import cardList %}
 {% from "split-list.njk" import splitList %}
 {% from "quote.njk" import quote %}
+{% from "color-hero.njk" import colorHero %}
+
 
 {% set 'content' = {
   "pretitle": "Team augmentation",
   "title": "Accelerate your growth with <em>dedicated</em> specialists",
   "titleHeadingLevel": "h1",
   "text": "<p>You have a capable team, but let’s face it: some challenges are too big to tackle alone. Let our technology experts merge with your in-house product teams to ensure the timely delivery of large-scale projects. We’re more than hired hands—we mentor your team throughout the process to help lift productivity long after our collaboration ends.</p>",
-  "image": "/assets/images/photos/0020-1.jpg",
+  "image": "/assets/images/photos/0020.jpg",
   "alt": "Four team members having a meeting around a laptop",
   "loading": "eager"
 } %}
@@ -49,4 +51,13 @@ eleventyNavigation:
 } %}
 {{ splitHero('left', 'yellow', content) }}
 
-{% include 'content/hero-work-with-us.njk' %}
+{% set 'content' = {
+  "title": "Work with us",
+  "text": "<p>Let's talk about the challenges that you're facing.</p><p>Our experts are ready to guide you through your next big move.</p>",
+  "linkUrl": "/contact/",
+  "linkText": "Get in touch",
+  "image": "/assets/images/photos/0042.jpg",
+  "alt": "Fourteen members of the team smiling at the camera.",
+  "loading": "lazy"
+} %}
+{{ colorHero('md', 'purple', content) }}

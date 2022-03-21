@@ -53,7 +53,7 @@ leads:
   "text": "One of the first steps in creating a design system is to conduct an interface
 inventory. An interface inventory gives us a categorized overview of which
 components make up our digital product.",
-  "image": "/assets/images/photos/0027.jpg",
+  "image": "/assets/images/photos/scott-graham-5fNmWej4tAA-unsplash.jpg",
   "alt": "People gathered around a laptop, only their hands are visible",
   "loading": "lazy"
 }] -%}

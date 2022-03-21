@@ -1,12 +1,13 @@
 ---
 layout: 'base'
-title: Product Design | Our Services
+title: Product Development | Our Services
 eleventyNavigation:
   key: Product development
   parent: Services
   order: 30
 ---
 {% from "split-hero.njk" import splitHero %}
+{% from "color-hero.njk" import colorHero %}
 {% from "image-with-text.njk" import imageWithText %}
 {% from "card-list.njk" import cardList %}
 {% from "split-list.njk" import splitList %}
@@ -16,8 +17,8 @@ eleventyNavigation:
   "title": "Let us set you up for <em>sustainable</em> growth",
   "titleHeadingLevel": "h1",
   "text": "<p>We pride ourselves on being a cut above the rest, and we welcome unique and complex engineering challenges. Our process depends on close collaboration between designers and developers to release well-tested products in flexible iterations. </p>",
-  "image": "/assets/images/photos/Simplabs_181.jpg",
-  "alt": "Four team members gathered around a whiteboard",
+  "image": "/assets/images/photos/Simplabs_115.jpg",
+  "alt": "Two team members gathered around a whiteboard",
   "loading": "eager"
 } %}
 {{ splitHero('left', 'aqua', content) }}
@@ -25,8 +26,8 @@ eleventyNavigation:
 {% set 'contentBlocks' = [{
   "title": "Our guiding principles",
   "text": "Software has a massive impact on our daily lives—that’s why we’re passionate about crafting digital products that delight users.",
-  "image": "/assets/images/photos/0027.jpg",
-  "alt": "People gathered around a laptop, only their hands are visible",
+  "image": "/assets/images/photos/scott-graham-5fNmWej4tAA-unsplash.jpg",
+  "alt": "People using two laptops, only their hands are visible",
   "loading": "lazy"
 }] %}
 {{ imageWithText('left', 'yellow', 'top', contentBlocks) }}
@@ -61,4 +62,13 @@ eleventyNavigation:
 } %}
 {{ splitHero('left', 'blue', content) }}
 
-{% include 'content/hero-grow-with-us.njk' %}
+{% set 'content' = {
+  "title": "Grow <em>your business</em> with us",
+  "text": "<p>Our experts are ready to guide you through your next big move. Let us know how we can help.</p>",
+  "linkUrl": "/contact/",
+  "linkText": "Get in touch",
+  "image": "/assets/images/photos/Simplabs9.jpg",
+  "alt": "Three team members smiling with various food and drink.",
+  "loading": "lazy"
+} %}
+{{ colorHero('md', 'purple', content) }}
