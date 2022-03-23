@@ -69,7 +69,7 @@ Example usage:
         </div>
         <div class="image-text__main">
           {%- if content.title -%}
-            <{{ headingLevel }} class="image-text__title">
+            <{{ headingLevel }} class="image-text__title {% if headingLevel === 'h1' %}h1{% else %}h3{% endif %}">
               {{ content.title | safe }}
             </{{ headingLevel }}>
           {%- endif -%}

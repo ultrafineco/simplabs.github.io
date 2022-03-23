@@ -9,6 +9,7 @@ eleventyNavigation:
 {% from "split-hero.njk" import splitHero %}
 {% from "image-with-text.njk" import imageWithText %}
 {% from "card-list.njk" import cardList %}
+{% from "color-hero.njk" import colorHero %}
 
 {% set 'content' = {
   "pretitle": "Training and support",
@@ -32,4 +33,13 @@ eleventyNavigation:
 
 {{ cardList(services['training']) }}
 
-{% include 'content/hero-grow-with-us.njk' %}
+{% set 'content' = {
+  "title": "Grow <em>your expertise</em> with us",
+  "text": "<p>Let's talk about the challenges that you're facing.</p><p>Our experts are ready to guide you through your next big move.</p>",
+  "linkUrl": "/contact/",
+  "linkText": "Partner with us",
+  "image": "/assets/images/photos/photo1.jpg",
+  "alt": "Team member smiles at camera",
+  "loading": "lazy"
+} %}
+{{ colorHero('md', 'purple', content) }}
