@@ -17,6 +17,11 @@ Example usage:
     <ul class="card-list__list">
       {%- for item in list -%}
         <li class="card-list__item layout">
+          {%- if item.linkUrl -%}
+            <a href="{{ item.linkUrl }}" class="card-list__link">
+              <span class="screenreader">{{ item.linkText }}</span>
+            </a>
+          {%- endif -%}
           <div class="card-list__item-container">
             {%- if item.icon -%}
               {%- set iconPath = ['svg/', item.icon,'.njk'] | join -%}
@@ -32,7 +37,10 @@ Example usage:
             <h3 class="card-list__item-heading h5">{{ item.heading }}</h3>
             <p class="card-list__text">{{ item.text }}</p>
             {%- if item.linkText -%}
-              {{ ctaLink(item.linkUrl, item.linkText, 'card-list__link') }}
+              <span class="card-list__cta cta-link text--accent" aria-hidden="true">
+                <span class="cta-link__text">{{ item.linkText }}</span>
+                <span class="cta-link__arrow">{% include 'svg/arrow.njk' %}</span>
+              </span>
             {%- endif -%}
           </div>
         </li>

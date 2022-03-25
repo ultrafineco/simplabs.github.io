@@ -2,6 +2,7 @@
   "menus": [
     {
       "heading": "Services",
+      "link": "/services/",
       "links": [
         {
           "text": "Digital Products",
@@ -14,10 +15,6 @@
         {
           "text": "Training & Support",
           "link": "/services/training/"
-        },
-        {
-          "text": "Product Design",
-          "link": "/services/product-design/"
         }
       ]
     },
@@ -44,6 +41,7 @@
     },
     {
       "heading": "Work",
+      "link": "/work/",
       "links": [
         {
           "text": "Qonto",

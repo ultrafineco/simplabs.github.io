@@ -18,13 +18,6 @@ label: The kind of object, ie. post, video
         </p>
         <p class="post__pagination-title">{{ previous.data.title }}</p>
       </a>
-    {% else %}
-      <span class="post__pagination-link post__pagination-link--prev" aria-hidden="true">
-        <p class="post__pagination-label text--accent text--xs">
-          <span class="post__pagination-arrow">{% include 'svg/arrow-right.njk' %}</span>
-          Previous {{ label }}
-        </p>
-      </span>
     {% endif %}
     {% if next %}
       <a class="post__pagination-link post__pagination-link--next" href="{{ next.url }}">
@@ -34,13 +27,6 @@ label: The kind of object, ie. post, video
         </p>
         <p class="post__pagination-title">{{ next.data.title }}</p>
       </a>
-    {% else %}
-      <span class="post__pagination-link post__pagination-link--mext" aria-hidden="true">
-        <p class="post__pagination-label text--accent text--xs">
-          Next {{ label }}
-          <span class="post__pagination-arrow">{% include 'svg/arrow-right.njk' %}</span>
-        </p>
-      </span>
     {% endif %}
   </nav>
 {% endmacro %}

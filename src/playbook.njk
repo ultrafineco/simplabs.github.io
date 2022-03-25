@@ -53,15 +53,17 @@ eleventyNavigation:
 
 {{ columnList(playbook.from, 'Structure of this book') }}
 
-{% set 'content' = {
-  "title": "Increase focus and stability in your products now",
-  "linkText": "Download our Playbook",
-  "linkUrl": "https://github.com/simplabs/playbook/releases/download/1.1/simplabs-Playbook.pdf",
-  "image": "/assets/images/work/playbook-2.png",
-  "alt": "The playbook cover, featuring a vector illustration of hands stacking shapes",
-  "loading": "lazy"
-} %}
-{{ splitHero('left', 'blue', content) }}
+<div id="download">
+  {% set 'content' = {
+    "title": "Increase focus and stability in your products now",
+    "linkText": "Download our Playbook",
+    "linkUrl": "https://github.com/simplabs/playbook/releases/download/1.1/simplabs-Playbook.pdf",
+    "image": "/assets/images/work/playbook-2.png",
+    "alt": "The playbook cover, featuring a vector illustration of hands stacking shapes",
+    "loading": "lazy"
+  } %}
+  {{ splitHero('left', 'blue', content) }}
+</div>
 
 {% set 'contentBlocks' = [{
   "title": "About Mainmatter",

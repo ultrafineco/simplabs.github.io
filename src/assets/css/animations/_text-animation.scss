@@ -16,10 +16,10 @@
     .text-animation__cover {
       display: block;
       position: absolute;
-      top: -0.0625rem;
-      left: -0.0625rem;
-      right: -0.0625rem;
-      bottom: -0.0625rem;
+      top: -0.125rem;
+      left: -0.125rem;
+      right: -0.125rem;
+      bottom: -0.125rem;
       background-color: var(--color-animation);
       transform-origin: center left;
       transition: transform 0.3s;

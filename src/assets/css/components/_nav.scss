@@ -69,8 +69,8 @@
     vertical-align: bottom;
   }
 
-  &:hover,
-  &:focus {
+  &:not(.nav__link--is-active):not([aria-current="page"]):hover,
+  &:not(.nav__link--is-active):not([aria-current="page"]):focus {
     background-color: var(--color-white);
     color: var(--color-purple);
   }

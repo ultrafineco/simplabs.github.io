@@ -2,6 +2,11 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  scroll-padding-top: 3rem;
+
+  @media (min-width: 62em) {
+    scroll-padding-top: 5rem;
+  }
 }
 
 html,

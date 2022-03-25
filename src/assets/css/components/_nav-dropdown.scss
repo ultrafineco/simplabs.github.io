@@ -3,9 +3,8 @@
 }
 
 .nav-dropdown {
-  &:hover,
   &:focus-within {
-    .nav-dropdown__toggle {
+    .nav-dropdown__toggle:not(.nav__link--is-active):not([aria-current="page"]) {
       background-color: var(--color-white);
       color: var(--color-purple);
     }
@@ -59,5 +58,9 @@
   &:hover,
   &:focus {
     background-color: var(--color-aqua);
+  }
+
+  &[aria-current="page"] {
+    background-color: var(--color-yellow);
   }
 }
