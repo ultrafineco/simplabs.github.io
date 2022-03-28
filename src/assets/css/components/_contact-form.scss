@@ -25,7 +25,7 @@
   grid-column: 2 / -2;
 }
 
-$states: "success", "error";
+$states: "loading", "success", "error";
 
 .contact-form__form {
   position: relative;
@@ -63,7 +63,6 @@ $states: "success", "error";
   margin-bottom: 0.5rem;
   padding: 0;
   border: none;
-  cursor: pointer;
 }
 
 .contact-form__status {
@@ -85,6 +84,10 @@ $states: "success", "error";
   & > * {
     grid-column: 2 / -2;
   }
+}
+
+.contact-form__loading {
+  display: none;
 }
 
 .contact-form__error {
@@ -110,6 +113,17 @@ $states: "success", "error";
   border-radius: 0;
   background-color: transparent;
   color: currentColor;
+  cursor: pointer;
+}
+
+.contact-form__spinner {
+  margin: 0 auto;
+  width: 5rem;
+  height: 5rem;
+  border: 0.375rem solid var(--color-white);
+  border-top: 0.375rem solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: 1s rotate infinite linear;
 }
 
 @media (min-width: 48em) {

@@ -1,7 +1,6 @@
 .event-cards {
   display: grid;
   grid-column: 1 / -1;
-  align-items: start;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   gap: rem-calc(26);
   margin: 0;
@@ -22,9 +21,38 @@
   &--conference {
     border-color: var(--color-blue);
   }
+
+  &--workshop {
+    border-color: var(--color-purple);
+  }
+}
+
+.event-card__link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  outline-offset: 0.25rem;
+
+  &:hover {
+    & ~ .event-card__container .event-card__cta {
+      color: var(--color-link-hover-text);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
 }
 
 .event-card__container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 100%;
   grid-column: 2/-2;
 
   & > * + * {
@@ -34,14 +62,15 @@
 
 .event-card__image {
   display: block;
-  width: 100%;
-  aspect-ratio: 263 / 140;
+  width: auto;
+  max-height: 8rem;
   object-fit: contain;
   object-position: left center;
 }
 
 .event-card__meta {
   display: flex;
+  width: 100%;
   padding: 0.5rem 0;
   gap: 2rem;
   border-top: 0.0625rem solid currentColor;
@@ -50,8 +79,13 @@
 }
 
 .event-card__description {
-  margin: 1 0;
+  margin: 1rem 0;
   font-size: 0.875rem;
+}
+
+.event-card__cta {
+  margin-top: auto;
+  pointer-events: none;
 }
 
 @media (min-width: 34em) {

@@ -29,6 +29,10 @@
         <span class="screenreader">Close</span>
         {% include 'svg/close.njk' %}</span>
       </button>
+      <div class="contact-form__loading" tabindex="-1" data-form-loading>
+        <h2 class="contact-form__status-heading h2">Your message is being sent…</h2>
+        <div class="contact-form__spinner"></div>
+      </div>
       <div class="contact-form__error" tabindex="-1" data-form-error>
         <h2 class="contact-form__status-heading h2">Error</h2>
         Unable to send message. Please try again later or contact us at

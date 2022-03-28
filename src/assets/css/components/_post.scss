@@ -1,6 +1,5 @@
 .post {
   margin: 2rem 0 var(--section-spacing);
-  line-height: 1.5;
   overflow-x: hidden;
 }
 
@@ -58,7 +57,7 @@
 }
 
 .post__tagline {
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .post__separator {

@@ -43,6 +43,7 @@ leads:
   - name: Linda Guerrisi
     title: Director of Product Design
     image: /assets/images/authors/lindaguerrisi.jpg
+    bio: Linda helps companies solve their user's problems in creative and scalable ways. She's experienced in strategy workshop facilitation, wireframing, and user experience design.
 ---
 
 {% from "image-with-text.njk" import imageWithText %}

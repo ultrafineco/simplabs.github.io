@@ -9,13 +9,16 @@ event: A event object
 {% from "cta-link.njk" import ctaLink %}
 {%- macro eventCard(event) -%}
   <li class="event-card event-card--{{ event.data.kind }} layout">
+    <a href="{{ event.data.url }}" class="event-card__link">
+      <h3 class="screenreader">{{ event.data.title }}</h3>
+    </a>
     <div class="event-card__container">
       <div class="event-card__image-wrapper">
-        {% image event.data.image, "", '16.438rem', 'lazy', 'event-card__image', [263, 400, 526] %}
+        {% image event.data.image, "", '12.5rem', 'lazy', 'event-card__image', [200, 400, 600] %}
       </div>
-      <h3 class="event-card__title h3" >
+      <p class="event-card__title h3" aria-hidden="true">
         {{ event.data.title }}
-      </h3>
+      </p>
       <div class="event-card__meta">
         <span class="event-card__meta-text">{{ event.date | monthDayYear }}</span>
         {% if event.data.location %}
@@ -25,8 +28,10 @@ event: A event object
       <div class="event-card__description">
         {{ event.templateContent | safe }}
       </div>
-      {% set linkText = "Visit Website <span class='screenreader'>for " + event.data.title + "</span>" %}
-      {{ ctaLink(event.data.url, linkText, 'event-card__cta') }}
+      <span class="event-card__cta cta-link text--accent" aria-hidden="true">
+        <span class="cta-link__text">Visit Website</span>
+        <span class="cta-link__arrow">{% include 'svg/arrow.njk' %}</span>
+      </span>
     </div>
   </li>
 {%- endmacro -%}

@@ -12,7 +12,7 @@
       {% for menu in footerNavigation.menus %}
         <div class="footer__menu footer-menu">
           <h2 class="footer-menu__heading text--accent">
-            {% if menu.link %}<a class="footer-menu__heading-link" href="{{ menu.url }}">{% endif %}
+            {% if menu.link %}<a class="footer-menu__heading-link" href="{{ menu.link }}">{% endif %}
             {{ menu.heading }}
             {% if menu.link %}</a>{% endif %}
           </h2>

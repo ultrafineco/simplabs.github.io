@@ -12,7 +12,7 @@
       </{{ tag }}>
       <ul class="nav__list">
         {%- for entry in navPages %}
-          <li class="nav__item nav-dropdown" {% if entry.children.length > 0 and entry.hideDropdown != true %}data-dropdown-wrapper{% endif %}>
+          <li class="nav__item nav-dropdown" {% if entry.children.length > 0 and entry.hideDropdown != true %}data-dropdown-wrapper tabindex="-1"{% endif %}>
             {% set isActive = false %}
             {% for childEntry in entry.children %}
               {% if childEntry.url == page.url %}

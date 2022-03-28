@@ -17,10 +17,3 @@
     grid-column: var(--break-grid);
   }
 }
-
-@media (min-width: 62em) {
-  .workshop__leads {
-    display: flex;
-    gap: 2rem;
-  }
-}

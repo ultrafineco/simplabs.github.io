@@ -5,6 +5,8 @@ import { Nav } from "./nav";
 import { ContactForm } from "./contact-form";
 import initCarousels from "./carousels";
 
+document.querySelector("body").setAttribute("data-js-enabled", "true");
+
 const navElement = document.getElementById("nav");
 new Nav(navElement);
 

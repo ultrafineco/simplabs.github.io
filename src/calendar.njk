@@ -6,7 +6,7 @@ description: Find out where and when there are upcoming events, conferences and 
 {% from "text-hero.njk" import textHero %}
 {% from "event-card.njk" import eventCard %}
 
-{%- set kinds = ["Conference", "Meetup"] -%}
+{%- set kinds = ["Conference", "Workshop", "Meetup" ] -%}
 
 {% set 'content' = {
   "title": "Calendar",
@@ -37,7 +37,7 @@ description: Find out where and when there are upcoming events, conferences and 
         {%- if eventCount > 0 %}
           </ul>
         {%- endif -%}
-        {%- if loop.first -%}
+        {%- if loop.index === 2 -%}
           </div>
           {%- include 'content/secondary-feature-ember.njk' -%}
           <div class="layout">

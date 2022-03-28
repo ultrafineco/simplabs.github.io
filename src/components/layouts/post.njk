@@ -20,9 +20,6 @@ noStickyHeader: true
         {{ date | monthDayYear }}
       </div>
       <h1 class="post__title"> {{ title }}</h1>
-      <div class="post__tagline">
-        {{ tagline | safe }}
-      </div>
       <div class="author author--post">
         {% set author = authorHandle | findBySlug %}
         <div class="author__image-wrapper">
@@ -49,7 +46,9 @@ noStickyHeader: true
           </div>
         </div>
       </div>
-      <div class="post__separator"></div>
+      <div class="post__tagline">
+        {{ tagline | safe }}
+      </div>
       {{ content | safe }}
     </article>
 
