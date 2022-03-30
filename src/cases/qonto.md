@@ -28,7 +28,7 @@ Qonto’s frontend engineering team needed to rapidly scale their operations aft
 We met with Qonto's team in their office in Paris to kick off the collaboration. We sat down with the relevant stakeholders to develop an understanding of their business, their technology, infrastructure, tools and processes. We reviewed the existing Ember.js codebase and interviewed the frontend team to understand their main challenges. At the end of this process, we had a clear understanding of the status quo as well as the main obstacles the team was facing.
 
 {% set text = "simplabs are well known as the Ember.js experts and they absolutely live up to the expectations. They had an immediate as well as significant positive impact on both our velocity and quality of output." %}
-{% set source = "Marc-Antoine Lacroix, Qonto CEO" %}
+{% set source = "Marc-Antoine Lacroix, Qonto CPO" %}
 {{ quote('aqua', text, source, false) }}
 
 ## Clearing the roadblocks

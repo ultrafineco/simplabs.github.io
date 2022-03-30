@@ -5,10 +5,6 @@
   color: var(--color-text);
   perspective: 1px;
 
-  &--post {
-    --spacing: 1rem;
-  }
-
   &--case-study {
     margin-bottom: 3rem;
 
@@ -46,7 +42,26 @@
   max-height: 3rem;
 }
 
+.split-hero__full-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+
+  &:hover ~ .split-hero__link {
+    color: var(--color-link-hover-text);
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
 .split-hero__main {
+  position: relative;
   display: flex;
   grid-column: 2 / -2;
   flex-direction: column;
@@ -80,6 +95,10 @@
 .split-hero__link {
   align-self: flex-start;
   margin-top: calc(var(--spacing) * 1.5);
+
+  &--post {
+    pointer-events: none;
+  }
 }
 
 @media (min-width: 48em) {

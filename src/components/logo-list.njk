@@ -18,7 +18,7 @@ Example usage:
           <div class="logo-list__image">
             {% set imagePath %}/logos/monochrome/{{ logo | slug }}.svg{% endset %}
             {% svg imagePath, 'img' %}
-            <span class="visually-hidden">{{ logo }}</span>
+            <span class="screenreader">{{ logo }}</span>
           </div>
         </li>
       {% endfor %}

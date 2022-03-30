@@ -16,6 +16,11 @@ Example usage:
   <section class="split-hero layout split-hero--{{ desktopTextPosition }}" data-color-scheme="{{ color }}">
     <div class="split-hero__main">
       <div class="split-hero__container container">
+        <a class="split-hero__full-link" href="{{ post.url }}">
+          <h2 class="visually-hidden">
+            {{ post.title }}
+          </h2>
+        </a>
         {% if post.data.tags %}
           <p class="split-hero__pretitle split-hero__pretitle--post">
             <span class="text--accent">
@@ -28,7 +33,7 @@ Example usage:
             </span>
           </p>
         {% endif %}
-        <h2 class="split-hero__title h2">{{ post.data.title | safe }}</h2>
+        <p class="split-hero__title h2" aria-hidden="true">{{ post.data.title | safe }}</p>
         <div class="split-hero__author">
           {% if post.data.authorHandle %}
             {{ authorLink(post.data.authorHandle) }}
@@ -37,7 +42,10 @@ Example usage:
         {% if post.data.tagline %}
           <div class="split-hero__text">{{ post.data.tagline | safe }}</div>
         {% endif %}
-        {{ ctaLink(post.url, 'Read the post', 'split-hero__link') }}
+        <span class="split-hero__link split-hero__link--post cta-link text--accent" aria-hidden="true">
+          <span class="cta-link__text">Read the post</span>
+          <span class="cta-link__arrow">{% include 'svg/arrow.njk' %}</span>
+        </span>
       </div>
     </div>
     {% if post.data.image %}
