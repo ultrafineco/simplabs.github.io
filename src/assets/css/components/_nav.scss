@@ -72,7 +72,10 @@
   border-radius: 0;
   background-color: transparent;
   color: var(--color-body-text);
-  transition: color 0.3s ease, background-color 0.3s ease;
+
+  [data-unblock-animations="true"] & {
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
 
   .icon-arrow {
     vertical-align: bottom;
@@ -150,11 +153,10 @@
 
 .nav__mobile-menu {
   opacity: 0;
-  transition: 0.3s opacity ease, 0.3s visibility ease;
   visibility: hidden;
 
-  [data-js-enabled="false"] & {
-    transition: none;
+  [data-unblock-animations="true"] & {
+    transition: 0.3s opacity ease, 0.3s visibility ease;
   }
 }
 
@@ -197,6 +199,10 @@
     &[aria-expanded="true"] + .nav__mobile-menu {
       display: none;
     }
+  }
+
+  .nav__mobile-menu {
+    display: none;
   }
 }
 
