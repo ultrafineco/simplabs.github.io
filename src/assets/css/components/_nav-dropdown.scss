@@ -34,7 +34,7 @@
   opacity: 0;
   visibility: hidden;
 
-  [data-js-enabled="true"] & {
+  [data-unblock-animations="true"] & {
     transition: 0.3s opacity 0.15s ease, 0.3s visibility 0.15s ease;
   }
 }

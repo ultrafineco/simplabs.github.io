@@ -5,7 +5,11 @@ import { Nav } from "./nav";
 import { ContactForm } from "./contact-form";
 import initCarousels from "./carousels";
 
-document.querySelector("body").setAttribute("data-js-enabled", "true");
+const body = document.querySelector("body");
+body.setAttribute("data-js-enabled", "true");
+window.addEventListener("load", function () {
+  body.setAttribute("data-unblock-animations", "true");
+});
 
 const navElement = document.getElementById("nav");
 new Nav(navElement);
