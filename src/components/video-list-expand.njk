@@ -13,8 +13,10 @@
           </div>
         {% elif loop.index % limit === 0 %}
           </div>
-          <button class="video-list__button  text--accent" data-accordion-toggle="loadMore" aria-expanded="false">
-
+          <button class="video-list__button cta-link text--accent" data-accordion-toggle="loadMore" aria-expanded="false">
+            <span class="cta-link__text">
+              {{ 'Show more interviews' | buttonText | safe }}
+            </span>
           </button>
           <div class="video-list__grid">
         {% endif %}
