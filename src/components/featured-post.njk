@@ -42,10 +42,7 @@ Example usage:
         {% if post.data.tagline %}
           <div class="split-hero__text">{{ post.data.tagline | safe }}</div>
         {% endif %}
-        <span class="split-hero__link split-hero__link--post cta-link text--accent" aria-hidden="true">
-          <span class="cta-link__text">Read the post</span>
-          <span class="cta-link__arrow">{% include 'svg/arrow.njk' %}</span>
-        </span>
+        {{ ctaLink(false, 'Read the post', 'split-hero__link') }}
       </div>
     </div>
     {% if post.data.image %}

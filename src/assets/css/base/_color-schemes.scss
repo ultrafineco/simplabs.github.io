@@ -6,6 +6,7 @@
   --color-link-hover-text: var(--color-black);
   --color-link-hover-background: var(--color-yellow);
   --color-animation: var(--color-aqua);
+  --left-margin-link: 0;
 }
 
 [data-color-scheme="blue"] {
@@ -16,6 +17,7 @@
   --color-link-hover-text: var(--color-black);
   --color-link-hover-background: var(--color-yellow);
   --color-animation: var(--color-yellow);
+  --left-margin-link: 0;
 }
 
 [data-color-scheme="aqua"] {
@@ -26,6 +28,7 @@
   --color-link-hover-text: var(--color-black);
   --color-link-hover-background: var(--color-yellow);
   --color-animation: var(--color-purple);
+  --left-margin-link: 0.5rem;
 }
 
 [data-color-scheme="yellow"] {
@@ -36,6 +39,7 @@
   --color-link-hover-text: var(--color-black);
   --color-link-hover-background: var(--color-aqua);
   --color-animation: var(--color-purple);
+  --left-margin-link: 0.5rem;
 }
 
 [data-color-scheme="white"] {
@@ -46,4 +50,5 @@
   --color-link-hover-text: var(--color-black);
   --color-link-hover-background: var(--color-yellow);
   --color-animation: var(--color-purple);
+  --left-margin-link: 0;
 }

@@ -1,3 +1,5 @@
+{% from "cta-link.njk" import ctaLink %}
+
 {%- macro talkCard(talk) -%}
   <div class="talk-card layout">
     <a href="{{ talk.data.url }}" class="talk-card__link">
@@ -13,16 +15,12 @@
       <div class="talk-card__description">
         {{ talk.templateContent | safe }}
       </div>
-      <span class="talk-card__cta cta-link text--accent">
-        <span class="cta-link__text">
-          {% if talk.data.media === 'video' %}
-            Watch Video
-          {% elif talk.data.media === 'podcast' %}
-            Listen to Episode
-          {% endif %}
-        </span>
-        <span class="cta-link__arrow">{% include 'svg/arrow.njk' %}</span>
-      </span>
+      {% if talk.data.media === 'video' %}
+        {% set text = 'Watch Video' %}
+      {% elif talk.data.media === 'podcast' %}
+        {% set text = 'Listen to episode' %}
+      {% endif %}
+      {{ ctaLink(false, text, 'talk-card__cta') }}
     </div>
   </div>
 {% endmacro %}

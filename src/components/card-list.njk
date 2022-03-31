@@ -37,10 +37,7 @@ Example usage:
             <h3 class="card-list__item-heading h5">{{ item.heading }}</h3>
             <p class="card-list__text">{{ item.text }}</p>
             {%- if item.linkText -%}
-              <span class="card-list__cta cta-link text--accent" aria-hidden="true">
-                <span class="cta-link__text">{{ item.linkText }}</span>
-                <span class="cta-link__arrow">{% include 'svg/arrow.njk' %}</span>
-              </span>
+              {{ ctaLink(false, item.linkText, 'card-list__cta') }}
             {%- endif -%}
           </div>
         </li>

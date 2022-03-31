@@ -2,7 +2,7 @@
 A link with an arrow
 
 Configuration Options:
-link: URL
+link: URL. If no link is passed, then a decorative link is rendered that is invisible to screenreader users. This is so a larger block link can be created elsewhere.
 text: Link text
 class: Optional class attribute for applying spacing
 
@@ -11,8 +11,13 @@ Example usage:
 #}
 
 {%- macro ctaLink(link, text, class) -%}
-  <a class="cta-link text--accent {{ class }}" href="{{ link }}">
-    <span class="cta-link__text">{{ text | safe }}</span>
-    <span class="cta-link__arrow">{% include 'svg/arrow.njk' %}</span>
-  </a>
+  {% if link %}
+    <a class="cta-link text--accent {{ class }}" href="{{ link }}">
+      <span class="cta-link__text">{{ text | buttonText | safe }}</span>
+    </a>
+  {% else %}
+    <span class="cta-link text--accent {{ class }}" aria-hidden="true">
+      <span class="cta-link__text">{{ text | buttonText | safe }}</span>
+    </span>
+  {% endif %}
 {%- endmacro -%}

@@ -1,7 +1,8 @@
 .cta-link {
   position: relative;
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
+  margin-left: var(--left-margin-link);
+  max-width: calc(100% - var(--left-margin-link));
   color: var(--color-link-text);
   font-weight: 700;
   font-size: 1rem;
@@ -51,17 +52,24 @@
   &:focus {
     color: var(--color-link-hover-text);
   }
+
+  &[aria-hidden="true"] {
+    pointer-events: none;
+  }
 }
 
 .cta-link__text {
   position: relative;
+  line-height: 1.5;
   z-index: 2;
 }
 
-.cta-link__arrow {
-  position: relative;
-  flex: 0 0 0.75rem;
-  margin-left: 0.625rem;
-  transform: translate3d(0, 0, 0);
-  z-index: 2;
+.cta-link__arrow-text {
+  white-space: nowrap;
+
+  svg {
+    margin-left: 0.5rem;
+    width: 0.75rem;
+    transform: translate3d(0, 0, 0);
+  }
 }

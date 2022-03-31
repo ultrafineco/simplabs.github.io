@@ -10,7 +10,7 @@
 
 .event-card {
   position: relative;
-  padding: 1rem 0 1.5rem;
+  padding: 1.5rem 0;
   box-shadow: var(--box-shadow);
   border-top: 0.875rem solid;
 
@@ -60,22 +60,20 @@
   }
 }
 
+.event-card__meta {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.875rem;
+  color: var(--color-gray);
+}
+
 .event-card__image {
   display: block;
   width: auto;
   max-height: 8rem;
   object-fit: contain;
   object-position: left center;
-}
-
-.event-card__meta {
-  display: flex;
-  width: 100%;
-  padding: 0.5rem 0;
-  gap: 2rem;
-  border-top: 0.0625rem solid currentColor;
-  border-bottom: 0.0625rem solid currentColor;
-  font-size: 0.875rem;
 }
 
 .event-card__description {
@@ -85,7 +83,6 @@
 
 .event-card__cta {
   margin-top: auto;
-  pointer-events: none;
 }
 
 @media (min-width: 34em) {

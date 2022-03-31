@@ -6,6 +6,8 @@ workshop: A workshop object
 
 {{ workshopCard(workshop) }}
 #}
+{% from "cta-link.njk" import ctaLink %}
+
 {%- macro workshopCard(workshop) -%}
   <li class="workshop-card layout">
     <a href="{{ workshop.url }}" class="workshop-card__link">
@@ -39,10 +41,7 @@ workshop: A workshop object
       <p class="workshop-card__description">
         {{ workshop.data.description }}
       </p>
-      <span class="workshop-card__cta cta-link text--accent" aria-hidden="true">
-        <span class="cta-link__text">Find out more</span>
-        <span class="cta-link__arrow">{% include 'svg/arrow.njk' %}</span>
-      </span>
+      {{ ctaLink(false, 'Find out more', 'workshop-card__cta') }}
     </div>
   </li>
 {%- endmacro -%}
