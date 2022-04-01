@@ -4,7 +4,7 @@
     <div class="nav__main">
       {% set tag = 'a' %}
       {% if page.url == '/' %}
-        {% set tag = 'h1' %}
+        {% set tag = 'span' %}
       {% endif %}
       <{{ tag }} class="nav__brand" {% if tag == 'a' %}href="/"{% endif %}>
         {% include 'svg/logo.njk' %}
