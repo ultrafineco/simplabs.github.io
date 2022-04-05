@@ -32,31 +32,23 @@ list: An array where each item is the slug for the case study.
       {% endfor %}
     </div>
     <div class="client-list--desktop layout__full">
-      <div class="client-list__splide splide">
-        <div class="splide__track">
-          <div class="splide__list">
-            {% set limit = 9 %}
-            {% for clientHandle in clients -%}
-              {% if loop.first %}
-                <div class="splide__slide">
-                <div class="client-list__grid">
-              {% endif %}
-              {{ clientCard(clientHandle) }}
-              {% if loop.last %}
-                </div></div>
-              {% elif loop.index % limit === 0 %}
-                </div></div>
-                <div class="splide__slide">
-                <div class="client-list__grid">
-              {% endif %}
-            {% endfor %}
+      <div class="overflow" data-overflow>
+        <div class="client-list__overflow-wrapper" tabindex="0" data-overflow-scroll>
+          <div class="client-list__overflow-list">
+            <div class="client-list__grid" data-overflow-grid>
+              {% for clientHandle in clients -%}
+                <div class="client-list__grid-item">
+                  {{ clientCard(clientHandle) }}
+                </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
-        <div class="splide__arrows">
-          <button class="splide__arrow splide__arrow--prev" aria-label="Previous">
+        <div class="overflow__arrows" data-arrows>
+          <button class="overflow__arrow overflow__arrow--prev" aria-label="Previous" data-prev type="button" disabled>
             {% include 'svg/arrow-right.njk' %}
           </button>
-          <button class="splide__arrow splide__arrow--next" aria-label="Next">
+          <button class="overflow__arrow overflow__arrow--next" aria-label="Next" data-next type="button">
             {% include 'svg/arrow-right.njk' %}
           </button>
         </div>

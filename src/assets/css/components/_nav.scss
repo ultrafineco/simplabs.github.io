@@ -1,6 +1,5 @@
 .nav {
-  position: sticky;
-  top: 0;
+  position: relative;
   background-color: var(--color-white);
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
   z-index: 10;
@@ -17,6 +16,11 @@
   @supports (-webkit-backdrop-filter: blur(0.75rem)) {
     background-color: rgba(255, 255, 255, 0.7);
     -webkit-backdrop-filter: blur(0.75rem);
+  }
+
+  @media (min-height: 38em) {
+    position: sticky;
+    top: 0;
   }
 }
 

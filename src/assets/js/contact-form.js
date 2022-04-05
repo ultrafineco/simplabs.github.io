@@ -1,5 +1,3 @@
-import e from "lax.js";
-
 export class ContactForm {
   constructor(element) {
     this.form = element;

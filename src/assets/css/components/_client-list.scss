@@ -1,4 +1,5 @@
 .client-list {
+  --box-shadow-width: 0.25rem;
   margin: var(--section-spacing) 0;
   text-align: center;
 }
@@ -49,10 +50,6 @@
   display: none;
 }
 
-.client-list__splide {
-  scroll-margin-top: 1rem;
-}
-
 @media (min-width: 48em) {
   .client-list {
     margin-top: 0;
@@ -88,5 +85,34 @@
 
   .client-list--desktop {
     display: block;
+  }
+
+  .client-list__overflow-wrapper {
+    padding: 0 0 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  .client-list__overflow-list {
+    // Hack: magic number
+    width: 270.5%;
+  }
+
+  .client-list__grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .client-list__grid-item {
+    padding: var(--box-shadow-width);
+
+    .client-card {
+      height: 100%;
+    }
   }
 }

@@ -44,7 +44,6 @@
     "last 1 Edge versions"
   ],
   "dependencies": {
-    "@splidejs/splide": "^3.6.12",
     "lax.js": "^2.0.3"
   }
 }

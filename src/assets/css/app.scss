@@ -1,6 +1,5 @@
 @import "mixins/rem-calc";
 @import "lib/normalize";
-@import "lib/splide-core";
 
 @import "base/variables";
 @import "base/global";
@@ -46,7 +45,7 @@
 @import "components/workshop-topics";
 @import "components/secondary-feature";
 @import "components/card-list";
-@import "components/splide";
+@import "components/overflow";
 @import "components/client-card";
 @import "components/case-study";
 @import "components/video-list";
