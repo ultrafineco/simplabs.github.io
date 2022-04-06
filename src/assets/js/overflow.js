@@ -62,8 +62,6 @@ export class Overflow {
       left: newOffset,
       behavior: this.behavior,
     });
-
-    this.container.scrollIntoView();
   }
 
   scrollToNext() {
