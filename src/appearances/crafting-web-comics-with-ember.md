@@ -4,6 +4,7 @@ image: "/assets/images/talks/2018-10-29-reactiveconf-2018/crafting-web-comics-wi
 url: https://www.youtube.com/watch?v=cljehgyxOSQ
 media: video
 channel: 2018-10-29-reactiveconf-2018
+date: 2018-10-29
 ---
 
 Jessica Jordan shares how to build comics for the web using Ember.js and the Web

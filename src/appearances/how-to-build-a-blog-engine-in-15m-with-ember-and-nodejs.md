@@ -4,6 +4,7 @@ image: "/assets/images/talks/2019-03-16-emberconf-2019/how-to-build-a-blog-engin
 url: https://www.youtube.com/watch?v=GHbjdesHhPA
 media: video
 channel: 2019-03-16-emberconf-2019
+date: 2019-03-16
 ---
 
 Chris Manson shows how to build a blog in 15min using empress-blog.

@@ -4,6 +4,7 @@ image: "/assets/images/talks/2020-03-16-emberconf-2020/the-power-of-debugging.jp
 url: https://www.youtube.com/watch?v=d29kpZWvhQY
 media: video
 channel: 2020-03-16-emberconf-2020
+date: 2020-03-16
 ---
 
 Samanta de Barros explains how to leverage tools to debug and better understand

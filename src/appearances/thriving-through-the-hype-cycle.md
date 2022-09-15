@@ -4,6 +4,7 @@ image: "/assets/images/talks/2019-06-22-commit-porto-2019/thriving-through-the-h
 url: https://www.youtube.com/watch?v=ECkbVa0iC4k
 media: video
 channel: 2019-06-22-commit-porto-2019
+date: 2019-06-22
 ---
 
 Ricardo Mendes goes through the history of Ember.js as a project and how it

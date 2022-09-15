@@ -4,6 +4,7 @@ image: "/assets/images/talks/2018-03-13-emberconf-2018/the-next-generation-of-te
 url: https://www.youtube.com/watch?v=8D-O4cSteRk
 media: video
 channel: 2018-03-13-emberconf-2018
+date: 2018-03-13
 ---
 
 Tobias Bieniek elaborates on what modern testing of Ember.js applications looks

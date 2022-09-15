@@ -4,6 +4,7 @@ image: "/assets/images/talks/2020-03-16-emberconf-2020/an-octane-powered-jam-sta
 url: https://www.youtube.com/watch?v=JIlExMkSbhs
 media: video
 channel: 2020-03-16-emberconf-2020
+date: 2020-03-16
 ---
 
 Chris Manson explains how Ember Octane and Empress support JAM Stack developers.

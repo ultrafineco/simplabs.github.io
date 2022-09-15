@@ -4,6 +4,7 @@ image: "/assets/images/talks/2020-01-14-working-draft/jjordan_dev.jpg"
 url: https://workingdraft.de/408/
 media: podcast
 channel: 2020-01-14-working-draft
+date: 2020-01-14
 ---
 
 Jessica Jordan appears in revision 408 to discuss all things Ember.js.
