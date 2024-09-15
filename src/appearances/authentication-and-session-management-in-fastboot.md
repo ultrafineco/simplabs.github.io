@@ -4,6 +4,7 @@ image: "/assets/images/talks/2016-07-12-embercamp-2016/authentication-and-sessio
 url: https://www.youtube.com/watch?v=jcAgi7fpTw8
 media: video
 channel: 2016-07-12-embercamp-2016
+date: 2016-07-12
 ---
 
 Marco Otte-Witte shows how authentication ans session management works in

@@ -51,10 +51,22 @@ export class Animations {
     lax.addElements(".text-animation__cover", {
       scrollY: {
         scaleX: [
-          // Todo: Come back and refine this, sizing may change things
           {
-            768: ["elCenterY-200", "elOutY-200"],
-            1024: ["elCenterY-200", "elOutY-400"],
+            768: ["elOutY-100", "elOutY-50"],
+            1280: ["elOutY-200", "elOutY-100"],
+            1900: ["elOutY-300", "elOutY-100"],
+          },
+          [1, 0],
+        ],
+      },
+    });
+
+    lax.addElements(".text-animation__cover-offset", {
+      scrollY: {
+        scaleX: [
+          {
+            480: ["elOutY-400", "elOutY-100"],
+            1200: ["elOutY-900", "elOutY-600"]
           },
           [1, 0],
         ],

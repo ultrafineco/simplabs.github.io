@@ -4,6 +4,7 @@ image: "/assets/images/talks/2019-02-23-bangbangconwest-2019/how-do-you-tell-fol
 url: https://www.youtube.com/watch?v=7LbEWD0gzGo
 media: video
 channel: 2019-02-23-bangbangconwest-2019
+date: 2019-02-23
 ---
 
 Tobias Bieniek reports from the intersection between coding and gliding.

@@ -4,6 +4,7 @@ image: "/assets/images/talks/2019-10-17-emberfest-2019/steady-state-with-ember-o
 url: https://www.youtube.com/watch?v=tpjIwmg8meY
 media: video
 channel: 2019-10-17-emberfest-2019
+date: 2019-10-17
 ---
 
 Jessica Jordan explains how state management works with decorators and tracked

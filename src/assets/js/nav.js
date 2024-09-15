@@ -4,30 +4,38 @@ export class Nav {
   constructor(element) {
     this.container = element;
     this.menuToggles = this.container.querySelectorAll("[data-menu-toggle]");
-    this.menuCloseButtons = this.container.querySelectorAll("[data-menu-close]");
+    this.menuClose = this.container.querySelectorAll("[data-menu-close]");
+    this.modals = this.container.querySelectorAll("[data-modal]");
+
+    this.animation = null;
+    this.isClosing = false;
+    this.isOpening = false;
+
+    this.modals.forEach((modal) => {
+      modal.setAttribute("aria-modal", true);
+    });
 
     this.bindEvents();
   }
 
   bindEvents() {
-    this.menuToggles.forEach((menuToggle) => {
-      menuToggle.addEventListener("click", () => {
-        if (menuToggle.getAttribute("aria-expanded") === "true") {
-          this.closeMenu(menuToggle);
-        } else {
-          this.openMenu(menuToggle);
+    this.menuToggles.forEach((toggle) => {
+      toggle.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const menu = toggle.closest("[data-has-submenu]");
+        if (this.isOpening || menu.open) {
+          this.closeMenu(menu);
+        } else if (this.isClosing || !menu.open) {
+          this.openMenu(menu);
         }
       });
     });
 
-    this.menuCloseButtons.forEach((button) => {
+    this.menuClose.forEach((button) => {
       button.addEventListener("click", () => {
-        const toggle = button.closest("[data-has-modal")?.querySelector("[data-menu-toggle]");
-        if (toggle.getAttribute("aria-expanded") === "true") {
-          this.closeMenu(toggle);
-        } else {
-          this.openMenu(toggle);
-        }
+        const toggle = button.closest("[data-has-submenu]").querySelector("[data-menu-toggle]");
+        if (toggle) toggle.click();
       });
     });
 
@@ -35,18 +43,14 @@ export class Nav {
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         this.menuToggles.forEach((menuToggle) => {
-          this.closeMenu(menuToggle);
+          const menu = menuToggle.closest("[data-has-submenu]");
+          if (menu && menu.hasAttribute("open")) {
+            const toggle = menu.querySelector("[data-menu-toggle]");
+            if (toggle) toggle.click();
+          }
         });
       }
     });
-  }
-
-  closeMenu(menuToggle) {
-    const siblings = this.getAllSiblings(this.container);
-    menuToggle.setAttribute("aria-expanded", "false");
-    siblings.forEach((sibling) => sibling.removeAttribute("inert"));
-    menuToggle.focus();
-    document.body.classList.remove("menu-open");
   }
 
   getAllSiblings(element) {
@@ -54,19 +58,70 @@ export class Nav {
     return children.filter((child) => child !== element);
   }
 
-  openMenu(menuToggle) {
+  closeMenu(menu) {
+    const content = menu.querySelector("[data-modal]");
+    this.isClosing = true;
+
+    if (this.animation) {
+      this.animation.cancel();
+    }
+
+    this.animation = content.animate({
+      opacity: [1, 0]
+    }, {
+      duration: 200,
+      easing: 'ease-out'
+    });
+
+    this.animation.onfinish = () => this.onAnimationFinish(menu, false);
+    this.animation.oncancel = () => this.isClosing = false;
+
     const siblings = this.getAllSiblings(this.container);
-    menuToggle.setAttribute("aria-expanded", "true");
+    siblings.forEach((sibling) => sibling.removeAttribute("inert"));
+    document.body.classList.remove("menu-open");
+    const menuToggle = menu.querySelector("[data-menu-toggle]");
+    menuToggle.focus({focusVisible: false});
+  }
+
+  animateOpacity(menu) {
+    const content = menu.querySelector("[data-modal]");
+    this.isOpening = true;
+
+    if (this.animation) {
+      this.animation.cancel();
+    }
+
+    this.animation = content.animate({
+      opacity: [0, 1]
+    }, {
+      duration: 200,
+      easing: 'ease-in'
+    });
+
+    this.animation.onfinish = () => this.onAnimationFinish(menu, true);
+    this.animation.oncancel = () => this.isOpening = false;
+  }
+
+  openMenu(menu) {
+    menu.open = true;
+    window.requestAnimationFrame(() => this.animateOpacity(menu));
+
+    const siblings = this.getAllSiblings(this.container);
     siblings.forEach((sibling) => sibling.setAttribute("inert", true));
     document.body.classList.add("menu-open");
 
-    // Set trap focus
-    const modal = menuToggle.closest("[data-has-modal")?.querySelector("[data-modal]");
-    if (modal) {
+    if (menu) {
       setTimeout(function () {
-        trapFocus(modal);
+        trapFocus(menu);
       }, 100);
     }
+  }
+
+  onAnimationFinish(menu, open) {
+    menu.open = open;
+    this.animation = null;
+    this.isClosing = false;
+    this.isOpening = false;
   }
 }
 

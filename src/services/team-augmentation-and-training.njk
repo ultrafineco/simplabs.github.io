@@ -10,7 +10,7 @@ title: Boosting teams' effectiveness with Team Augmentation | Our Services
 
 {% set 'content' = {
   "title": "Accelerate your growth with <em>dedicated</em> specialists",
-  "image": "/assets/images/photos/mainmatter-team-brainstorm.jpg",
+  "image": "/assets/images/photos/mainmatter-team-workshop.jpg",
   "alt": "Four team members gathered on the floor writing on sheets of paper",
   "loading": "eager",
   "titleTag": "h1"
@@ -45,7 +45,7 @@ title: Boosting teams' effectiveness with Team Augmentation | Our Services
 } %}
 
 {% set slides = [slide_1, slide_2, slide_3] %}
-{{ scrollSlides(slides, page.url) }}
+{{ scrollSlides('team-augmentation-section-1', slides, page.url) }}
 
 {% set image = {
   "imgPath": "/assets/images/photos/team-meeting.jpg",
@@ -87,7 +87,7 @@ Ruby on Rails, and related technology stacks."
 } %}
 
 {% set slides = [slide_1, slide_2, slide_3] %}
-{{ scrollSlides(slides, page.url) }}
+{{ scrollSlides('team-augmentation-section-2', slides, page.url) }}
 
 {% set 'content' = {
 "title": "Grow <em>your business</em> with us",
@@ -98,4 +98,4 @@ Ruby on Rails, and related technology stacks."
 "alt": "Hands gesturing in front of laptop",
 "loading": "lazy"
 } %}
-{{ colorHero('center', 'small', 'purple', content) }}
+{{ colorHero('center', 'small', 'purple', content, true) }}

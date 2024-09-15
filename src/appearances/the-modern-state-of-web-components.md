@@ -4,6 +4,7 @@ image: "/assets/images/talks/2017-07-11-embercamp-2017/the-modern-state-of-web-c
 url: https://www.youtube.com/watch?v=OzFgDBJcWuU
 media: video
 channel: 2017-07-11-embercamp-2017
+date: 2017-07-11
 ---
 
 Jessica Jordan gives an update on the status of native web components and shows

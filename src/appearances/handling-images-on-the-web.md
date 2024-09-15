@@ -4,6 +4,7 @@ image: "/assets/images/talks/2021-03-29-emberconf-2021/handling-images-on-the-we
 url: https://www.youtube.com/watch?v=4K6gWIXQDkE
 media: video
 channel: 2021-03-29-emberconf-2021
+date: 2021-03-29
 ---
 
 Handling images on the web has evolved from a simple task to a complex topic.

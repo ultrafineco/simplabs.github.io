@@ -4,6 +4,7 @@ image: "/assets/images/talks/2018-03-13-emberconf-2018/everything-they-didnt-tel
 url: https://www.youtube.com/watch?v=h3YtViXranw
 media: video
 channel: 2018-03-13-emberconf-2018
+date: 2018-03-13
 ---
 
 Jessica Jordan shares some insights to what defines the Ember Community and what

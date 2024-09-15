@@ -4,6 +4,7 @@ image: "/assets/images/talks/2019-10-17-emberfest-2019/jam-stack-for-human-being
 url: https://www.youtube.com/watch?v=eQULGb10MbQ
 media: video
 channel: 2019-10-17-emberfest-2019
+date: 2019-10-17
 ---
 
 Chris Manson shares what the JAM stack even is and how Ember developers can

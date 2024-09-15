@@ -1,10 +1,9 @@
 import "wicg-inert";
 import { Animations } from "./animations";
-import bindAccordions from "./accordions";
 import { Nav } from "./nav";
 import { ContactForm } from "./contact-form";
 import { LogoList } from "./logo-list";
-import { ScrollSlides } from "./scroll-slides";
+import bindSelectDropdowns from './select';
 
 const navElement = document.getElementById("nav");
 new Nav(navElement);
@@ -15,12 +14,5 @@ if (contactForm) new ContactForm(contactForm);
 const logoList = document.getElementById("logo-list");
 if (logoList) new LogoList(logoList);
 
-const scrollSlides = document.querySelectorAll("#scroll-slides");
-if (scrollSlides) {
-  scrollSlides.forEach((el) => {
-    new ScrollSlides(el);
-  });
-}
-
 new Animations();
-bindAccordions();
+bindSelectDropdowns();

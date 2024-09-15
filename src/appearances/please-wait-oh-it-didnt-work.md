@@ -4,6 +4,7 @@ image: "/assets/images/talks/2021-03-29-emberconf-2021/please-wait-oh-it-didnt-w
 url: https://www.youtube.com/watch?v=hl11gSDxmNo
 media: video
 channel: 2021-03-29-emberconf-2021
+date: 2021-03-29
 ---
 
 Tobias Bieniek explains how to implement and test loading states, how to deal

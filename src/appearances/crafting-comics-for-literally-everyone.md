@@ -4,6 +4,7 @@ image: "/assets/images/talks/2019-06-01-jsconf-eu-2019/crafting-comics-for-liter
 url: https://www.youtube.com/watch?v=BPmuR4mAQaw
 media: video
 channel: 2019-06-01-jsconf-eu-2019
+date: 2019-06-01
 ---
 
 Jessica Jordan demonstrates how to create an immersive web comic experience that

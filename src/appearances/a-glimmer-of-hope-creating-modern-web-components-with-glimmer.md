@@ -4,6 +4,7 @@ image: "/assets/images/talks/2017-10-23-international-javascript-conference-2017
 url: https://www.youtube.com/watch?v=E1EUG2UPZrY
 media: video
 channel: 2017-10-23-international-javascript-conference-2017
+date: 2017-10-23
 ---
 
 Jessica Jordan elaborates on how web components can be built today leveraging

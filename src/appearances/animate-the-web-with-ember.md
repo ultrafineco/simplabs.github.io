@@ -4,6 +4,7 @@ image: "/assets/images/talks/2017-03-28-emberconf-2017/animate-the-web-with-embe
 url: https://www.youtube.com/watch?v=wFJPIjRTIVU
 media: video
 channel: 2017-03-28-emberconf-2017
+date: 2017-03-28
 ---
 
 Jessica Jordan shows how to do animations on the web leveraging HTML5 canvas and

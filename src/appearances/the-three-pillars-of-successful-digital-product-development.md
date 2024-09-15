@@ -4,6 +4,7 @@ image: "/assets/images/talks/2020-12-10-product-circle/the-three-pillars-of-succ
 url: https://www.youtube.com/watch?v=3K9jQfpkGWU
 media: video
 channel: 2020-12-10-product-circle
+date: 2020-12-10
 ---
 
 Marco Otte-Witte shares best practices for digital product development in the
